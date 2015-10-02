@@ -1,0 +1,8 @@
+invasion
+{
+	material materials/overviews/invasion.vmat
+	pos_x -4096
+	pos_y 3840
+	scale 8.000
+}
+

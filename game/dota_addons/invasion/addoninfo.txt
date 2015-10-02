@@ -1,0 +1,20 @@
+"AddonInfo"
+{
+	"TeamCount"  "1"
+	"maps"  "invasion invasion_in_the_forest pvp_invasion_forest"
+	"IsPlayable" "1"
+	"invasion"
+ 	{
+  		"MaxPlayers" "5"
+ 	}
+	"invasion_in_the_forest"
+ 	{
+  		"MaxPlayers" "5"
+ 	}
+	"pvp_invasion_forest"
+ 	{
+  		"MaxPlayers" "10"
+ 	}
+
+
+}

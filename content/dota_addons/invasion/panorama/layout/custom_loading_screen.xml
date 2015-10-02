@@ -1,0 +1,12 @@
+<root>
+ 	<styles>
+		<include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
+	</styles> 
+
+	<Panel>
+		
+		<Panel id = "Bg">
+			<Image id="image_bg" class = "ImageBg" src="file://{images}/custom_game/loading_screen/loadscreenpng.png" scaling="stretch-to-fit-preserve-aspect" />
+		</Panel>
+	</Panel>
+</root>
