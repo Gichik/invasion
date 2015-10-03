@@ -7,10 +7,10 @@ require( 'timers' )
 require( 'barebones' )
 
 GAME_ROUND = 0
-MAX_ROUNDS = 5
+MAX_ROUNDS = 6
 MAX_ROUNDS_2 = 27
 ROUND_DURATION = 30 
-ROUND_UNITS = 20 
+ROUND_UNITS = 30 
 
 if GameMode == nil then
 	GameMode = class({})
@@ -134,12 +134,13 @@ function GameMode:InitGameMode()
 	  local point_4 = Entities:FindByName( nil, "spawnerino_4"):GetAbsOrigin() --Записываем в переменную 'point' координаты нашего спавнера 'spawnerino'
 	  local waypoint_4 = Entities:FindByName( nil, "way4") -- Записываем в переменную 'waypoint' координаты первого бокса way1.
   
-	
+	--переменные имен зомбаков		
+	  local name_of_neutral_zombies = "sickly_zombies"
+	  local name_of_wave_zombies = "mad_sickly_zombies"	
 	
 	--нейтралы	
-	  local return_neutral_time1 = 30
-	  local return_neutral_time2 = 30
-	  local return_neutral_time3 = 100
+	  local return_neutral_time = 40
+
 	  
 	  local cow_point = Entities:FindByName( nil, "spawner_cow"):GetAbsOrigin()
       local cow_way = Entities:FindByName( nil, "cow_point")   
@@ -177,171 +178,115 @@ function GameMode:InitGameMode()
 	 
 
 		 Timers:CreateTimer(10, function()
-		  for i=1, 4 do 
-		  
-		  local neutral_cow = CreateUnitByName( "cow", cow_point + RandomVector( RandomFloat( 0, 200 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
-		  neutral_cow:SetInitialGoalEntity( cow_way )
-		  local neutral_sheep = CreateUnitByName( "sheep", sheep_point + RandomVector( RandomFloat( 0, 200 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
-		  neutral_sheep:SetInitialGoalEntity( sheep_way )	
-		  
+		  for i=1, 4 do 		  
+			local neutral_cow = CreateUnitByName( "cow", cow_point + RandomVector( RandomFloat( 0, 200 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
+			neutral_cow:SetInitialGoalEntity( cow_way )
+			local neutral_sheep = CreateUnitByName( "sheep", sheep_point + RandomVector( RandomFloat( 0, 200 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
+			neutral_sheep:SetInitialGoalEntity( sheep_way )			  
 		  end
-		  return return_neutral_time1
+		  return return_neutral_time
 			end)
-	  
+
+								
 		 Timers:CreateTimer(10, function()
-		  for i=1, 2 do 
 		  
-		    local neutral_unit_1 = CreateUnitByName( "sickly_zombies", neutral_point_1 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
+		  	if GAME_ROUND == 2 then
+				name_of_neutral_zombies = "tight_zombies"
+			end
+			
+			if GAME_ROUND == 4 then
+				name_of_neutral_zombies = "toothy_zombies"
+			end	
+		  
+		  for i=1, 3 do 		
+		    local neutral_unit_1 = CreateUnitByName( name_of_neutral_zombies, neutral_point_1 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
 			neutral_unit_1:SetInitialGoalEntity( neutral_waypoint_1 )		   
-		    local neutral_unit_2 = CreateUnitByName( "sickly_zombies", neutral_point_2 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
+		    local neutral_unit_2 = CreateUnitByName( name_of_neutral_zombies, neutral_point_2 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
 			neutral_unit_2:SetInitialGoalEntity( neutral_waypoint_2 )			 					
-		    local neutral_unit_3 = CreateUnitByName( "sickly_zombies", neutral_point_3 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
+		    local neutral_unit_3 = CreateUnitByName( name_of_neutral_zombies, neutral_point_3 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
 			neutral_unit_3:SetInitialGoalEntity( neutral_waypoint_3 )
-			local neutral_unit_4 = CreateUnitByName( "sickly_zombies", neutral_point_4 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
+			local neutral_unit_4 = CreateUnitByName( name_of_neutral_zombies, neutral_point_4 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
 			neutral_unit_4:SetInitialGoalEntity( neutral_waypoint_4 )				  
-		    local neutral_unit_5 = CreateUnitByName( "sickly_zombies", neutral_point_5 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
+		    local neutral_unit_5 = CreateUnitByName( name_of_neutral_zombies, neutral_point_5 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
 			neutral_unit_5:SetInitialGoalEntity( neutral_waypoint_5 )
+			local neutral_unit_6 = CreateUnitByName( name_of_neutral_zombies, neutral_point_6 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
+			neutral_unit_6:SetInitialGoalEntity( neutral_waypoint_6 )		  
+		    local neutral_unit_7 = CreateUnitByName( name_of_neutral_zombies, neutral_point_7 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
+			neutral_unit_7:SetInitialGoalEntity( neutral_waypoint_7 )		    
+			local neutral_unit_8 = CreateUnitByName( name_of_neutral_zombies, neutral_point_8 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
+			neutral_unit_8:SetInitialGoalEntity( neutral_waypoint_8 )
 						
 		  end
-		  return return_neutral_time1
+		  return return_neutral_time
 			end)
-				
-		
-		 Timers:CreateTimer(300, function()
-		  for i=1, 2 do 
-		  
-		    local neutral_unit_6 = CreateUnitByName( "tight_zombies", neutral_point_6 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
-			neutral_unit_6:SetInitialGoalEntity( neutral_waypoint_6 )		  
-		    local neutral_unit_7 = CreateUnitByName( "tight_zombies", neutral_point_7 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
-			neutral_unit_7:SetInitialGoalEntity( neutral_waypoint_7 )		    
-			local neutral_unit_8 = CreateUnitByName( "tight_zombies", neutral_point_8 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
-			neutral_unit_8:SetInitialGoalEntity( neutral_waypoint_8 )
-			
-		  end
-		  return return_neutral_time2
-			end)				  
-	  
+								  	  
 	  
 		 Timers:CreateTimer(300, function()		  
 		  GAME_ROUND = GAME_ROUND + 1 --Значение GAME_ROUND увеличивается на 1.
+		  
 		  if GAME_ROUND == MAX_ROUNDS then -- Если GAME_ROUND равно MAX_ROUNDS, переменная return_time получит нулевое значение.
             
 			Timers:CreateTimer(60, function()
 				GameRules:SetGameWinner( DOTA_TEAM_GOODGUYS )
 				return nil
 				end)
-			return_neutral_time1 = nil
-			return_neutral_time2 = nil
-			return_neutral_time3 = nil
+			return_neutral_time = nil
 			return_time = nil 
 			
           end
-		  		  		            
+
+		  
 		 if GAME_ROUND == 1 then
-		  Say(nil,"Night came, and with it the death", false) -- Выводим в чат сообщение 
-		 for i=1, ROUND_UNITS do --Произведет нижние действия столько раз, сколько указано в ROUND_UNITS. То есть в нашем случае создаст 2 юнита.
-		    
-			--юниты 1го пути
-			local unit_1 = CreateUnitByName( "mad_sickly_zombies", point + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) --// Создаем юнита 'example_unit_', в конце к названию добавится 1,2,3,4 или 5, в зависимости от раунда, и в итоге получатся наши example_unit_1, example_unit_2 и т.д.. Юнит появится в векторе point + RandomVector( RandomFloat( 0, 200 ) ) - point - наша переменная, а рандомный вектор добавляется для того, чтобы мобы не появлялись в одной точке и не застревали. Мобы будут за силы тьмы.
-		    unit_1:SetInitialGoalEntity( waypoint ) --Посылаем мобов на наш way1, координаты которого мы записали в переменную 'waypoint'
-		    --юниты 2го пути
-			local unit_2 = CreateUnitByName( "mad_sickly_zombies", point_2 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) 
-		    unit_2:SetInitialGoalEntity( waypoint_2 ) 
- 		    --юниты 3го пути
-			local unit_3 = CreateUnitByName( "mad_sickly_zombies", point_3 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
-		    unit_3:SetInitialGoalEntity( waypoint_3 ) 
-		    --юниты 4го пути
-			local unit_4 = CreateUnitByName( "mad_sickly_zombies", point_4 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) 
-		    unit_4:SetInitialGoalEntity( waypoint_4 ) 
-			
-		 end
+		  Say(nil,"Night came, and with it the death", false) -- Выводим в чат сообщение
+		  name_of_wave_zombies = "mad_sickly_zombies"		  
 		  return_time = 220
-		 end 
+		 end 		  
 		  
 		 if GAME_ROUND == 2 then
 		  Say(nil,"Do not lose hope, dawn soon", false) -- Выводим в чат сообщение
-		 for i=1, ROUND_UNITS do --Произведет нижние действия столько раз, сколько указано в ROUND_UNITS. То есть в нашем случае создаст 2 юнита.
-		    
-			--юниты 1го пути
-			local unit_1 = CreateUnitByName( "mad_tight_zombies", point + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) --// Создаем юнита 'example_unit_', в конце к названию добавится 1,2,3,4 или 5, в зависимости от раунда, и в итоге получатся наши example_unit_1, example_unit_2 и т.д.. Юнит появится в векторе point + RandomVector( RandomFloat( 0, 200 ) ) - point - наша переменная, а рандомный вектор добавляется для того, чтобы мобы не появлялись в одной точке и не застревали. Мобы будут за силы тьмы.
-		    unit_1:SetInitialGoalEntity( waypoint ) --Посылаем мобов на наш way1, координаты которого мы записали в переменную 'waypoint'
-		    --юниты 2го пути
-			local unit_2 = CreateUnitByName( "mad_tight_zombies", point_2 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) 
-		    unit_2:SetInitialGoalEntity( waypoint_2 ) 
- 		    --юниты 3го пути
-			local unit_3 = CreateUnitByName( "mad_tight_zombies" , point_3 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
-		    unit_3:SetInitialGoalEntity( waypoint_3 ) 
-		    --юниты 4го пути
-			local unit_4 = CreateUnitByName( "mad_tight_zombies", point_4 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) 
-		    unit_4:SetInitialGoalEntity( waypoint_4 )
-			
-		 end
+		  name_of_wave_zombies = "mad_tight_zombies"
 		  return_time = 290
 		 end 
 
-		  if GAME_ROUND == 3 then
+		 if GAME_ROUND == 3 then
 		  Say(nil,"Night came, and with it the death", false) -- Выводим в чат сообщение 
-		  for i=1, ROUND_UNITS do --Произведет нижние действия столько раз, сколько указано в ROUND_UNITS. То есть в нашем случае создаст 2 юнита.
-		    
-			--юниты 1го пути
-			local unit_1 = CreateUnitByName( "mad_toothy_zombies", point + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) --// Создаем юнита 'example_unit_', в конце к названию добавится 1,2,3,4 или 5, в зависимости от раунда, и в итоге получатся наши example_unit_1, example_unit_2 и т.д.. Юнит появится в векторе point + RandomVector( RandomFloat( 0, 200 ) ) - point - наша переменная, а рандомный вектор добавляется для того, чтобы мобы не появлялись в одной точке и не застревали. Мобы будут за силы тьмы.
-		    unit_1:SetInitialGoalEntity( waypoint ) --Посылаем мобов на наш way1, координаты которого мы записали в переменную 'waypoint'
-		    --юниты 2го пути
-			local unit_2 = CreateUnitByName( "mad_toothy_zombies", point_2 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) 
-		    unit_2:SetInitialGoalEntity( waypoint_2 ) 
- 		    --юниты 3го пути
-			local unit_3 = CreateUnitByName( "mad_toothy_zombies", point_3 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
-		    unit_3:SetInitialGoalEntity( waypoint_3 ) 
-		    --юниты 4го пути
-			local unit_4 = CreateUnitByName( "mad_toothy_zombies", point_4 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) 
-		    unit_4:SetInitialGoalEntity( waypoint_4 )
- 
-		  end
+		  name_of_wave_zombies = "mad_toothy_zombies"	  
 		  return_time = 220
 		  end 
 
-		  if GAME_ROUND == 4 then
+		 if GAME_ROUND == 4 then
 		  Say(nil,"A little more, but in the meantime prepare their weapons", false) -- Выводим в чат сообщение 		  
-		  for i=1, ROUND_UNITS do --Произведет нижние действия столько раз, сколько указано в ROUND_UNITS. То есть в нашем случае создаст 2 юнита.
-		    
-			--юниты 1го пути
-			local unit_1 = CreateUnitByName( "mad_fat_zombies", point + RandomVector( RandomFloat( 0, 200 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) --// Создаем юнита 'example_unit_', в конце к названию добавится 1,2,3,4 или 5, в зависимости от раунда, и в итоге получатся наши example_unit_1, example_unit_2 и т.д.. Юнит появится в векторе point + RandomVector( RandomFloat( 0, 200 ) ) - point - наша переменная, а рандомный вектор добавляется для того, чтобы мобы не появлялись в одной точке и не застревали. Мобы будут за силы тьмы.
-		    unit_1:SetInitialGoalEntity( waypoint ) --Посылаем мобов на наш way1, координаты которого мы записали в переменную 'waypoint'
-		    --юниты 2го пути
-			local unit_2 = CreateUnitByName( "mad_fat_zombies", point_2 + RandomVector( RandomFloat( 0, 200 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) 
-		    unit_2:SetInitialGoalEntity( waypoint_2 ) 
- 		    --юниты 3го пути
-			local unit_3 = CreateUnitByName( "mad_fat_zombies", point_3 + RandomVector( RandomFloat( 0, 200 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
-		    unit_3:SetInitialGoalEntity( waypoint_3 ) 
-		    --юниты 4го пути
-			local unit_4 = CreateUnitByName( "mad_fat_zombies", point_4 + RandomVector( RandomFloat( 0, 200 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) 
-		    unit_4:SetInitialGoalEntity( waypoint_4 ) 
-			
-			end
+		  name_of_wave_zombies = "mad_fat_zombies"		  
 		  return_time = 290
 		  end 
 
-		  if GAME_ROUND == 5 then
-		  Say(nil,"This is the last night", false) -- Выводим в чат сообщение 
-		  for i=1, ROUND_UNITS do --Произведет нижние действия столько раз, сколько указано в ROUND_UNITS. То есть в нашем случае создаст 2 юнита.
-		    
-			--юниты 1го пути
-			local unit_1 = CreateUnitByName( "mad_huge_zombies", point + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) --// Создаем юнита 'example_unit_', в конце к названию добавится 1,2,3,4 или 5, в зависимости от раунда, и в итоге получатся наши example_unit_1, example_unit_2 и т.д.. Юнит появится в векторе point + RandomVector( RandomFloat( 0, 200 ) ) - point - наша переменная, а рандомный вектор добавляется для того, чтобы мобы не появлялись в одной точке и не застревали. Мобы будут за силы тьмы.
-		    unit_1:SetInitialGoalEntity( waypoint ) --Посылаем мобов на наш way1, координаты которого мы записали в переменную 'waypoint'
-		    --юниты 2го пути
-			local unit_2 = CreateUnitByName( "mad_huge_zombies", point_2 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) 
-		    unit_2:SetInitialGoalEntity( waypoint_2 ) 
- 		    --юниты 3го пути
-			local unit_3 = CreateUnitByName( "mad_huge_zombies", point_3 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
-		    unit_3:SetInitialGoalEntity( waypoint_3 ) 
-		    --юниты 4го пути
-			local unit_4 = CreateUnitByName( "mad_huge_zombies", point_4 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) 
-		    unit_4:SetInitialGoalEntity( waypoint_4 ) 
-			
-			end
+		 if GAME_ROUND == 5 then
+		  Say(nil,"This is the last night, but not the last battle", false) -- Выводим в чат сообщение 
+		  name_of_wave_zombies = "mad_huge_zombies"		  
+		  return_time = 220
 		  end 
 
-
+		 if GAME_ROUND == 6 then
+		  Say(nil,"My hands in the blood, it is time to end", false) -- Выводим в чат сообщение 
+		  name_of_wave_zombies = "mad_omg_zombies"		  
+		  end 
+		  
+		 for i=1, ROUND_UNITS do --Произведет нижние действия столько раз, сколько указано в ROUND_UNITS. То есть в нашем случае создаст 2 юнита.
+		    
+			--юниты 1го пути
+			local unit_1 = CreateUnitByName( name_of_wave_zombies, point + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) --// Создаем юнита 'example_unit_', в конце к названию добавится 1,2,3,4 или 5, в зависимости от раунда, и в итоге получатся наши example_unit_1, example_unit_2 и т.д.. Юнит появится в векторе point + RandomVector( RandomFloat( 0, 200 ) ) - point - наша переменная, а рандомный вектор добавляется для того, чтобы мобы не появлялись в одной точке и не застревали. Мобы будут за силы тьмы.
+		    unit_1:SetInitialGoalEntity( waypoint ) --Посылаем мобов на наш way1, координаты которого мы записали в переменную 'waypoint'
+		    --юниты 2го пути
+			local unit_2 = CreateUnitByName( name_of_wave_zombies, point_2 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) 
+		    unit_2:SetInitialGoalEntity( waypoint_2 ) 
+ 		    --юниты 3го пути
+			local unit_3 = CreateUnitByName( name_of_wave_zombies, point_3 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
+		    unit_3:SetInitialGoalEntity( waypoint_3 ) 
+		    --юниты 4го пути
+			local unit_4 = CreateUnitByName( name_of_wave_zombies, point_4 + RandomVector( RandomFloat( 0, 50 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS ) 
+		    unit_4:SetInitialGoalEntity( waypoint_4 ) 
+			
+		 end
 		  
           return return_time --Возвращаем таймеру время, через которое он должен снова сработать. Когда пройдет последний раунд таймер получит значение 'nil' и выключится.
       end)
