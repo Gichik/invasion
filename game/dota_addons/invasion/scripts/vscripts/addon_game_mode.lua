@@ -8,9 +8,10 @@ require( 'barebones' )
 
 GAME_ROUND = 0
 MAX_ROUNDS = 6
-MAX_ROUNDS_2 = 27
+MAX_ROUNDS_2 = 30
 ROUND_DURATION = 30 
 ROUND_UNITS = 30 
+nextTimer = 240
 
 if GameMode == nil then
 	GameMode = class({})
@@ -117,7 +118,7 @@ function GameMode:InitGameMode()
 
 	
 	--потоки
-	local return_time = 290 
+	local return_time = 30 
 	  --поток 1го пути
       local point = Entities:FindByName( nil, "spawnerino"):GetAbsOrigin() --Записываем в переменную 'point' координаты нашего спавнера 'spawnerino'
 	  local waypoint = Entities:FindByName( nil, "way1") -- Записываем в переменную 'waypoint' координаты первого бокса way1.
@@ -178,18 +179,18 @@ function GameMode:InitGameMode()
 	 
 
 		 Timers:CreateTimer(10, function()
-		  for i=1, 4 do 		  
-			local neutral_cow = CreateUnitByName( "cow", cow_point + RandomVector( RandomFloat( 0, 200 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
-			neutral_cow:SetInitialGoalEntity( cow_way )
-			local neutral_sheep = CreateUnitByName( "sheep", sheep_point + RandomVector( RandomFloat( 0, 200 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
-			neutral_sheep:SetInitialGoalEntity( sheep_way )			  
-		  end
-		  return return_neutral_time
+			  for i=1, 4 do 		  
+				local neutral_cow = CreateUnitByName( "cow", cow_point + RandomVector( RandomFloat( 0, 200 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
+				neutral_cow:SetInitialGoalEntity( cow_way )
+				local neutral_sheep = CreateUnitByName( "sheep", sheep_point + RandomVector( RandomFloat( 0, 200 ) ), true, nil, nil, DOTA_TEAM_NEUTRALS )
+				neutral_sheep:SetInitialGoalEntity( sheep_way )			  
+			  end
+			  return return_neutral_time
 			end)
 
 								
 		 Timers:CreateTimer(10, function()
-		  
+		  	  
 		  	if GAME_ROUND == 2 then
 				name_of_neutral_zombies = "tight_zombies"
 			end
@@ -220,13 +221,25 @@ function GameMode:InitGameMode()
 		  return return_neutral_time
 			end)
 								  	  
-	  
-		 Timers:CreateTimer(300, function()		  
+
+
+
+									  
+		 Timers:CreateTimer(30, function()		  
+		  
+		  local minuts = GameRules:GetDOTATime(false, false)
+			 if  minuts < nextTimer then
+				 local wait = nextTimer - minuts
+				 return wait
+			 end
+			 
+
+		  
 		  GAME_ROUND = GAME_ROUND + 1 --Значение GAME_ROUND увеличивается на 1.
 		  
 		  if GAME_ROUND == MAX_ROUNDS then -- Если GAME_ROUND равно MAX_ROUNDS, переменная return_time получит нулевое значение.
             
-			Timers:CreateTimer(60, function()
+			Timers:CreateTimer(40, function()
 				GameRules:SetGameWinner( DOTA_TEAM_GOODGUYS )
 				return nil
 				end)
@@ -237,38 +250,45 @@ function GameMode:InitGameMode()
 
 		  
 		 if GAME_ROUND == 1 then
-		  Say(nil,"Night came, and with it the death", false) -- Выводим в чат сообщение
+		  local messageinfo = { message = "Night came, and with it the death", duration = 5}
+		  FireGameEvent("show_center_message",messageinfo)
 		  name_of_wave_zombies = "mad_sickly_zombies"		  
-		  return_time = 220
+		  nextTimer = nextTimer+220
 		 end 		  
 		  
 		 if GAME_ROUND == 2 then
-		  Say(nil,"Do not lose hope, dawn soon", false) -- Выводим в чат сообщение
+		  local messageinfo = { message = "Do not lose hope, dawn soon", duration = 5}
+		  FireGameEvent("show_center_message",messageinfo)		 
 		  name_of_wave_zombies = "mad_tight_zombies"
-		  return_time = 290
+		  nextTimer = nextTimer+260
 		 end 
 
 		 if GAME_ROUND == 3 then
-		  Say(nil,"Night came, and with it the death", false) -- Выводим в чат сообщение 
+		  local messageinfo = { message = "They come and come, there is no end", duration = 5}
+		  FireGameEvent("show_center_message",messageinfo)			 
 		  name_of_wave_zombies = "mad_toothy_zombies"	  
-		  return_time = 220
+		  nextTimer = nextTimer+220
 		  end 
 
 		 if GAME_ROUND == 4 then
-		  Say(nil,"A little more, but in the meantime prepare their weapons", false) -- Выводим в чат сообщение 		  
+		  local messageinfo = { message = "It was the cry of a rooster or roar aught? ", duration = 5}
+		  FireGameEvent("show_center_message",messageinfo)		  
 		  name_of_wave_zombies = "mad_fat_zombies"		  
-		  return_time = 290
+		  nextTimer = nextTimer+260
 		  end 
 
 		 if GAME_ROUND == 5 then
-		  Say(nil,"This is the last night, but not the last battle", false) -- Выводим в чат сообщение 
+		  local messageinfo = { message = "This is the last night, but not the last battle", duration = 5}
+		  FireGameEvent("show_center_message", messageinfo)
 		  name_of_wave_zombies = "mad_huge_zombies"		  
-		  return_time = 220
+		  nextTimer = nextTimer+220
 		  end 
 
 		 if GAME_ROUND == 6 then
-		  Say(nil,"My hands in the blood, it is time to end", false) -- Выводим в чат сообщение 
-		  name_of_wave_zombies = "mad_omg_zombies"		  
+		  local messageinfo = { message = "My hands in the blood, it is time to end", duration = 5}
+		  FireGameEvent("show_center_message", messageinfo)		  
+		  name_of_wave_zombies = "mad_omg_zombies"
+		  nextTimer = nextTimer+260		  
 		  end 
 		  
 		 for i=1, ROUND_UNITS do --Произведет нижние действия столько раз, сколько указано в ROUND_UNITS. То есть в нашем случае создаст 2 юнита.
@@ -383,7 +403,8 @@ end
 		  GAME_ROUND = GAME_ROUND + 1 --Значение GAME_ROUND увеличивается на 1.
 		  
 		  if GAME_ROUND == 1 then 
-		  Say(nil,"Oh, where am I? This is a dream?", false) -- Выводим в чат сообщение	
+		  local messageinfo = { message = "Oh, where am I? This is a dream?", duration = 5}
+		  FireGameEvent("show_center_message", messageinfo)
 		  end
 
 		  
@@ -395,20 +416,23 @@ end
 			return_time = nil 
           end
 		  
-		  if GAME_ROUND == 7 then
-			Say(nil,"Oh, God, no, what's he doing here?", false) -- Выводим в чат сообщение
+		  if GAME_ROUND == 11 then
+		  	local messageinfo = { message = "Oh, God, no, what's he doing here?", duration = 5}
+		    FireGameEvent("show_center_message", messageinfo)
 		    local unit_0_1 = CreateUnitByName("Big_Skeleton", point1, true, nil, nil, DOTA_TEAM_NEUTRALS ) 
 		    unit_0_1:SetInitialGoalEntity( way1 )
 		  end
 		  
-		  if GAME_ROUND == 16 then
-			Say(nil,"She comes to me at night...", false) -- Выводим в чат сообщение		  
+		  if GAME_ROUND == 20 then
+		  	local messageinfo = { message = "She comes to me at night...", duration = 5}
+		    FireGameEvent("show_center_message", messageinfo)	  
 			local unit_0_2 = CreateUnitByName("Big_Ghost", point10, true, nil, nil, DOTA_TEAM_NEUTRALS ) 
 		    unit_0_2:SetInitialGoalEntity( way10 )			
 		  end
 
-		  if GAME_ROUND == 25 then
-		  Say(nil,"My grandfather sometimes indulged me", false) -- Выводим в чат сообщение		  
+		  if GAME_ROUND == 28 then
+		  	local messageinfo = { message = "My grandfather sometimes indulged me", duration = 5}
+		    FireGameEvent("show_center_message", messageinfo)	  
 			local unit_0_3 = CreateUnitByName("Big_Troll", point5, true, nil, nil, DOTA_TEAM_NEUTRALS ) 
 		    unit_0_3:SetInitialGoalEntity( way5 )
 		  end
@@ -418,7 +442,7 @@ end
 		  
 		  
 		  
-		  if GAME_ROUND <= 9 then	  		
+		  if GAME_ROUND <= 13 then	  		
 
 		   for i=1, 2 do
 				local unit1 = CreateUnitByName("fast_zombies", point1, true, nil, nil, DOTA_TEAM_NEUTRALS ) 
@@ -466,7 +490,7 @@ end
 			end			
 		  end 
 		  		  
-		  if GAME_ROUND > 9 and GAME_ROUND <= 18 then	  		
+		  if GAME_ROUND > 13 and GAME_ROUND <= 22 then	  		
 			
 		   for i=1, 2 do
 				local unit1 = CreateUnitByName("kid_zombies", point1 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_NEUTRALS ) 
@@ -515,7 +539,7 @@ end
 			return_time = 30
 			end
 
-		  if GAME_ROUND > 18 then	  		
+		  if GAME_ROUND > 22 then	  		
 			
 		   for i=1, 2 do
 				local unit1 = CreateUnitByName("baby_zombies", point1 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_NEUTRALS ) 
@@ -702,7 +726,8 @@ end
 	local Start_unit16 = CreateUnitByName("fat_start_zombies", startPoint16, true, nil, nil, DOTA_TEAM_NEUTRALS ) 	
 
 	Timers:CreateTimer(50, function()
-			Say(nil,"Zombies wake up through 50 seconds", false)
+		  	local messageinfo = { message = "Zombies wake up through 50 seconds", duration = 5}
+		    FireGameEvent("show_center_message", messageinfo)							
 			return nil
 		end)
 	
@@ -711,7 +736,8 @@ end
 		  GAME_ROUND = GAME_ROUND + 1 --Значение GAME_ROUND увеличивается на 1.
 		  
 		  if GAME_ROUND == 1 then 
-		  Say(nil,"Oh, where am I? This is a dream?", false) -- Выводим в чат сообщение	
+		  	local messageinfo = { message = "Oh, where am I? This is a dream?", duration = 5}
+		    FireGameEvent("show_center_message", messageinfo)
 		  end
 
 		 		  
