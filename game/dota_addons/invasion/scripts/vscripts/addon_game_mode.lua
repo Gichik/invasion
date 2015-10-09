@@ -12,6 +12,7 @@ MAX_ROUNDS_2 = 30
 ROUND_DURATION = 30 
 ROUND_UNITS = 30 
 nextTimer = 240
+roomBG = 1
 
 if GameMode == nil then
 	GameMode = class({})
@@ -57,36 +58,85 @@ function Precache( context )
 	PrecacheUnitByNameSync("npc_dota_hero_ancient_apparition", context)
 	PrecacheUnitByNameSync("npc_dota_hero_enigma", context)
 	PrecacheUnitByNameSync("sickly_zombies", context)
+	
+	local pathToIG = LoadKeyValues("scripts/items/items_game.txt") -- загружаем весь файл
+	GameMode:PrecacheForHero("npc_dota_hero_undying",pathToIG,context)
+	GameMode:PrecacheForHero("npc_dota_hero_life_stealer",pathToIG,context)
+	GameMode:PrecacheForHero("npc_dota_hero_alchemist",pathToIG,context)
+	
+	
 end
+
+
+
+function GameMode:PrecacheForHero(name,path,context)
+
+	print('[PrecacheHero] Start')
+print("----------------------------------------Precache Start----------------------------------------")
+
+	local wearablesList = {} --переменная для надеваемых шмоток(для всех героев)
+	local precacheWearables = {} --переменная только для шмоток нужного героя
+	local precacheParticle = {}
+	for k, v in pairs(path) do
+		if k == 'items' then
+			wearablesList = v
+		end
+	end
+	local counter = 0
+	local counter_particle = 0
+	local value
+	for k, v in pairs(wearablesList) do -- выбираем из списка предметов только предметы на нужных героев
+		if GameMode:IsForHero(name, wearablesList[k]) then
+			if wearablesList[k]["model_player"] then
+				value = wearablesList[k]["model_player"] 
+				precacheWearables[value] = true
+			end
+			if wearablesList[k]["particle_file"] then -- прекешируем еще и частицы, куда ж без них!
+				value = wearablesList[k]["particle_file"] 
+				precacheParticle[value] = true
+			end
+		end
+	end
+
+	for wearable,_ in pairs( precacheWearables ) do --собственно само прекеширование всех занесенных в список шмоток
+		print("Precache model: " .. wearable)
+		PrecacheResource( "model", wearable, context )
+		counter = counter + 1
+	end
+
+	for wearable,_ in pairs( precacheParticle) do --и прекеширование частиц
+		print("Precache particle: " .. wearable)
+		PrecacheResource( "particle", wearable, context )
+		counter_particle = counter_particle + 1
+
+	end
+
+	PrecacheUnitByNameSync(name, context) -- прекешируем саму модель героя! иначе будут бегать шмотки без тела
+		
+    print('[Precache]' .. counter .. " models loaded and " .. counter_particle .." particles loaded")
+	print('[Precache] End')
+
+end
+
+
+function GameMode:IsForHero(str, tbl)
+	if type(tbl["used_by_heroes"]) ~= type(1) and tbl["used_by_heroes"] then -- привет от вашего друга, индийского быдлокодера работающего за еду
+		if tbl["used_by_heroes"][str] then
+			return true
+		end
+	end
+	return false
+end
+
 
 -- Create the game mode when we activate
 
 
- function CreateDrop (itemName, pos)
-   local newItem = CreateItem(itemName, nil, nil)
-   newItem:SetPurchaseTime(0)
-   CreateItemOnPositionSync(pos, newItem)
-   newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
- end
- 
- function OnEntityKilled (event)
-   local killedEntity = EntIndexToHScript(event.entindex_killed)
-   if killedEntity:GetUnitName() == "cow" then
-    if RandomInt(1, 10) > 8  then
-     CreateDrop("item_flask", killedEntity:GetAbsOrigin())
-	 end
-   end
-   if killedEntity:GetUnitName() == "sheep" then
-	 if RandomInt(1, 10) > 8  then
-     CreateDrop("item_clarity", killedEntity:GetAbsOrigin())
-	 end
-   end
- end
+
 
 function Activate()
 	GameRules.GameMode = GameMode()
 	GameRules.GameMode:InitGameMode()
-	ListenToGameEvent("entity_killed", OnEntityKilled, nil)
 end
  
  
@@ -96,6 +146,9 @@ function GameMode:InitGameMode()
 
 	local MapName = GetMapName()
 	if MapName == "invasion" then
+	
+
+	ListenToGameEvent('entity_killed', Dynamic_Wrap(GameMode, 'OnEntityKilled'), self)
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 5 )
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
 
@@ -597,6 +650,18 @@ end
 	
 end
 
+
+
+    if MapName == "invasion_forest_4x2" then
+		invasion_forest4x2()
+end
+
+
+
+
+
+
+
     if MapName == "pvp_invasion_forest" then
 
 
@@ -964,5 +1029,365 @@ end
 	
 end
 
+
+end
+
+
+
+function invasion_forest4x2()
+
+
+	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(GameMode, 'OnGameRulesStateChange'), self)
+
+	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 4 )
+	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 2 )
+
+
+	GameRules:SetTimeOfDay( 0.8 )
+	GameRules:SetHeroRespawnEnabled( true )
+	GameRules:SetUseUniversalShopMode( false )
+	GameRules:SetHeroSelectionTime( 20.0 )
+	GameRules:SetPreGameTime( 10.0 )
+	GameRules:SetPostGameTime( 60.0 )
+	GameRules:SetTreeRegrowTime( 60.0 )
+	GameRules:SetHeroMinimapIconScale( 0.7 )
+	GameRules:SetCreepMinimapIconScale( 0.7 )
+	GameRules:SetRuneMinimapIconScale( 0.7 )
+	GameRules:SetGoldTickTime( 60.0 )
+	GameRules:SetGoldPerTick( 0 )
+	GameRules:GetGameModeEntity():SetRemoveIllusionsOnDeath( true )
+	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride( true )
+	GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( false )
+	
+	  local return_time = 30
+
+
+	  local pointBosses = Entities:FindByName( nil, "spawnBosses"):GetAbsOrigin()
+	  
+	  local point1 = Entities:FindByName( nil, "spawn1"):GetAbsOrigin()
+	  local point3 = Entities:FindByName( nil, "spawn3"):GetAbsOrigin()
+	  local point5 = Entities:FindByName( nil, "spawn5"):GetAbsOrigin()
+	  local point7 = Entities:FindByName( nil, "spawn7"):GetAbsOrigin()
+	  local point9 = Entities:FindByName( nil, "spawn9"):GetAbsOrigin()
+	  local point11 = Entities:FindByName( nil, "spawn11"):GetAbsOrigin()
+	  local point13 = Entities:FindByName( nil, "spawn13"):GetAbsOrigin()
+	  local point15 = Entities:FindByName( nil, "spawn15"):GetAbsOrigin()
+	  local point17 = Entities:FindByName( nil, "spawn17"):GetAbsOrigin()
+	  local point19 = Entities:FindByName( nil, "spawn19"):GetAbsOrigin()
+	  
+	  
+	  local point2 = Entities:FindByName( nil, "spawn2"):GetAbsOrigin()
+	  local point4 = Entities:FindByName( nil, "spawn4"):GetAbsOrigin()	  
+	  local point6 = Entities:FindByName( nil, "spawn6"):GetAbsOrigin()
+	  local point8 = Entities:FindByName( nil, "spawn8"):GetAbsOrigin()
+	  local point10 = Entities:FindByName( nil, "spawn10"):GetAbsOrigin()
+	  local point12 = Entities:FindByName( nil, "spawn12"):GetAbsOrigin()
+	  local point14 = Entities:FindByName( nil, "spawn14"):GetAbsOrigin()
+	  local point16 = Entities:FindByName( nil, "spawn16"):GetAbsOrigin()
+	  local point18 = Entities:FindByName( nil, "spawn18"):GetAbsOrigin()	  
+	  
+      local way1 = Entities:FindByName( nil, "way1")
+      local way2 = Entities:FindByName( nil, "way2")  
+      local way3 = Entities:FindByName( nil, "way3")  
+      local way4 = Entities:FindByName( nil, "way4")  
+      local way5 = Entities:FindByName( nil, "way5")  
+      local way6 = Entities:FindByName( nil, "way6")  
+      local way7 = Entities:FindByName( nil, "way7")  
+      local way8 = Entities:FindByName( nil, "way8")  
+      local way9 = Entities:FindByName( nil, "way9")  
+      local way10 = Entities:FindByName( nil, "way10")  
+      local way11 = Entities:FindByName( nil, "way11")  
+      local way12 = Entities:FindByName( nil, "way12")  
+      local way13 = Entities:FindByName( nil, "way13")  
+      local way14 = Entities:FindByName( nil, "way14")  
+      local way15 = Entities:FindByName( nil, "way15")  
+      local way16 = Entities:FindByName( nil, "way16")  
+      local way17 = Entities:FindByName( nil, "way17")  
+      local way18 = Entities:FindByName( nil, "way18")  
+      local way19 = Entities:FindByName( nil, "way19")  	  
+		  
+	  local startPoint1 = Entities:FindByName( nil, "spawn_start1"):GetAbsOrigin()
+	  local startPoint2 = Entities:FindByName( nil, "spawn_start2"):GetAbsOrigin()
+	  local startPoint3 = Entities:FindByName( nil, "spawn_start3"):GetAbsOrigin()
+	  local startPoint4 = Entities:FindByName( nil, "spawn_start4"):GetAbsOrigin()
+	  local startPoint5 = Entities:FindByName( nil, "spawn_start5"):GetAbsOrigin()
+	  local startPoint6 = Entities:FindByName( nil, "spawn_start6"):GetAbsOrigin()
+	  local startPoint7 = Entities:FindByName( nil, "spawn_start7"):GetAbsOrigin()
+	  local startPoint8 = Entities:FindByName( nil, "spawn_start8"):GetAbsOrigin()
+	  
+			local Start_unit1 = CreateUnitByName("fat_start_zombies", startPoint1, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+			local Start_unit2 = CreateUnitByName("fat_start_zombies", startPoint2, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+			local Start_unit3 = CreateUnitByName("fat_start_zombies", startPoint3, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+			local Start_unit4 = CreateUnitByName("fat_start_zombies", startPoint4, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+			local Start_unit5 = CreateUnitByName("fat_start_zombies", startPoint5, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+			local Start_unit6 = CreateUnitByName("fat_start_zombies", startPoint6, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+			local Start_unit7 = CreateUnitByName("fat_start_zombies", startPoint7, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+			local Start_unit8 = CreateUnitByName("fat_start_zombies", startPoint8, true, nil, nil, DOTA_TEAM_BADGUYS ) 			
+	
+	      Timers:CreateTimer(80, function()		  
+		  GAME_ROUND = GAME_ROUND + 1 --Значение GAME_ROUND увеличивается на 1.
+		  
+		  if GAME_ROUND == 1 then 
+		  local messageinfo = { message = "Oh, where am I? This is a dream?", duration = 5}
+		  FireGameEvent("show_center_message", messageinfo)
+		  end
+
+		  
+		  if GAME_ROUND == MAX_ROUNDS_2 then -- Если GAME_ROUND равно MAX_ROUNDS, переменная return_time получит нулевое значение.          
+			Timers:CreateTimer(60, function()
+				GameRules:SetGameWinner( DOTA_TEAM_GOODGUYS )
+				return nil
+				end)
+			return_time = nil 
+          end
+		  
+		  if GAME_ROUND == 11 then
+		  	local messageinfo = { message = "Oh, God, no, what's he doing here?", duration = 5}
+		    FireGameEvent("show_center_message", messageinfo)
+		    local unit_0_1 = CreateUnitByName("Big_Skeleton", pointBosses, true, nil, nil, DOTA_TEAM_BADGUYS ) 		  
+		  end
+		  
+		  if GAME_ROUND == 20 then
+		  	local messageinfo = { message = "She comes to me at night...", duration = 5}
+		    FireGameEvent("show_center_message", messageinfo)	  
+			local unit_0_2 = CreateUnitByName("Big_Ghost", pointBosses, true, nil, nil, DOTA_TEAM_BADGUYS ) 			
+		  end
+
+		  if GAME_ROUND == 28 then
+		  	local messageinfo = { message = "My grandfather sometimes indulged me", duration = 5}
+		    FireGameEvent("show_center_message", messageinfo)	  
+			local unit_0_3 = CreateUnitByName("Big_Troll", pointBosses, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		  end
+		  
+
+		  
+		  
+		  
+		  
+		  if GAME_ROUND <= 13 then	  		
+
+		   for i=1, 2 do
+				local unit1 = CreateUnitByName("fast_zombies", point1, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit1:SetInitialGoalEntity( way1 )
+				local unit5 = CreateUnitByName("fast_zombies", point5, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit5:SetInitialGoalEntity( way5 )
+				local unit9 = CreateUnitByName("fast_zombies", point9, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit9:SetInitialGoalEntity( way9 )
+				local unit13 = CreateUnitByName("fast_zombies", point13, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit13:SetInitialGoalEntity( way13 )
+				local unit17 = CreateUnitByName("fast_zombies", point17, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit17:SetInitialGoalEntity( way17 )
+				
+				local unit4 = CreateUnitByName("fat_zombies", point4, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit4:SetInitialGoalEntity( way4 )
+				local unit8 = CreateUnitByName("fat_zombies", point8, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit8:SetInitialGoalEntity( way8 )
+				local unit12 = CreateUnitByName("fat_zombies", point12, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit12:SetInitialGoalEntity( way12 )
+				local unit16 = CreateUnitByName("fat_zombies", point16, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit16:SetInitialGoalEntity( way16 )				
+			end
+			local unit3 = CreateUnitByName("fast_zombies", point3, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit3:SetInitialGoalEntity( way3 )
+			local unit7 = CreateUnitByName("fast_zombies", point7, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit7:SetInitialGoalEntity( way7 )
+			local unit11 = CreateUnitByName("fast_zombies", point11, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit11:SetInitialGoalEntity( way11 )
+			local unit15 = CreateUnitByName("fast_zombies", point15, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit15:SetInitialGoalEntity( way15 )
+			local unit19 = CreateUnitByName("fast_zombies", point19, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit19:SetInitialGoalEntity( way19 )
+			
+			local unit2 = CreateUnitByName("fat_zombies", point2, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit2:SetInitialGoalEntity( way2 )
+			local unit6 = CreateUnitByName("fat_zombies", point6, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit6:SetInitialGoalEntity( way6 )	
+			local unit10 = CreateUnitByName("fat_zombies", point10, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit10:SetInitialGoalEntity( way10 )	
+			local unit14 = CreateUnitByName("fat_zombies", point14, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit14:SetInitialGoalEntity( way14 )	
+			local unit18 = CreateUnitByName("fat_zombies", point18, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit18:SetInitialGoalEntity( way18 )
+
+			
+		  end 
+		  		  
+		  if GAME_ROUND > 13 and GAME_ROUND <= 22 then	  		
+			
+
+				local unit1 = CreateUnitByName("kid_zombies", point1 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit1:SetInitialGoalEntity( way1 )
+				local unit5 = CreateUnitByName("kid_zombies", point5 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit5:SetInitialGoalEntity( way5 )
+				local unit9 = CreateUnitByName("kid_zombies", point9 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit9:SetInitialGoalEntity( way9 )
+				local unit13 = CreateUnitByName("kid_zombies", point13 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit13:SetInitialGoalEntity( way13 )
+				local unit17 = CreateUnitByName("kid_zombies", point17 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit17:SetInitialGoalEntity( way17 )
+				
+				local unit4 = CreateUnitByName("hugo_zombies", point4 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit4:SetInitialGoalEntity( way4 )	
+				local unit8 = CreateUnitByName("hugo_zombies", point8 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit8:SetInitialGoalEntity( way8 )
+				local unit12 = CreateUnitByName("hugo_zombies", point12 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit12:SetInitialGoalEntity( way12 )
+				local unit16 = CreateUnitByName("hugo_zombies", point16 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit16:SetInitialGoalEntity( way16 )				
+
+			local unit3 = CreateUnitByName("kid_zombies", point3, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit3:SetInitialGoalEntity( way3 )
+			local unit7 = CreateUnitByName("kid_zombies", point7, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit7:SetInitialGoalEntity( way7 )
+			local unit11 = CreateUnitByName("kid_zombies", point11, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit11:SetInitialGoalEntity( way11 )
+			local unit15 = CreateUnitByName("kid_zombies", point15, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit15:SetInitialGoalEntity( way15 )
+			local unit19 = CreateUnitByName("kid_zombies", point19, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit19:SetInitialGoalEntity( way19 )	
+			
+			local unit2 = CreateUnitByName("hugo_zombies", point2, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit2:SetInitialGoalEntity( way2 )
+			local unit6 = CreateUnitByName("hugo_zombies", point6, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit6:SetInitialGoalEntity( way6 )	
+			local unit10 = CreateUnitByName("hugo_zombies", point10, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit10:SetInitialGoalEntity( way10 )	
+			local unit14 = CreateUnitByName("hugo_zombies", point14, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit14:SetInitialGoalEntity( way14 )	
+			local unit18 = CreateUnitByName("hugo_zombies", point18, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit18:SetInitialGoalEntity( way18 )								
+
+			
+			return_time = 40
+			end
+
+		  if GAME_ROUND > 22 then	  		
+			
+
+				local unit1 = CreateUnitByName("baby_zombies", point1 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit1:SetInitialGoalEntity( way1 )
+				local unit5 = CreateUnitByName("baby_zombies", point5 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit5:SetInitialGoalEntity( way5 )
+				local unit9 = CreateUnitByName("baby_zombies", point9 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit9:SetInitialGoalEntity( way9 )
+				local unit13 = CreateUnitByName("baby_zombies", point13 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit13:SetInitialGoalEntity( way13 )
+				local unit17 = CreateUnitByName("baby_zombies", point17 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit17:SetInitialGoalEntity( way17 )
+				
+				local unit4 = CreateUnitByName("parent_zombies", point4 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit4:SetInitialGoalEntity( way4 )	
+				local unit8 = CreateUnitByName("parent_zombies", point8 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit8:SetInitialGoalEntity( way8 )
+				local unit12 = CreateUnitByName("parent_zombies", point12 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit12:SetInitialGoalEntity( way12 )
+				local unit16 = CreateUnitByName("parent_zombies", point16 + RandomVector( RandomFloat( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS ) 
+				unit16:SetInitialGoalEntity( way16 )				
+
+				
+			local unit3 = CreateUnitByName("baby_zombies", point3, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit3:SetInitialGoalEntity( way3 )
+			local unit7 = CreateUnitByName("baby_zombies", point7, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit7:SetInitialGoalEntity( way7 )
+			local unit11 = CreateUnitByName("baby_zombies", point11, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit11:SetInitialGoalEntity( way11 )
+			local unit15 = CreateUnitByName("baby_zombies", point15, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit15:SetInitialGoalEntity( way15 )
+			local unit19 = CreateUnitByName("baby_zombies", point19, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit19:SetInitialGoalEntity( way19 )	
+			
+			local unit2 = CreateUnitByName("parent_zombies", point2, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit2:SetInitialGoalEntity( way2 )
+			local unit6 = CreateUnitByName("parent_zombies", point6, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit6:SetInitialGoalEntity( way6 )	
+			local unit10 = CreateUnitByName("parent_zombies", point10, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit10:SetInitialGoalEntity( way10 )	
+			local unit14 = CreateUnitByName("parent_zombies", point14, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit14:SetInitialGoalEntity( way14 )	
+			local unit18 = CreateUnitByName("parent_zombies", point18, true, nil, nil, DOTA_TEAM_BADGUYS ) 
+		    unit18:SetInitialGoalEntity( way18 )				
+
+			
+			return_time = 40
+			end	
+			
+		 return return_time		  
+		  end)
+	
+	
+	
+	
+
+
+end
+
+
+ function GameMode:CreateDrop (itemName, pos)
+   local newItem = CreateItem(itemName, nil, nil)
+   newItem:SetPurchaseTime(0)
+   CreateItemOnPositionSync(pos, newItem)
+   newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
+ end
+ 
+ function GameMode:OnEntityKilled (event)
+   local killedEntity = EntIndexToHScript(event.entindex_killed)
+   if killedEntity:GetUnitName() == "cow" then
+    if RandomInt(1, 10) > 8  then
+     GameMode:CreateDrop("item_flask", killedEntity:GetAbsOrigin())
+	 end
+   end
+   if killedEntity:GetUnitName() == "sheep" then
+	 if RandomInt(1, 10) > 8  then
+     GameMode:CreateDrop("item_clarity", killedEntity:GetAbsOrigin())
+	 end
+   end
+ end
+
+function GameMode:OnGameRulesStateChange(keys)
+  local newState = GameRules:State_Get()
+  if newState == DOTA_GAMERULES_STATE_HERO_SELECTION then
+    GameMode:ForcedToPlay()
+  end
+end
+
+
+function GameMode:ForcedToPlay()
+print("----------------------------------------all connect----------------------------------------")
+	for i=0,5 do
+		if PlayerResource:IsValidPlayer(i) then
+			local player = PlayerResource:GetPlayer(i)
+			--local player = hero:GetPlayerOwner()
+			local teamNumb = player:GetTeamNumber()
+			local name =  GetTeamName(teamNumb)
+			if name == "#DOTA_BadGuys" then
+				if roomBG == 1 then 
+					GameMode:OnNewHeroCreated("npc_dota_hero_undying",player)				
+				end
+				if roomBG == 2 then
+					player = GameMode:OnNewHeroCreated("npc_dota_hero_life_stealer",player)
+					player:AddItemByName("item_ultimate_scepter")					
+				end
+				roomBG = roomBG+1		
+	end
+		end
+	end
+end
+
+
+function GameMode:OnNewHeroCreated(name,player)
+					player=CreateHeroForPlayer(name,player)
+					player:SetGold(0, false)
+					player:SetAbilityPoints(0)
+print("----------------------------------------AbilityCount----------------------------------------" .. player:GetAbilityCount())
+					--player:AddItemByName("item_ultimate_scepter")					
+					for i=0, 6 do
+						local ability = player:GetAbilityByIndex(i)
+						if ability ~= nil then
+							if ability:GetLevel() == 0 then							
+								  ability:SetLevel(2)
+							end
+						end
+					end
+return player					
 
 end
