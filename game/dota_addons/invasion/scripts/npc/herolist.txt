@@ -26,7 +26,7 @@
 	"npc_dota_hero_crystal_maiden"			"1"
 	"npc_dota_hero_dark_seer"			"1"
 	"npc_dota_hero_dazzle"				"1"
-	"npc_dota_hero_death_prophet"			"1"
+	"npc_dota_hero_death_prophet"			"0"
 	"npc_dota_hero_disruptor"			"0"
 	"npc_dota_hero_doom_bringer"			"1" // gods
 	"npc_dota_hero_dragon_knight"			"1"

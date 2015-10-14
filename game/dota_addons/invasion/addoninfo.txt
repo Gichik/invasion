@@ -1,7 +1,7 @@
 "AddonInfo"
 {
 	"TeamCount"  "1"
-	"maps"  "invasion invasion_in_the_forest invasion_forest_4x2"
+	"maps"  "invasion invasion_in_the_forest invasion_forest_pvz"
 	"IsPlayable" "1"
 	"invasion"
  	{
@@ -11,9 +11,9 @@
  	{
   		"MaxPlayers" "5"
  	}
-	"invasion_forest_4x2"
+	"invasion_forest_pvz"
  	{
-  		"MaxPlayers" "6"
+  		"MaxPlayers" "8"
  	}
 
 

@@ -3,14 +3,82 @@
 {
 	"Version"		"1"
 
-	"undying_tombstone"
-	{
-		"AbilityCooldown"				"180.0 180.0 180.0 180.0"
-	}	
+//=================================================================================================================
+	// Undying: Tombstone
+	//=================================================================================================================
 	
 	"life_stealer_infest"
 	{
 		"AbilityCooldown"				"10"
 	}
+	
+	
+	"undying_tombstone_custom"
+	{
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"undying_tombstone"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.45 0.45 0.45 0.45"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"180.0 180.0 180.0 180.0"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 130 140 150"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tombstone_health"				"6 8 10 14"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hits_to_destroy_tooltip"				"3 4 5 7"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"15.0 20.0 25.0 30.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"600 800 1000 1200"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_threshold"		"100 200 300 400"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_threshold_pct_tooltip"		"20 25 30 35"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"zombie_interval"		"3.0"
+			}
+		}
+	}
+	
+	
+	
 	
 }

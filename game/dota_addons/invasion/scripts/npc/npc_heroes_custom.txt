@@ -44,6 +44,25 @@
 		"StatusManaRegen"			"1"	
 	}
 
-
+	//=================================================================================================================
+	// HERO: death prophet 
+	//=================================================================================================================
+	"npc_dota_hero_death_prophet"
+	{
+		"override_hero"				"npc_dota_hero_death_prophet"				// Hero to override
+		"Ability1"					"night_stalker_hunter_in_the_night"			// Ability 1
+		"Ability2"					"riki_permanent_invisibility"				// Ability 2
+		"Ability3"					"necrolyte_heartstopper_aura"				// Ability 3
+		
+		"VisionNighttimeRange"		"2800"										// Range of vision at night time.
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"3"			
+		"StatusHealthRegen"			"5"			
+		"StatusMana"				"100"			
+		"StatusManaRegen"			"1"	
+	}
+	
+	
+	
 
 }
