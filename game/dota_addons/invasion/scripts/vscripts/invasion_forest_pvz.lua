@@ -31,7 +31,7 @@ function InvasionMode:InvasionForestPvZMap()
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( false )
 
 	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(InvasionMode, 'OnGameRulesStateChange'), self)	
-	
+	ListenToGameEvent('dota_player_gained_level', Dynamic_Wrap(InvasionMode, 'OnPlayerlvlUp'), self)
 end
 
 function InvasionMode:ForestPVZGameStart()
@@ -332,5 +332,16 @@ function InvasionMode:OnNewHeroCreated(name,player)
 						end
 					end
 return player					
+
+end
+
+
+function InvasionMode:OnPlayerlvlUp(data)
+	local player = PlayerResource:GetSelectedHeroEntity(data.player-1)
+	local teamNumb = player:GetTeamNumber() 
+	local name =  GetTeamName(teamNumb) 
+	if name == "#DOTA_BadGuys" then	
+		player:SetAbilityPoints(0)
+	end
 
 end

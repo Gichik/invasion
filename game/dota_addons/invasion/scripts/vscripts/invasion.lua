@@ -138,13 +138,13 @@ function InvasionMode:InvasionGameStart()
 		 if GAME_ROUND == 3 then		  
 		  local messageinfo = { message = "They come and come, there is no end", duration = 5}
 		  FireGameEvent("show_center_message",messageinfo)
-		  name_of_wave_zombies = "mad_fat_zombies"	
+		  name_of_wave_zombies = "mad_toothy_zombies"	
 		  flagOfDay = 0		  
 		  nextTimer = nextTimer+240
 		  end 
 
 		if GAME_ROUND == 4 then		
-			local messageinfo = { message = "The sun, I am glad it!", duration = 5}
+			local messageinfo = { message = "Do not lose hope, dawn soon", duration = 5}
 			FireGameEvent("show_center_message", messageinfo)
 			name_of_neutral_zombies = "toothy_zombies"
 			flagOfDay = 1
@@ -155,14 +155,14 @@ function InvasionMode:InvasionGameStart()
 		 if GAME_ROUND == 5 then
 		  local messageinfo = { message = "My hands in the blood, it is time to end", duration = 5}
 		  FireGameEvent("show_center_message", messageinfo)		  
-		  name_of_wave_zombies = "mad_omg_zombies"
+		  name_of_wave_zombies = "mad_huge_zombies"
 		  flagOfDay = 0	
 		  nextTimer = nextTimer+240		  
 		  end 
 
 		  
 		if GAME_ROUND == 6 then		
-			local messageinfo = { message = "The sun, I am glad it!", duration = 5}
+			local messageinfo = { message = "Yeah, i do it!", duration = 5}
 			FireGameEvent("show_center_message", messageinfo)
 			GameRules:SetGameWinner( DOTA_TEAM_GOODGUYS )
 			return_time = nil 

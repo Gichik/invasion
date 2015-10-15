@@ -119,7 +119,7 @@ if MapName == "invasion_forest_pvz" then
 end
 
 if MapName == "pvp_invasion_forest" then
-	print("------------------------------------invasion forest PvZ Start-------------------------------------")	
+	print("------------------------------------invasion forest PvP Start-------------------------------------")	
 	InvasionMode:InvasionForestPvPMap()		
 end
 
