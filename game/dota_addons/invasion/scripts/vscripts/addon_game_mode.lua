@@ -6,6 +6,7 @@
 require( 'timers' )
 --require( 'barebones' )
 require( 'invasion' )
+require( 'invasion_old' )
 require( 'invasion_in_the_forest' )
 require( 'invasion_forest_pvz' )
 require( 'invasion_forest_pvp' )
@@ -27,6 +28,20 @@ function Precache( context )
 	InvasionMode:PrecacheForHero("npc_dota_hero_alchemist",pathToIG,context)
 	InvasionMode:PrecacheForHero("npc_dota_hero_death_prophet",pathToIG,context)
 	
+	-----------------------------moobs-----------------------------------
+	PrecacheModel("models/items/broodmother/virulent_matriarchs_back/virulent_matriarchs_back.vmdl", context)	
+	PrecacheModel("models/items/hex/sheep_hex/sheep_hex_gold.vmdl", context)
+	PrecacheModel("models/creeps/neutral_creeps/n_creep_ghost_a/n_creep_ghost_a.vmdl", context)
+	
+	-----------------------------items-----------------------------------	
+	PrecacheModel("models/props_gameplay/bottle_mango001.vmdl", context)	
+	
+	---------------------------------spells-------------------------------
+	PrecacheResource("particle", "particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_blood04.vpcf", context) --blood
+	PrecacheResource( "particle_folder", "particles/units/heroes/hero_tinker", context ) --tinker
+	
+	---------------------------------sounds-------------------------------
+	PrecacheResource( "soundfile", "soundevents/invasion_sounds_custom.vsndevts", context )
 	
 end
 
@@ -102,9 +117,11 @@ function InvasionMode:InitInvasionMode()
 
 
 local MapName = GetMapName()
+print(MapName)
 
 if MapName == "invasion" then
 	print("----------------------------------------invasion Start----------------------------------------")	
+	print(MapName)
 	InvasionMode:InvasionMap()
 end
 

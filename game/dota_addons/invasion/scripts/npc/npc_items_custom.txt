@@ -1,3 +1,96 @@
 "DOTAAbilities"
 {
+
+	//=================================================================================================================
+	// milk
+	//=================================================================================================================
+
+	"item_milk"
+   {
+		"ID"							"1208" 
+		"BaseClass"						"item_datadriven"  
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"	
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"Model"							"models/props_gameplay/bottle_mango001.vmdl" 
+		"AbilityTextureName"			"milk" 
+		"ItemCost"                       "10" 
+		"ItemAliases"					"item_milk"
+		"ItemDroppable"					"1" 
+		"ItemPurchasable"				"0" 
+		"ItemSellable"					"1" 
+		"ItemKillable"					"1" 
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"  
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH" // Не трогаем.
+		"ItemInitialCharges" "1" //How many charges should the item start with - Tango x3 
+		"ItemStackable" "1"
+		"ItemPermanent" "0"
+				
+   
+		"OnSpellStart"
+		{     	         
+			  		  
+				"RunScript"
+				{
+					"ScriptFile"		"items.lua"
+					"Function"			"GiveMana"
+				}
+				
+				"RunScript"
+				{
+					"ScriptFile"		"items.lua"
+					"Function"			"RemoveItemFromHero"
+					"item_name"			"item_milk"
+				}
+
+		}  	
+  
+   }
+
+	//=================================================================================================================
+	// food_cheese
+	//=================================================================================================================
+
+	"item_food_cheese"
+   {
+		"ID"							"1209" 
+		"BaseClass"						"item_datadriven"  
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"	
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"Model"							"models/props_gameplay/cheese.vmdl" 
+		"AbilityTextureName"			"item_cheese" 
+		"ItemCost"                       "10" 
+		"ItemAliases"					"item_food_cheese"
+		"ItemDroppable"					"1" 
+		"ItemPurchasable"				"0" 
+		"ItemSellable"					"1" 
+		"ItemKillable"					"1" 
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"  
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH" // Не трогаем.
+		"ItemInitialCharges" "1" //How many charges should the item start with - Tango x3 
+		"ItemStackable" "1"
+		"ItemPermanent" "0"
+				
+   
+		"OnSpellStart"
+		{     	         
+			  		  
+				"RunScript"
+				{
+					"ScriptFile"		"items.lua"
+					"Function"			"GiveHealth"
+				}
+				
+				"RunScript"
+				{
+					"ScriptFile"		"items.lua"
+					"Function"			"RemoveItemFromHero"
+					"item_name"			"item_food_cheese"
+				}
+
+		}  	
+  
+   }	
+
 }

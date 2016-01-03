@@ -37,6 +37,12 @@ end
 
 function InvasionMode:ForestGameStart()
 
+
+Timers:CreateTimer(2,function()
+	EmitGlobalSound("Invasion.Intro")
+return 480
+end)
+
 	local return_time = 30
 
 
