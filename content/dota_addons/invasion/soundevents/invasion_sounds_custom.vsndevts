@@ -170,3 +170,291 @@
     }
 }
 
+
+"Invasion.HommerWin"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/HommerWin.vsnd"
+                        }
+                    }
+					"volume_min"
+					{
+							"value"         "1.000000"
+					}
+					"volume_max"
+					{
+							"value"         "1.500000"
+					}
+					"pitch_min"
+					{
+							"value"         "0.950000"
+					}
+					"pitch_max"
+					{
+							"value"         "1.050000"
+					}
+					"chan_type"
+					{
+							"value"         "6"
+					}
+					"memory_type"
+					{
+							"value"         "0"
+					}
+					"soundlevel_min"
+					{
+							"value"         "150.000000"
+					}
+					"soundlevel_max"
+					{
+							"value"         "150.000000"
+					}
+                }
+            }
+        }
+    }
+}
+
+
+
+"Invasion.HommerCry"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/HommerCry.vsnd"
+                        }
+                    }
+					"volume_min"
+					{
+							"value"         "1.000000"
+					}
+					"volume_max"
+					{
+							"value"         "1.500000"
+					}
+					"pitch_min"
+					{
+							"value"         "0.950000"
+					}
+					"pitch_max"
+					{
+							"value"         "1.050000"
+					}
+					"chan_type"
+					{
+							"value"         "6"
+					}
+					"memory_type"
+					{
+							"value"         "0"
+					}
+					"soundlevel_min"
+					{
+							"value"         "150.000000"
+					}
+					"soundlevel_max"
+					{
+							"value"         "150.000000"
+					}
+                }
+            }
+        }
+    }
+}
+
+
+"Invasion.HommerDo"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/HommerDo.vsnd"
+                        }
+                    }
+					"volume_min"
+					{
+							"value"         "1.000000"
+					}
+					"volume_max"
+					{
+							"value"         "1.500000"
+					}
+					"pitch_min"
+					{
+							"value"         "0.950000"
+					}
+					"pitch_max"
+					{
+							"value"         "1.050000"
+					}
+					"chan_type"
+					{
+							"value"         "6"
+					}
+					"memory_type"
+					{
+							"value"         "0"
+					}
+					"soundlevel_min"
+					{
+							"value"         "150.000000"
+					}
+					"soundlevel_max"
+					{
+							"value"         "150.000000"
+					}
+                }
+            }
+        }
+    }
+}
+
+"Invasion.Castaways"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/Castaways.vsnd"
+                        }
+                    }
+					"volume_min"
+					{
+							"value"         "1.000000"
+					}
+					"volume_max"
+					{
+							"value"         "1.500000"
+					}
+					"pitch_min"
+					{
+							"value"         "0.950000"
+					}
+					"pitch_max"
+					{
+							"value"         "1.050000"
+					}
+					"chan_type"
+					{
+							"value"         "6"
+					}
+					"memory_type"
+					{
+							"value"         "0"
+					}
+					"soundlevel_min"
+					{
+							"value"         "150.000000"
+					}
+					"soundlevel_max"
+					{
+							"value"         "150.000000"
+					}
+                }
+            }
+        }
+    }
+}
+
+"Invasion.Summertime"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/Summertime.vsnd"
+                        }
+                    }
+					"volume_min"
+					{
+							"value"         "1.000000"
+					}
+					"volume_max"
+					{
+							"value"         "1.500000"
+					}
+					"pitch_min"
+					{
+							"value"         "0.950000"
+					}
+					"pitch_max"
+					{
+							"value"         "1.050000"
+					}
+					"chan_type"
+					{
+							"value"         "6"
+					}
+					"memory_type"
+					{
+							"value"         "0"
+					}
+					"soundlevel_min"
+					{
+							"value"         "150.000000"
+					}
+					"soundlevel_max"
+					{
+							"value"         "150.000000"
+					}
+                }
+            }
+        }
+    }
+}

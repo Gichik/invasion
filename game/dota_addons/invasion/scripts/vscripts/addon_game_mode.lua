@@ -32,16 +32,48 @@ function Precache( context )
 	PrecacheModel("models/items/broodmother/virulent_matriarchs_back/virulent_matriarchs_back.vmdl", context)	
 	PrecacheModel("models/items/hex/sheep_hex/sheep_hex_gold.vmdl", context)
 	PrecacheModel("models/creeps/neutral_creeps/n_creep_ghost_a/n_creep_ghost_a.vmdl", context)
-	
+	PrecacheModel("models/props_structures/wood_post001.vmdl", context)
+	PrecacheModel("models/heroes/shopkeeper_dire/shopkeeper_dire.vmdl", context) --shop
+	PrecacheModel("models/heroes/death_prophet/death_prophet_ghost.vmdl", context) --also ghost
+
+	PrecacheResource("particle", "particles/neutral_fx/ghost_base_attack.vpcf", context) --ghost attack
+
 	-----------------------------items-----------------------------------	
 	PrecacheModel("models/props_gameplay/bottle_mango001.vmdl", context)	
+	PrecacheModel("models/props_gameplay/gold_bag.vmdl", context) --bag of gold
 	
 	---------------------------------spells-------------------------------
 	PrecacheResource("particle", "particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_blood04.vpcf", context) --blood
 	PrecacheResource( "particle_folder", "particles/units/heroes/hero_tinker", context ) --tinker
 	
+	PrecacheResource("particle", "particles/generic_gameplay/generic_hit_blood.vpcf", context) --blood
+	PrecacheResource("particle", "particles/world_destruction_fx/tree_dire_destroy.vpcf", context) --blood
+	PrecacheResource("particle", "particles/dire_fx/tower_bad_face_end_glow.vpcf", context) --omni
+	PrecacheResource("particle", "particles/units/heroes/hero_techies/techies_land_mine_ball_explosion.vpcf", context) --omni
+	PrecacheResource("particle", "particles/dire_fx/tower_bad_face_end_ball.vpcf", context) --omni
+	
+	PrecacheResource("particle", "particles/customgames/capturepoints/cp_allied_wind.vpcf", context) --rubick	
+	PrecacheResource("particle", "particles/units/heroes/hero_oracle/oracle_purifyingflames_heal.vpcf", context) --rubick
+	PrecacheResource("particle", "particles/units/heroes/hero_bloodseeker/bloodseeker_bloodbath_heal.vpcf", context) --rubick
+	
+	PrecacheResource("particle", "particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta_start_sparks.vpcf", context) --rubick
+	PrecacheResource("particle", "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_split_sparks_tormented.vpcf", context) --rubick
+	PrecacheResource("particle", "particles/customgames/capturepoints/msg_capturepoints_allied.vpcf", context) --rubick
+	PrecacheResource("particle", "particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_force_cube.vpcf", context) --rubick
+	PrecacheResource("particle", "particles/units/heroes/hero_rubick/rubick_telekinesis_impact_rings.vpcf", context) --rubick
+
+	PrecacheResource("particle", "particles/addons_gameplay/tower_good_tintable_lamp_end_core.vpcf", context) --rubick
+
+	PrecacheResource("particle", "particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff_symbol.vpcf", context) --rubick
+	PrecacheResource("particle_folder", "particles/units/heroes/hero_axe", context) --axe
+	PrecacheResource("particle_folder", "particles/units/heroes/hero_bloodseeker", context) --axe	
+	PrecacheResource("particle_folder", "particles/units/heroes/hero_life_stealer", context) --axe	
+
+	PrecacheResource("particle_folder", "particles/units/heroes/hero_faceless_void", context) --vengeful
+	
 	---------------------------------sounds-------------------------------
 	PrecacheResource( "soundfile", "soundevents/invasion_sounds_custom.vsndevts", context )
+	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts", context )
 	
 end
 

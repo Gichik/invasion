@@ -14,7 +14,8 @@ function InvasionMode:InvasionITForestMap()
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 5 )
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
 
-
+	GameRules:SetSameHeroSelectionEnabled(false)
+	
 	GameRules:SetTimeOfDay( 0.11 )
 	GameRules:SetHeroRespawnEnabled( true )
 	GameRules:SetUseUniversalShopMode( false )

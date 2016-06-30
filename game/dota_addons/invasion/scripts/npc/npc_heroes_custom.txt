@@ -43,7 +43,7 @@
 	{
 		"override_hero"				"npc_dota_hero_juggernaut"				// Hero to override
 		"Ability1"					"juggernaut_blade_fury"
-		"Ability2"					"juggernaut_healing_ward"
+		"Ability2"					"juggernaut_berserkers_blood"
 		"Ability3"					"juggernaut_blade_dance"
 		"Ability4"					"juggernaut_omni_slash_custom"				
 	}
@@ -79,22 +79,37 @@
 //=========================================================================================================
 // HERO: range
 //=========================================================================================================
+
+
+"npc_dota_hero_medusa"
+	{
+		"override_hero"				"npc_dota_hero_medusa"				// Hero to override
+		"Ability1"					"medusa_split_shot_custom"
+		"Ability2"					"medusa_mystic_snake"
+		"Ability3"					"medusa_mana_shield"
+		"Ability4"					"medusa_stone_gaze_custom"
+		"Ability5"					"attribute_bonus"						
+	}
+
+
 "npc_dota_hero_drow_ranger"
 	{
 		"override_hero"				"npc_dota_hero_drow_ranger"				// Hero to override
-		"Ability2"					"medusa_split_shot_custom"						
+		"Ability2"					"drow_ranger_split_shot"						
 	}
 
 "npc_dota_hero_nevermore"
 	{
 		"override_hero"				"npc_dota_hero_nevermore"				// Hero to override
-		"Ability3"					"medusa_split_shot_custom"						
+		"Ability3"					"nevermore_split_shot"
+		"Ability4"					"nevermore_necromastery_custom"	
+		"Ability5"					"nevermore_dark_lord_custom"		
 	}
 	
 "npc_dota_hero_obsidian_destroyer"
 	{
 		"override_hero"				"npc_dota_hero_obsidian_destroyer"				// Hero to override
-		"Ability2"					"medusa_split_shot_custom"						
+		"Ability2"					"obsidian_destroyer_split_shot"						
 	}	
 
 "npc_dota_hero_gyrocopter"
@@ -120,26 +135,25 @@
 	{
 		"override_hero"				"npc_dota_hero_vengefulspirit"				// Hero to override
 		"Ability1"					"vengefulspirit_magic_missile"
-		"Ability2"					"medusa_split_shot_custom"
+		"Ability2"					"vengefulspirit_split_shot"
 		"Ability3"					"vengefulspirit_command_aura"
-		"Ability4"					"arc_warden_magnetic_field_custom"						
+		"Ability4"					"vengefulspirit_ultimate"
+
 	}	
 		
 "npc_dota_hero_windrunner"
 	{
 		"override_hero"				"npc_dota_hero_windrunner"				// Hero to override
-		"Ability1"					"medusa_split_shot_custom"
+		"Ability1"					"windrunner_split_shot"
 		"Ability2"					"windrunner_powershot"
 		"Ability3"					"windrunner_windrun"
-		"Ability4"					"windrunner_phantasm"					
+		"Ability4"					"troll_warlord_battle_trance"					
 	}		
 
 "npc_dota_hero_sniper"
 	{
 		"override_hero"				"npc_dota_hero_sniper"				// Hero to override
-		"Ability1"					"medusa_split_shot_custom"
-		"Ability2"					"sniper_headshot"
-		"Ability3"					"sniper_take_aim"
+		"Ability1"					"sniper_split_shot"
 		"Ability4"					"tinker_march_of_the_machines"					
 	}	
 	
@@ -149,23 +163,114 @@
 "npc_dota_hero_axe"
 	{
 		"override_hero"				"npc_dota_hero_axe"				// Hero to override
-		"Ability4"					"axe_culling_blade_custom"						// Ability 4
+		"AbilityLayout"				"4"
+		"Ability1"					"axe_battle_hunger_custom"
+		"Ability2"					"axe_culling_blade_custom"
+		"Ability4"					"ursa_enrage"		
+		"Ability5"					"axe_battle_hunger"
+		"Ability6"					"axe_berserkers_call"							
+		"Ability7"					"attribute_bonus"	
+
+									
 	}
 	
 "npc_dota_hero_tidehunter"
 	{
 		"override_hero"				"npc_dota_hero_tidehunter"				// Hero to override
-		"Ability4"					"tidehunter_ravage_custom"
+		"Ability4"					"shredder_reactive_armor"
 	}	
 
 "npc_dota_hero_spectre"
 	{
-		"override_hero"				"npc_dota_hero_spectre"				// Hero to override
-		"Ability3"					"spectre_dispersion_custom"
+		"override_hero"				"npc_dota_hero_spectre"
+		"AbilityLayout"				"4"		
+		"Ability1"					"spectre_spectral_dagger"
+		"Ability2"					"spectre_desolate"
+		"Ability3"					"spectre_dispersion"
+		"Ability4"					"alchemist_chemical_rage"
+		"Ability5"					"attribute_bonus"
+		"Ability6"					""		
 	}		
+
+"npc_dota_hero_dragon_knight"
+	{
+		"override_hero"				"npc_dota_hero_dragon_knight"				// Hero to override
+		"Ability1"		"dragon_knight_breathe_fire_custom"
+		"Ability2"		"dragon_knight_goblins_greed"
+		"Ability3"		"dragon_knight_dragon_blood_custom"
+		"Ability4"		"dragon_knight_elder_dragon_form"
+	}
+
+"npc_dota_hero_bristleback"
+	{
+		"override_hero"				"npc_dota_hero_bristleback"				// Hero to override
+		"Ability1"		"bristleback_acid_spray"
+		"Ability2"		"bristleback_quill_spray"
+		"Ability3"		"bristleback_bristleback"
+		"Ability4"		"bristleback_warpath"
+	}	
+//=========================================================================================================
+// HERO: support
+//=========================================================================================================	
 	
 	
+"npc_dota_hero_omniknight"
+	{
+		"override_hero"				"npc_dota_hero_omniknight"				// Hero to override
+		"Ability1"					"omniknight_purification"
+		"Ability2"					"power_of_faith"
+		"Ability3"					"omniknight_degen_aura"
+		"Ability4"					"omniknight_guardian_angel_custom"	
+	}	
+
+"npc_dota_hero_dazzle"
+	{
+		"override_hero"				"npc_dota_hero_dazzle"				// Hero to override
+		"Ability1"					"dazzle_spirit_bear"
+		"Ability2"					"dazzle_shallow_grave_custom"
+		"Ability3"					"dazzle_shadow_wave_custom"
+		"Ability4"					"dazzle_weave_custom"	
+	}
+
+"npc_dota_hero_crystal_maiden"
+	{
+		"override_hero"				"npc_dota_hero_crystal_maiden"				// Hero to override
+		"Ability1"		"winter_wyvern_cold_embrace_custom"
+		"Ability2"		"crystal_maiden_frostbite_custom"
+		"Ability3"		"crystal_maiden_brilliance_aura"
+		"Ability4"		"freezing_field"	
+	}	
 	
+"npc_dota_hero_necrolyte"
+	{
+		"override_hero"				"npc_dota_hero_necrolyte"				// Hero to override
+		"Ability1"		"necrolyte_death_pulse"
+		"Ability2"		"necrolyte_heartstopper_aura_custom"
+		"Ability3"		"necrolyte_sadist"
+		"Ability4"		"necrolyte_borrowed_time"	
+	}		
+
+"npc_dota_hero_rubick"
+	{
+		"override_hero"				"npc_dota_hero_rubick"				// Hero to override
+		"Ability1"		"rubick_meditation"
+		"Ability3"		"rubick_fade_bolt_custom"		
+		"Ability7"		"rubick_spell_steal_custom"			
+	}	
+
+"npc_dota_hero_keeper_of_the_light"
+	{
+		"override_hero"				"npc_dota_hero_keeper_of_the_light"				// Hero to override
+		"Ability2"		"keeper_healing_ward"		
+	}
+
+"npc_dota_hero_earthshaker"
+	{
+		"override_hero"				"npc_dota_hero_earthshaker"				// Hero to override
+		"Ability2"					"earthshaker_enchant_totem_autocast"
+		"Ability5"					"earthshaker_enchant_totem"				
+	}	
+
 //=========================================================================================================
 // HERO: life stealer
 //=========================================================================================================

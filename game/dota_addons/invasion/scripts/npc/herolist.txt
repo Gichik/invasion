@@ -22,8 +22,9 @@
 	"npc_dota_hero_medusa"				"1" 
 	"npc_dota_hero_vengefulspirit"			"1" 
 	"npc_dota_hero_windrunner"			"1"
+	"npc_dota_hero_sniper"				"1"
 
-	"npc_dota_hero_sniper"				"0"
+	"npc_dota_hero_invoker"				"1"
  
 	"npc_dota_hero_axe"				"1"
 	"npc_dota_hero_bristleback"			"1" 
@@ -36,13 +37,13 @@
 	"npc_dota_hero_dazzle"				"1"
 	"npc_dota_hero_earthshaker"			"1"
 	"npc_dota_hero_omniknight"			"1"
-	"npc_dota_hero_necrolyte"			"1" 
 	"npc_dota_hero_keeper_of_the_light"		"1" 
 	"npc_dota_hero_crystal_maiden"			"1"
 	"npc_dota_hero_jakiro"				"1"
 	"npc_dota_hero_sand_king"			"1"
+	"npc_dota_hero_rubick"				"1"
 
-
+	"npc_dota_hero_necrolyte"			"0" 
 	"npc_dota_hero_enchantress"			"0"
 	"npc_dota_hero_alchemist"			"0"
 	"npc_dota_hero_ursa"				"0" 
@@ -71,7 +72,7 @@
 	"npc_dota_hero_enigma"				"0"
 	"npc_dota_hero_faceless_void"			"0"
 	"npc_dota_hero_huskar"				"0"
-	"npc_dota_hero_invoker"				"0"
+
 	"npc_dota_hero_wisp"				"0"
 	"npc_dota_hero_legion_commander"		"0" 
 	"npc_dota_hero_leshrac"				"0"
@@ -98,7 +99,7 @@
 	"npc_dota_hero_pugna"				"0"
 	"npc_dota_hero_razor"				"0" 
 	"npc_dota_hero_riki"				"0"
-	"npc_dota_hero_rubick"				"0"
+
 	"npc_dota_hero_silencer"			"0"
 	"npc_dota_hero_skywrath_mage"			"0"
 	"npc_dota_hero_slardar"				"0"

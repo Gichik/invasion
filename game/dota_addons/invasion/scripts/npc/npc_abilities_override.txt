@@ -1,0 +1,680 @@
+
+// Dota Abilities Override File
+"DOTAAbilities"
+{
+	"Version"		"1"
+	
+	//============================================================================================================
+	// items
+	//============================================================================================================
+
+	"item_branches"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+
+	"item_octarine_core"
+	{
+		"AbilitySpecial"
+		{
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"creep_lifesteal"		"30"
+			}
+		}
+	}
+
+	//============================================================================================================
+	// drow_ranger
+	//============================================================================================================
+
+	"drow_ranger_marksmanship"
+	{
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"split_count_scepter"			"0"
+			}
+		}
+
+	}
+
+	//=============================================================================================================
+	//  WINDRUNNER
+	//=============================================================================================================
+	
+	"troll_warlord_battle_trance"
+	{
+		// General
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityTextureName"      		"windrunner_focusfire"
+
+		// Casting
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0 0.0 0.0"
+
+		// Time		
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"45"
+	
+		// Cost
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 100 100"
+
+		// Special
+		//---------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"trance_duration"		"15.0"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_speed"		"60 120 180"
+			}
+		}
+	}
+
+	//=============================================================================================================
+	//  SNIPER
+	//=============================================================================================================
+	
+	"tinker_march_of_the_machines"
+	{
+		// General
+		//--------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"      		"sniper_march_of_the_machines"			
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"              		"3"	
+
+		// Casting
+		//--------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"300"
+		"AbilityCastPoint"				"0.53 0.53 0.53"
+
+		// Time		
+		//--------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"40.0"
+
+		// Damage.
+		//--------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"40 60 80"
+
+		// Cost
+		//--------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"140 140 140"
+
+		// Special
+		//--------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"900"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"collision_radius"		"50 50 50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"splash_radius"			"150 150 150"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"10.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"400 400 400"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"machines_per_sec"		"24"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"distance"				"1800"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"distance_scepter"		"1800"
+			}
+		}
+	}
+
+
+	//=============================================================================================================
+	//  INVOKER
+	//=============================================================================================================
+	
+	"invoker_invoke"
+	{
+		// Stats
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8 6 4 2"
+		"AbilityManaCost"				"50 50 50 50"
+		
+		// Special
+		//---------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_invoked_spells"		"2 2 2 2"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"cooldown_scepter"			"6 4 2 0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"mana_cost_scepter"			"0"
+			}
+		}
+	}
+
+
+	"invoker_cold_snap"
+	{
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"50"			
+	}
+
+	"invoker_ghost_walk"
+	{
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"50"			
+	}
+
+	"invoker_tornado"
+	{
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"50"			
+	}
+
+	"invoker_emp"
+	{
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"50"			
+	}
+
+	"invoker_alacrity"
+	{
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"50"			
+	}
+
+	"invoker_chaos_meteor"
+	{
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"50"			
+	}
+
+	"invoker_sun_strike"
+	{
+		"AbilityCooldown"				"5"
+		"AbilityManaCost"				"50"			
+	}
+
+	"invoker_ice_wall"
+	{
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"50"			
+	}	
+
+	"invoker_deafening_blast"
+	{
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"50"		
+	}	
+
+
+
+	//============================================================================================================
+	// axe
+	//============================================================================================================
+
+	"axe_berserkers_call"
+	{
+		// General
+		//---------------------------------------------------------------------------------------------------------
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+
+		// Casting
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time		
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"16 14 12 10"
+
+		// Cost
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"	
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+
+				"radius"				"500"
+			}	
+		}
+	}
+
+
+	"axe_battle_hunger"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+		// Casting
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+
+		// Time		
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"20 40 80 150"
+
+		// Cost
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"		
+		
+		// Stats
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.1"	// Primarily about the damage
+		
+		// Special
+		//---------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"10.0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow"						"-40"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed_bonus"						"40"
+			}
+		}		
+	}
+
+
+	"axe_culling_blade"
+	{
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+			
+		// Time		
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15 10 5 0"
+
+		// Cost
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"		
+
+		// Special
+		//---------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"kill_threshold"			"250 325 400"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"150 250 300"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed_bonus"				"50"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"atk_speed_bonus_tooltip"				"50"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"speed_duration"			"6"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed_aoe"					"900"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"cooldown_scepter"			"0"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"kill_threshold_scepter"	"300 500 700"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"speed_duration_scepter"	"10"
+			}
+		}
+	}	
+
+	"ursa_enrage"
+	{
+		// General
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityTextureName"      		"axe_battle_hunger"
+		
+		// Casting
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+
+		// Time		
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"50 40 30"
+
+		// Cost
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0 0 0"
+		
+		// Special
+		//---------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{			
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"enrage_multiplier"			"1.5 1.75 2.0"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_reduction"			"80"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"4"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"cooldown_scepter"			"30 24 18"
+			}
+		}
+	}
+
+
+	//============================================================================================================
+	//	EARTHSHAKER  
+	//============================================================================================================	
+	"earthshaker_enchant_totem"
+	{
+		// General
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+
+	//============================================================================================================
+	//	SPECTRE 
+	//============================================================================================================
+
+	"spectre_dispersion"
+	{
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_reflection_pct"	"10 15 20 25"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"min_radius"			"100 100 100 100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_radius"			"1000 1000 1000 1000"
+			}			
+		}
+	}	
+
+
+
+	"alchemist_chemical_rage"
+		{
+
+			"AbilityTextureName"      		"spectre_rage"
+
+			// Time		
+			//-----------------------------------------------------------------------------------------------------
+			"AbilityCooldown"				"50.0"
+
+			// Cost
+			//-----------------------------------------------------------------------------------------------------
+			"AbilityManaCost"				"50 100 150"
+
+			// Special	
+			//-----------------------------------------------------------------------------------------------------
+			"AbilitySpecial"
+			{
+				"01"
+				{
+					"var_type"				"FIELD_FLOAT"
+					"duration"				"10.0"
+				}
+				"02"
+				{
+					"var_type"				"FIELD_FLOAT"
+					"transformation_time"	"0.35"
+				}
+				"03"
+				{
+					"var_type"				"FIELD_FLOAT"
+					"base_attack_time"		"1.4 1.2 1.0"
+				}
+				"04"
+				{
+					"var_type"				"FIELD_INTEGER"
+					"bonus_health"			"0"
+				}
+				"05"
+				{
+					"var_type"				"FIELD_INTEGER"
+					"bonus_health_regen"	"50 75 100"
+				}
+				"06"
+				{
+					"var_type"				"FIELD_FLOAT"
+					"bonus_mana_regen"		"3.0 7.5 12.0"
+				}
+				"07"
+				{
+					"var_type"				"FIELD_INTEGER"
+					"bonus_movespeed"		"30 40 60"
+				}
+			}
+		}	
+
+	//============================================================================================================
+	//	TIDE
+	//============================================================================================================
+
+	"shredder_reactive_armor"
+	{
+		// General
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"		
+		"AbilityTextureName"      		"tide_armor"		
+		"MaxLevel"              		"3"
+
+		// Special
+		//---------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"bonus_armor"						"1.0 2.0 3.0"
+			}
+			"02"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"bonus_hp_regen"					"1.0 2.0 3.0"
+			}
+			"03"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"stack_limit"						"10 15 20"
+			}
+			"04"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"stack_duration"					"16 18 20"
+			}
+		}
+	}
+
+
+	//============================================================================================================
+	//	MOOBS 
+	//============================================================================================================	
+	"death_prophet_spirit_siphon"
+	{
+
+		"MaxLevel"              		"1"
+
+		// Casting
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.1"
+
+		// Time		
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5"
+		
+		// Cost
+		//---------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//---------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"damage"						"25"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"damage_pct"					"4.0"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"haunt_duration"				"5"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_slow"					"15"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"siphon_buffer"			"250"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_charges"			"1"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"charge_restore_time"	"10"
+			}
+		}
+	}
+
+	"venomancer_poison_sting"
+	{
+		// General
+		//--------------------------------------------------------------------------------------------------------"
+		"MaxLevel"              		"1"	
+
+		// Special
+		//---------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"10.0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"50"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_speed"			"-14"
+			}			
+		}
+	}
+
+
+
+
+}
