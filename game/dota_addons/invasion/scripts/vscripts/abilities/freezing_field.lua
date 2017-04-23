@@ -9,15 +9,15 @@ end)
 end
 
 local hero = self:GetCaster()
-if hero:FindAbilityByName("crystal_maiden_freezing_field_custom") == nil then
-	hero:AddAbility("crystal_maiden_freezing_field_custom")
-	local ability = hero:FindAbilityByName("crystal_maiden_freezing_field_custom")
+if hero:FindAbilityByName("crystal_maiden_freezing_field") == nil then
+	hero:AddAbility("crystal_maiden_freezing_field")
+	local ability = hero:FindAbilityByName("crystal_maiden_freezing_field")
 	ability:SetLevel(self:GetLevel())
 	ability:CastAbility()		
 end	
 
 Timers:CreateTimer(9,function()
-	hero:RemoveAbility("crystal_maiden_freezing_field_custom")
+	hero:RemoveAbility("crystal_maiden_freezing_field")
 end)
 
 

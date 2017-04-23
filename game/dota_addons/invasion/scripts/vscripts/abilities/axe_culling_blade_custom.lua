@@ -61,12 +61,12 @@ end
 
 
 function axe_culling_blade_custom:OnUpgrade()
-
-    local caster = self:GetCaster()
         
     if self:GetLevel() == 1 then
         GameRules:GetGameModeEntity():SetContextThink("axe_culling_blade_custom_autocast", 
             function()
+                local caster = self:GetCaster()
+                
                 if self:GetAutoCastState() then
                     caster:AddNewModifier(caster, self, "modifier_autocast_culling_blade", {})
                 else

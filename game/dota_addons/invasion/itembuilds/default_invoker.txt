@@ -1,0 +1,34 @@
+"itembuilds"
+{
+	"author"		"ilia"
+	"hero"			"npc_dota_hero_invoker"
+	"Title"			"Recommended items for Invoker"
+	
+
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_hand_of_midas"								
+			"item"		"item_flask"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_headdress"		
+			"item"		"item_bloodstone"														
+		}
+		
+		"#DOTA_Item_Build_Core_Items"
+		{ 
+			"item"		"item_octarine_core"			
+			"item"		"item_ultimate_scepter"		
+			"item"		"item_mekansm"															
+		}
+		
+		"#DOTA_Item_Build_Luxury"
+		{					
+			"item"		"item_guardian_greaves"										
+		}
+	}
+}

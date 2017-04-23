@@ -8,19 +8,32 @@
 //=========================================================================================================
 // HERO MELLE
 //=========================================================================================================
+
 "npc_dota_hero_bloodseeker"
 	{
-		"override_hero"			"npc_dota_hero_bloodseeker"				// Hero to override
+		"override_hero"			"npc_dota_hero_bloodseeker"
+
+		"AttackRange"		"200"		
 		"Ability1"				"bloodseeker_bloodrage"
 		"Ability2"				"bloodseeker_blood_bath"
 		"Ability3"				"bloodseeker_thirst"
-		"Ability4"				"bloodseeker_insatiable_hunger"					
+		"Ability4"				"broodmother_insatiable_hunger"
+		//"Ability10"		"special_bonus_armor_5"
+		//"Ability11"		"special_bonus_attack_damage_25"
+		//"Ability12"		"special_bonus_attack_speed_30"
+		//"Ability13"		"special_bonus_hp_250"
+		//"Ability14"		"special_bonus_respawn_reduction_30"
+		//"Ability15"		"special_bonus_all_stats_10"
+		//"Ability16"		"special_bonus_unique_bloodseeker"
+		//"Ability17"		"special_bonus_lifesteal_30"						
 	}
 
 
 "npc_dota_hero_bounty_hunter"
 	{
-		"override_hero"				"npc_dota_hero_bounty_hunter"				// Hero to override
+		"override_hero"				"npc_dota_hero_bounty_hunter"
+
+		"AttackRange"				"200"			
 		"Ability1"					"bounty_hunter_shuriken_toss_custom"
 		"Ability2"					"bounty_hunter_smoke_screen"
 		"Ability3"					"riki_permanent_invisibility"
@@ -28,53 +41,193 @@
 	}
 
 "npc_dota_hero_ember_spirit"
-	{
-		"override_hero"				"npc_dota_hero_ember_spirit"				// Hero to override
-		"Ability1"					"bounty_hunter_jinada"
+	{		
+		"override_hero"				"npc_dota_hero_ember_spirit"
+
+		"AttackRange"				"200"			
+		"AbilityLayout"				"4"							
+		"Ability1"					"ogre_magi_ignite"
 		"Ability2"					"ember_spirit_sleight_of_fist"
 		"Ability3"					"ember_spirit_flame_guard"
-		"Ability4"					"ember_spirit_activate_fire_remnant"
-		"Ability5"					"ember_spirit_fire_remnant"
-		"Ability6"					"attribute_bonus"				
+		"Ability4"					"magnataur_empower"
+		"Ability5"					"ogre_magi_multicast"
+		//"Ability10"		"special_bonus_spell_amplify_15"
+		//"Ability11"		"special_bonus_attack_damage_20"
+		//"Ability12"		"special_bonus_movement_speed_20"
+		//"Ability13"		"special_bonus_all_stats_6"
+		//"Ability14"		"special_bonus_cooldown_reduction_15"
+		//"Ability15"		"special_bonus_armor_8"
+		//"Ability16"		"special_bonus_unique_ember_spirit_1"
+		//"Ability17"		"special_bonus_unique_ember_spirit_2"			
 	}
 	
 	
 "npc_dota_hero_juggernaut"
 	{
-		"override_hero"				"npc_dota_hero_juggernaut"				// Hero to override
+		"override_hero"				"npc_dota_hero_juggernaut"
+
+		"AttackRange"				"200"							
 		"Ability1"					"juggernaut_blade_fury"
-		"Ability2"					"juggernaut_berserkers_blood"
-		"Ability3"					"juggernaut_blade_dance"
-		"Ability4"					"juggernaut_omni_slash_custom"				
-	}
-
-"npc_dota_hero_kunkka"
-	{
-		"override_hero"				"npc_dota_hero_kunkka"				// Hero to override
-		"Ability1"					"kunkka_torrent"
-		"Ability2"					"kunkka_tidebringer_custom"
-		"Ability3"					"abaddon_aphotic_shield"
-		"Ability4"					"kunkka_ghostship"		
-	}
-
-"npc_dota_hero_phantom_assassin"
-	{
-		"override_hero"				"npc_dota_hero_phantom_assassin"				// Hero to override
-		"Ability1"					"beastmaster_inner_beast"
-		"Ability2"					"phantom_assassin_phantom_strike"
-		"Ability3"					"phantom_assassin_blur_custom"
-		"Ability4"					"phantom_assassin_coup_de_grace"		
+		"Ability2"					"huskar_berserkers_blood"
+		"Ability3"					"phantom_assassin_blur"
+		"Ability4"					"phantom_assassin_coup_de_grace"				
 	}
 	
 "npc_dota_hero_sven"
 	{
-		"override_hero"				"npc_dota_hero_sven"				// Hero to override
+		"override_hero"				"npc_dota_hero_sven"
+
+		"AttackRange"				"200"			
 		"Ability1"					"sven_storm_bolt"
-		"Ability2"					"sven_great_cleave_custom"
+		"Ability2"					"sven_great_cleave"
 		"Ability3"					"sven_warcry"
 		"Ability4"					"sven_gods_strength"		
 	}
 
+"npc_dota_hero_earthshaker"
+	{
+		"override_hero"				"npc_dota_hero_earthshaker"
+
+		"AttackRange"				"200"		
+		"Ability2"					"earthshaker_enchant_totem_autocast"
+		"Ability5"					"earthshaker_enchant_totem"	
+		//"Ability10"		"special_bonus_strength_8"
+		//"Ability11"		"special_bonus_mp_250"
+		//"Ability12"		"special_bonus_movement_speed_20"
+		//"Ability13"		"special_bonus_attack_damage_50"
+		//"Ability14"		"special_bonus_spell_amplify_10"
+		//"Ability15"		"special_bonus_respawn_reduction_35"
+		//"Ability16"		"special_bonus_hp_500"
+		//"Ability17"		"special_bonus_unique_earthshaker"						
+	}
+
+"npc_dota_hero_antimage"
+	{
+		"override_hero"				"npc_dota_hero_antimage"
+
+		"AttackRange"				"200"		
+		"Ability1"					"riki_smoke_screen"
+		"Ability2"					"beastmaster_inner_beast"
+		"Ability3"					"antimage_rush"
+		"Ability4"					"slark_shadow_dance"
+		//"Ability10"		"special_bonus_strength_6"
+		//"Ability11"		"special_bonus_attack_damage_20"
+		//"Ability12"		"special_bonus_attack_speed_20"
+		//"Ability13"		"special_bonus_hp_250"
+		//"Ability14"		"special_bonus_evasion_15"
+		//"Ability15"		"special_bonus_all_stats_10"
+		//"Ability16"		"special_bonus_agility_25"
+		//"Ability17"		"special_bonus_unique_antimage"				
+	}
+
+//=========================================================================================================
+// HERO: tanks
+//=========================================================================================================
+"npc_dota_hero_axe"
+	{
+		"override_hero"				"npc_dota_hero_axe"
+
+		"AttackRange"				"200"			
+		"AbilityLayout"				"4"
+		"Ability1"					"axe_battle_hunger_custom"
+		"Ability2"					"axe_culling_blade_custom"
+		"Ability4"					"ursa_enrage"		
+		"Ability5"					"axe_battle_hunger"
+		"Ability6"					"axe_berserkers_call"							
+		//"Ability10"		"special_bonus_strength_6"
+		//"Ability11"		"special_bonus_mp_regen_3"
+		//"Ability12"		"special_bonus_attack_damage_75"
+		//"Ability13"		"special_bonus_hp_250"
+		//"Ability14"		"special_bonus_hp_regen_25"
+		//"Ability15"		"special_bonus_armor_15"
+		//"Ability16"		"special_bonus_armor_15"
+		//"Ability17"		"special_bonus_unique_axe"									
+	}
+	
+"npc_dota_hero_tidehunter"
+	{
+		"override_hero"				"npc_dota_hero_tidehunter"
+
+		"AttackRange"				"200"			
+		"Ability4"					"shredder_reactive_armor"
+	}	
+
+"npc_dota_hero_spectre"
+	{
+		"override_hero"				"npc_dota_hero_spectre"
+
+		"AttackRange"				"200"			
+		"AbilityLayout"				"4"		
+		"Ability1"					"enigma_midnight_pulse"
+		"Ability2"					"spectre_desolate"
+		"Ability3"					"spectre_dispersion"
+		"Ability4"					"alchemist_chemical_rage"
+		"Ability5"					""
+		//"Ability10"		"special_bonus_attack_damage_20"
+		//"Ability11"		"special_bonus_armor_5"
+		//"Ability12"		"special_bonus_all_stats_6"
+		//"Ability13"		"special_bonus_movement_speed_15"
+		//"Ability14"		"special_bonus_attack_speed_25"
+		//"Ability15"		"special_bonus_strength_12"
+		//"Ability16"		"special_bonus_hp_400"
+		//"Ability17"		"special_bonus_unique_spectre"				
+	}		
+
+"npc_dota_hero_dragon_knight"
+	{
+		"override_hero"				"npc_dota_hero_dragon_knight"
+
+		"AttackRange"				"200"	
+		"Ability1"					"dragon_knight_breathe_fire"
+		"Ability2"					"alchemist_goblins_greed"
+		"Ability3"					"dragon_knight_dragon_blood"
+		"Ability4"					"dragon_knight_elder_dragon_form"
+	}
+
+"npc_dota_hero_bristleback"
+	{
+		"override_hero"				"npc_dota_hero_bristleback"	
+
+		"AttackRange"				"200"					
+		"Ability1"					"bristleback_acid_spray"
+		"Ability2"					"bristleback_quill_spray"
+		"Ability3"					"bristleback_bristleback"
+		"Ability4"					"bristleback_warpath"
+		//"Ability10"		"special_bonus_strength_7"
+		//"Ability11"		"special_bonus_mp_regen_2"
+		//"Ability12"		"special_bonus_movement_speed_20"
+		//"Ability13"		"special_bonus_hp_200"
+		//"Ability14"		"special_bonus_attack_speed_45"
+		//"Ability15"		"special_bonus_respawn_reduction_30"
+		//"Ability16"		"special_bonus_hp_regen_25"
+		//"Ability17"		"special_bonus_unique_bristleback"	
+	}
+
+"npc_dota_hero_skeleton_king"
+	{
+		"override_hero"				"npc_dota_hero_skeleton_king"
+
+		"AttackRange"				"200"				
+		"Ability1"					"kunkka_tidebringer"			
+		"Ability3"					"centaur_return"
+		"Ability4"					"abaddon_borrowed_time"
+		//"Ability10"		"special_bonus_attack_damage_15"
+		//"Ability11"		"special_bonus_intelligence_8"
+		//"Ability12"		"special_bonus_movement_speed_15"
+		//"Ability13"		"special_bonus_hp_200"
+		//"Ability14"		"special_bonus_attack_speed_40"
+		//"Ability15"		"special_bonus_strength_20"
+		//"Ability16"		"special_bonus_unique_wraith_king_1"
+		//"Ability17"		"special_bonus_unique_wraith_king_2"		
+	}
+
+"npc_dota_hero_tiny"
+	{
+		"override_hero"				"npc_dota_hero_tiny"
+
+		"AttackRange"				"200"				
+		"Ability2"					"visage_gravekeepers_cloak"			
+	}
 	
 //=========================================================================================================
 // HERO: range
@@ -85,25 +238,32 @@
 	{
 		"override_hero"				"npc_dota_hero_medusa"				// Hero to override
 		"Ability1"					"medusa_split_shot_custom"
-		"Ability2"					"medusa_mystic_snake"
+		"Ability2"					"broodmother_incapacitating_bite"
 		"Ability3"					"medusa_mana_shield"
-		"Ability4"					"medusa_stone_gaze_custom"
-		"Ability5"					"attribute_bonus"						
+		"Ability4"					"medusa_stone_gaze"						
 	}
 
 
 "npc_dota_hero_drow_ranger"
 	{
 		"override_hero"				"npc_dota_hero_drow_ranger"				// Hero to override
-		"Ability2"					"drow_ranger_split_shot"						
+		"Ability2"					"drow_ranger_split_shot"
+		//"Ability10"		"special_bonus_movement_speed_15"
+		//"Ability11"		"special_bonus_all_stats_5"
+		//"Ability12"		"special_bonus_hp_175"
+		//"Ability13"		"special_bonus_attack_speed_20"
+		//"Ability14"		"special_bonus_unique_drow_ranger_1"
+		//"Ability15"		"special_bonus_strength_14"
+		//"Ability16"		"special_bonus_unique_drow_ranger_2"
+		//"Ability17"		"special_bonus_unique_drow_ranger_3"							
 	}
 
 "npc_dota_hero_nevermore"
 	{
 		"override_hero"				"npc_dota_hero_nevermore"				// Hero to override
 		"Ability3"					"nevermore_split_shot"
-		"Ability4"					"nevermore_necromastery_custom"	
-		"Ability5"					"nevermore_dark_lord_custom"		
+		"Ability4"					"nevermore_necromastery"	
+		"Ability5"					"nevermore_dark_lord"		
 	}
 	
 "npc_dota_hero_obsidian_destroyer"
@@ -117,18 +277,25 @@
 		"override_hero"				"npc_dota_hero_gyrocopter"				// Hero to override
 		"Ability1"					"gyrocopter_rocket_barrage"
 		"Ability2"					"gyrocopter_homing_missile"
-		"Ability3"					"gyrocopter_flak_cannon_custom"
+		"Ability3"					"gyrocopter_flak_cannon"
 		"Ability6"					"gyrocopter_call_down"
-		"Ability5"					"attribute_bonus"						
+		//"Ability10"		"special_bonus_spell_amplify_6"
+		//"Ability11"		"special_bonus_hp_150"
+		//"Ability12"		"special_bonus_magic_resistance_10"
+		//"Ability13"		"special_bonus_attack_damage_30"
+		//"Ability14"		"special_bonus_movement_speed_25"
+		//"Ability15"		"special_bonus_cooldown_reduction_20"
+		//"Ability16"		"special_bonus_unique_gyrocopter_1"
+		//"Ability17"		"special_bonus_unique_gyrocopter_2"						
 	}
 
 "npc_dota_hero_luna"
 	{
 		"override_hero"				"npc_dota_hero_luna"				// Hero to override
 		"Ability1"					"luna_lucent_beam"
-		"Ability2"					"luna_moon_glaive_custom"
+		"Ability2"					"luna_moon_glaive"
 		"Ability3"					"luna_lunar_blessing"
-		"Ability4"					"luna_eclipse_custom"						
+		"Ability4"					"luna_eclipse"						
 	}
 	
 "npc_dota_hero_vengefulspirit"
@@ -138,6 +305,14 @@
 		"Ability2"					"vengefulspirit_split_shot"
 		"Ability3"					"vengefulspirit_command_aura"
 		"Ability4"					"vengefulspirit_ultimate"
+		//"Ability10"		"special_bonus_magic_resistance_8"
+		//"Ability11"		"special_bonus_attack_speed_25"
+		//"Ability12"		"special_bonus_all_stats_8"
+		//"Ability13"		"special_bonus_attack_damage_50"
+		//"Ability14"		"special_bonus_movement_speed_20"
+		//"Ability15"		"special_bonus_unique_vengeful_spirit_2"
+		//"Ability16"		"special_bonus_unique_vengeful_spirit_2"
+		//"Ability17"		"special_bonus_unique_vengeful_spirit_3"		
 
 	}	
 		
@@ -154,140 +329,328 @@
 	{
 		"override_hero"				"npc_dota_hero_sniper"				// Hero to override
 		"Ability1"					"sniper_split_shot"
-		"Ability4"					"tinker_march_of_the_machines"					
-	}	
-	
-//=========================================================================================================
-// HERO: tanks
-//=========================================================================================================
-"npc_dota_hero_axe"
-	{
-		"override_hero"				"npc_dota_hero_axe"				// Hero to override
-		"AbilityLayout"				"4"
-		"Ability1"					"axe_battle_hunger_custom"
-		"Ability2"					"axe_culling_blade_custom"
-		"Ability4"					"ursa_enrage"		
-		"Ability5"					"axe_battle_hunger"
-		"Ability6"					"axe_berserkers_call"							
-		"Ability7"					"attribute_bonus"	
-
-									
-	}
-	
-"npc_dota_hero_tidehunter"
-	{
-		"override_hero"				"npc_dota_hero_tidehunter"				// Hero to override
-		"Ability4"					"shredder_reactive_armor"
+		"Ability4"					"tinker_march_of_the_machines"	
+		//"Ability10"		"special_bonus_mp_regen_4"
+		//"Ability11"		"special_bonus_attack_speed_15"
+		//"Ability12"		"special_bonus_attack_range_100"
+		//"Ability13"		"special_bonus_hp_200"
+		//"Ability14"		"special_bonus_armor_8"
+		//"Ability15"		"special_bonus_cooldown_reduction_25"
+		//"Ability16"		"special_bonus_attack_range_100"
+		//"Ability17"		"special_bonus_unique_sniper_2"						
 	}	
 
-"npc_dota_hero_spectre"
+"npc_dota_hero_viper"
 	{
-		"override_hero"				"npc_dota_hero_spectre"
-		"AbilityLayout"				"4"		
-		"Ability1"					"spectre_spectral_dagger"
-		"Ability2"					"spectre_desolate"
-		"Ability3"					"spectre_dispersion"
-		"Ability4"					"alchemist_chemical_rage"
-		"Ability5"					"attribute_bonus"
-		"Ability6"					""		
-	}		
-
-"npc_dota_hero_dragon_knight"
-	{
-		"override_hero"				"npc_dota_hero_dragon_knight"				// Hero to override
-		"Ability1"		"dragon_knight_breathe_fire_custom"
-		"Ability2"		"dragon_knight_goblins_greed"
-		"Ability3"		"dragon_knight_dragon_blood_custom"
-		"Ability4"		"dragon_knight_elder_dragon_form"
-	}
-
-"npc_dota_hero_bristleback"
-	{
-		"override_hero"				"npc_dota_hero_bristleback"				// Hero to override
-		"Ability1"		"bristleback_acid_spray"
-		"Ability2"		"bristleback_quill_spray"
-		"Ability3"		"bristleback_bristleback"
-		"Ability4"		"bristleback_warpath"
+		"override_hero"				"npc_dota_hero_viper"				// Hero to override
+		"AbilityLayout"				"5"
+		"Ability1"					"medusa_split_shot_custom"		
+		"Ability2"					"viper_poison_attack"
+		"Ability3"					"viper_nethertoxin"
+		"Ability4"					"viper_corrosive_skin"
+		"Ability5"					"venomancer_poison_nova"
+		//"Ability10"		"special_bonus_attack_damage_15"
+		//"Ability11"		"special_bonus_hp_125"
+		//"Ability12"		"special_bonus_strength_7"
+		//"Ability13"		"special_bonus_agility_14"
+		//"Ability14"		"special_bonus_armor_7"
+		//"Ability15"		"special_bonus_attack_range_75"
+		//"Ability16"		"special_bonus_unique_viper_1"
+		//"Ability17"		"special_bonus_unique_viper_2"						
 	}	
+
 //=========================================================================================================
 // HERO: support
 //=========================================================================================================	
-	
+
+"npc_dota_hero_invoker"
+	{
+		"Ability23"		"special_bonus_unique_invoker_2"
+		"Ability24"		""
+	}	
 	
 "npc_dota_hero_omniknight"
 	{
-		"override_hero"				"npc_dota_hero_omniknight"				// Hero to override
 		"Ability1"					"omniknight_purification"
-		"Ability2"					"power_of_faith"
-		"Ability3"					"omniknight_degen_aura"
-		"Ability4"					"omniknight_guardian_angel_custom"	
+		"Ability2"					"omniknight_repel"
+		"Ability3"					"power_of_faith"
+		"Ability4"					"omniknight_guardian_angel"
+		//"Ability10"		"special_bonus_gold_income_10"
+		//"Ability11"		"special_bonus_exp_boost_15"
+		//"Ability12"		"special_bonus_cast_range_75"
+		//"Ability13"		"special_bonus_strength_8"
+		//"Ability14"		"special_bonus_attack_damage_100"
+		//"Ability15"		"special_bonus_mp_regen_6"
+		//"Ability16"		"special_bonus_unique_omniknight_1"
+		//"Ability17"		"special_bonus_unique_omniknight_2"			
 	}	
 
 "npc_dota_hero_dazzle"
 	{
 		"override_hero"				"npc_dota_hero_dazzle"				// Hero to override
-		"Ability1"					"dazzle_spirit_bear"
-		"Ability2"					"dazzle_shallow_grave_custom"
-		"Ability3"					"dazzle_shadow_wave_custom"
-		"Ability4"					"dazzle_weave_custom"	
+		"Ability1"					"lone_druid_spirit_bear"
+		"Ability2"					"dazzle_shallow_grave"
+		"Ability3"					"dazzle_shadow_wave"
+		"Ability4"					"dazzle_weave"
+		//"Ability10"		"special_bonus_intelligence_10"
+		//"Ability11"		"special_bonus_hp_125"
+		//"Ability12"		"special_bonus_cast_range_100"
+		//"Ability13"		"special_bonus_attack_damage_40"
+		//"Ability14"		"special_bonus_movement_speed_25"
+		//"Ability15"		"special_bonus_respawn_reduction_30"
+		//"Ability16"		"special_bonus_unique_dazzle_1"
+		//"Ability17"		"special_bonus_unique_dazzle_2"			
 	}
 
 "npc_dota_hero_crystal_maiden"
 	{
 		"override_hero"				"npc_dota_hero_crystal_maiden"				// Hero to override
-		"Ability1"		"winter_wyvern_cold_embrace_custom"
-		"Ability2"		"crystal_maiden_frostbite_custom"
-		"Ability3"		"crystal_maiden_brilliance_aura"
-		"Ability4"		"freezing_field"	
+		"Ability1"				"winter_wyvern_cold_embrace"
+		"Ability2"				"crystal_maiden_frostbite"
+		"Ability3"				"crystal_maiden_brilliance_aura"
+		"Ability4"				"freezing_field"
+		//"Ability10"		"special_bonus_magic_resistance_15"
+		//"Ability11"		"special_bonus_attack_damage_50"
+		//"Ability12"		"special_bonus_cast_range_125"
+		//"Ability13"		"special_bonus_hp_200"
+		//"Ability14"		"special_bonus_gold_income_20"
+		//"Ability15"		"special_bonus_respawn_reduction_35"
+		//"Ability16"		"special_bonus_unique_crystal_maiden_1"
+		//"Ability17"		"special_bonus_unique_crystal_maiden_2"			
 	}	
 	
-"npc_dota_hero_necrolyte"
-	{
-		"override_hero"				"npc_dota_hero_necrolyte"				// Hero to override
-		"Ability1"		"necrolyte_death_pulse"
-		"Ability2"		"necrolyte_heartstopper_aura_custom"
-		"Ability3"		"necrolyte_sadist"
-		"Ability4"		"necrolyte_borrowed_time"	
-	}		
-
 "npc_dota_hero_rubick"
 	{
 		"override_hero"				"npc_dota_hero_rubick"				// Hero to override
-		"Ability1"		"rubick_meditation"
-		"Ability3"		"rubick_fade_bolt_custom"		
-		"Ability7"		"rubick_spell_steal_custom"			
+		"Ability1"				"rubick_meditation"
+		"Ability3"				"rubick_fade_bolt"		
+		"Ability7"				"rubick_spell_steal"	
+		//"Ability11"		"special_bonus_gold_income_10"
+		//"Ability12"		"special_bonus_attack_damage_50"
+		//"Ability13"		"special_bonus_hp_150"
+		//"Ability14"		"special_bonus_intelligence_15"
+		//"Ability15"		"special_bonus_cast_range_75"
+		//"Ability16"		"special_bonus_spell_amplify_8"
+		//"Ability17"		"special_bonus_cooldown_reduction_20"
+		//"Ability18"		"special_bonus_unique_rubick"			
 	}	
 
 "npc_dota_hero_keeper_of_the_light"
 	{
 		"override_hero"				"npc_dota_hero_keeper_of_the_light"				// Hero to override
-		"Ability2"		"keeper_healing_ward"		
+		"Ability2"		"juggernaut_healing_ward"	
+		"Ability4"		"chen_hand_of_god"
+			
 	}
 
-"npc_dota_hero_earthshaker"
+"npc_dota_hero_sand_king"
 	{
-		"override_hero"				"npc_dota_hero_earthshaker"				// Hero to override
-		"Ability2"					"earthshaker_enchant_totem_autocast"
-		"Ability5"					"earthshaker_enchant_totem"				
-	}	
+		"override_hero"				"npc_dota_hero_sand_king"				// Hero to override
+		"Ability1"					"centaur_hoof_stomp"					
+	}
+
+"npc_dota_hero_tinker"
+	{
+		"override_hero"				"npc_dota_hero_tinker"
+		"AbilityLayout"				"4"				
+		"Ability1"					"techies_remote_mines"		
+		"Ability2"					"ogre_magi_bloodlust"
+		"Ability3"					"tinker_mechanoid"
+		"Ability5"					"tinker_mechanical_turret"
+		"Ability4"					"techies_focused_detonate"
+		//"Ability10"		"special_bonus_intelligence_8"
+		//"Ability11"		"special_bonus_armor_5"
+		//"Ability12"		"special_bonus_hp_200"
+		//"Ability13"		"special_bonus_spell_amplify_4"
+		//"Ability14"		"special_bonus_cast_range_75"
+		//"Ability15"		"special_bonus_magic_resistance_15"
+		//"Ability16"		"special_bonus_spell_lifesteal_20"
+		//"Ability17"		"special_bonus_unique_tinker"
+	}
+
+	//=================================================================================================================
+	// HERO: WISP
+	//=================================================================================================================
+	"npc_dota_hero_wisp"
+	{		
+		"AbilityLayout"		"4"					
+		"Ability1"		""
+		"Ability2"		""
+		"Ability3"		""
+		"Ability4"		""
+		"Ability5"		""
+		"Ability6"		""
+		"Ability7"		""
+		"Ability8"		""
+		"Ability9"		""
+		"Ability10"		""	
+
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"		"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"1"
+		"AttributeStrengthGain"		"0"
+		"AttributeBaseIntelligence"	"1"
+		"AttributeIntelligenceGain"	"0"
+		"AttributeBaseAgility"		"1"
+		"AttributeAgilityGain"		"0"
+
+		// Status
+		//-------------------------------------------------------------------------------------------------------------
+		"StatusHealth"			"80"
+		"StatusHealthRegen"		"0"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0"
+
+		// Vision
+		//-------------------------------------------------------------------------------------------------------------
+		"VisionDaytimeRange"		"1600"
+		"VisionNighttimeRange"		"1600"
+
+		// Armor
+		//-------------------------------------------------------------------------------------------------------------		
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+		
+		// Attack
+		//-------------------------------------------------------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"AttackRate"				"1.700000"
+		"AttackAnimationPoint"		"0.150000"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"120"
+		"ProjectileSpeed"			"1200"
+
+		// Movement
+		//-------------------------------------------------------------------------------------------------------------
+		"MovementSpeed"		"300"
+
+	}
 
 //=========================================================================================================
 // HERO: life stealer
 //=========================================================================================================
 "npc_dota_hero_life_stealer"
 	{
-		"override_hero"				"npc_dota_hero_life_stealer"				// Hero to override
-		"Ability1"					"night_stalker_hunter_in_the_night_custom"			// Ability 1
-		"Ability2"					"alchemist_acid_spray_custom"						// Ability 2
-		"Ability3"					"nevermore_dark_lord"						// Ability 3
-		"Ability6"					"life_stealer_infest_custom"						// Ability 6
+		"ModelScale"		"0.600000"	
+
+		"AbilityLayout"		"4"					
+		"Ability1"		"lifestealer_meld"
+		"Ability2"		""
+		"Ability3"		""				
+		"Ability4"		""
+		"Ability5"		""
+		"Ability6"		""
+		"Ability7"		""
+		"Ability8"		""
+		"Ability9"		""
+		"Ability10"		""
+
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"		"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"1"
+		"AttributeStrengthGain"		"0"
+		"AttributeBaseIntelligence"	"1"
+		"AttributeIntelligenceGain"	"0"
+		"AttributeBaseAgility"		"1"
+		"AttributeAgilityGain"		"0"
+
+		// Status
+		//-------------------------------------------------------------------------------------------------------------
+		"StatusHealth"			"100"
+		"StatusHealthRegen"		"0"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0"
+
+		// Vision
+		//-------------------------------------------------------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Armor
+		//-------------------------------------------------------------------------------------------------------------		
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
 		
-		"VisionNighttimeRange"		"2800"										// Range of vision at night time.
+		// Attack
+		//-------------------------------------------------------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"1"
-		"AttackDamageMax"			"3"			
-		"StatusHealthRegen"			"5"			
-		"StatusMana"				"1"			
-		"StatusManaRegen"			"1"	
+		"AttackDamageMax"			"1"
+		"AttackRate"				"1.450000"
+		"AttackAnimationPoint"		"0.300000"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				"128"
+		"ProjectileSpeed"			"0"
+
+		// Movement
+		//-------------------------------------------------------------------------------------------------------------
+		"MovementSpeed"		"450"
+	}
+
+
+	//=================================================================================================================
+	// HERO: BEASTMASTER
+	//=================================================================================================================
+	"npc_dota_hero_beastmaster"
+	{			
+		"AbilityLayout"		"5"					
+		"Ability1"		"shotgun_shoot"
+		"Ability2"		"create_trap"
+		"Ability3"		""
+		"Ability4"		""
+		"Ability5"		""
+		"Ability6"		""
+		"Ability7"		""
+		"Ability8"		""
+		"Ability9"		""
+		"Ability10"		""	
+
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"		"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"1"
+		"AttributeStrengthGain"		"0"
+		"AttributeBaseIntelligence"	"1"
+		"AttributeIntelligenceGain"	"0"
+		"AttributeBaseAgility"		"1"
+		"AttributeAgilityGain"		"0"
+
+		// Status
+		//-------------------------------------------------------------------------------------------------------------
+		"StatusHealth"			"980"
+		"StatusHealthRegen"		"1000"
+		"StatusMana"			"0"
+		"StatusManaRegen"		"0"
+
+		// Vision
+		//-------------------------------------------------------------------------------------------------------------
+		"VisionDaytimeRange"		"1600"
+		"VisionNighttimeRange"		"1600"
+
+		// Armor
+		//-------------------------------------------------------------------------------------------------------------		
+		"ArmorPhysical"			"0"
+		"MagicalResistance"		"0"
+		
+		// Attack
+		//-------------------------------------------------------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"AttackRate"				"1.700000"
+		"AttackAnimationPoint"		"0.150000"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"120"
+		"ProjectileSpeed"			"1200"
+
+		// Movement
+		//-------------------------------------------------------------------------------------------------------------
+		"MovementSpeed"		"400"
+
 	}
 
 //=========================================================================================================
@@ -315,7 +678,7 @@
 		"override_hero"				"npc_dota_hero_death_prophet"				// Hero to override
 		"Ability1"					"night_stalker_hunter_in_the_night_custom"			// Ability 1
 		"Ability2"					"riki_permanent_invisibility"				// Ability 2
-		"Ability3"					"necrolyte_heartstopper_aura"				// Ability 3
+		"Ability3"					""				// Ability 3
 		"Ability4"					"death_prophet_exorcism_custom"				// Ability 4
 		
 		"VisionNighttimeRange"		"2800"										// Range of vision at night time.

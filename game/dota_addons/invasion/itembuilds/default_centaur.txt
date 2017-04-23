@@ -1,0 +1,39 @@
+"itembuilds"
+{
+	"author"		"ilia"
+	"hero"			"npc_dota_hero_centaur"
+	"Title"			"Recommended items for Centaur"
+	
+
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_hand_of_midas"			
+			"item"		"item_stout_shield"
+			"item"		"item_branches"			
+			"item"		"item_flask"			
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_vanguard"
+			"item"		"item_headdress"
+			"item"		"item_soul_ring"
+			"item"		"item_buckler"							
+		}
+		
+		"#DOTA_Item_Build_Core_Items"
+		{ 
+			"item"		"item_heart"
+			"item"		"item_butterfly"
+			"item"		"item_crimson_guard"								
+			"item"		"item_pipe"									
+		}
+		
+		"#DOTA_Item_Build_Luxury"
+		{		
+			"item"		"item_assault"											
+		}
+	}
+}

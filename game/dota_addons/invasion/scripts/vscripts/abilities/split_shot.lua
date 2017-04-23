@@ -14,7 +14,7 @@ function SplitShot(data)
 
 	for i = 2, arrow_count do
 		if units[ i ] then
-			caster:PerformAttack(units[ i ], false, true, true, false, true)
+			caster:PerformAttack(units[ i ], false, true, true, false, true, false, false)
 		end
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_split", {})

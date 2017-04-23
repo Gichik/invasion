@@ -1,0 +1,37 @@
+"itembuilds"
+{
+	"author"		"ilia"
+	"hero"			"npc_dota_hero_crystal_maiden"
+	"Title"			"Recommended items for Crystal Maiden"
+	
+
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_hand_of_midas"								
+			"item"		"item_flask"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_headdress"
+			"item"		"item_arcane_boots"
+			"item"		"item_soul_ring"																						
+		}
+		
+		"#DOTA_Item_Build_Core_Items"
+		{ 	
+			"item"		"item_mekansm"
+			"item"		"item_pipe"				
+			"item"		"item_bloodstone"
+		}
+		
+		"#DOTA_Item_Build_Luxury"
+		{					
+			"item"		"item_guardian_greaves"	
+			"item"		"item_octarine_core"			
+			"item"		"item_ultimate_scepter"																						
+		}
+	}
+}

@@ -1,0 +1,39 @@
+"itembuilds"
+{
+	"author"		"ilia"
+	"hero"			"npc_dota_hero_spectre"
+	"Title"			"Recommended items for Spectre"
+	
+
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_hand_of_midas"					
+			"item"		"item_quelling_blade"			
+			"item"		"item_flask"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_vanguard"	
+			"item"		"item_lifesteal"											
+		}
+		
+		"#DOTA_Item_Build_Core_Items"
+		{ 
+			"item"		"item_butterfly"
+			"item"		"item_radiance"					
+			"item"		"item_octarine_core"
+			"item"		"item_crimson_guard"																						
+		}
+		
+		"#DOTA_Item_Build_Luxury"
+		{					
+			"item"		"item_rapier"
+			"item"		"item_moon_shard"
+			"item"		"item_greater_crit"
+			"item"		"item_assault"								
+		}
+	}
+}

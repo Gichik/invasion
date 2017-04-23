@@ -1,10 +1,9 @@
 
-
-
-
 if InvasionMode == nil then
 	InvasionMode = class({})
 end
+
+LinkLuaModifier("modifier_octarinius", "modifiers/modifier_octarinius.lua", LUA_MODIFIER_MOTION_NONE )
 
 
 function InvasionMode:InvasionMap()
@@ -15,7 +14,6 @@ function InvasionMode:InvasionMap()
 
 	GameRules:SetSameHeroSelectionEnabled(false)
 	
-	GameRules:SetTimeOfDay( 0.5 )
 	GameRules:SetHeroRespawnEnabled( true )
 	GameRules:SetUseUniversalShopMode( true )
 	GameRules:SetHeroSelectionTime( 20.0 )
@@ -25,35 +23,116 @@ function InvasionMode:InvasionMap()
 	GameRules:SetHeroMinimapIconScale( 0.7 )
 	GameRules:SetCreepMinimapIconScale( 0.7 )
 	GameRules:SetRuneMinimapIconScale( 0.7 )
-	GameRules:SetGoldTickTime( 60.0 )
+	GameRules:SetGoldTickTime( 1 )
 	GameRules:SetGoldPerTick( 0 )
+
 	GameRules:GetGameModeEntity():SetRemoveIllusionsOnDeath( true )
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride( true )
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( false )
+	--GameRules:GetGameModeEntity():SetRecommendedItemsDisabled( true )
+
+	GameRules:GetGameModeEntity():SetDamageFilter(Dynamic_Wrap(InvasionMode, "DamageFilter"), self)	
 
 	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(InvasionMode, 'InvasionMapGameRulesStateChange'), self)
-	ListenToGameEvent('entity_killed', Dynamic_Wrap(InvasionMode, 'OnEntityKilled'), self)	
-	--ListenToGameEvent('dota_glyph_used', Dynamic_Wrap(InvasionMode, 'OnGlyphUsed'), self)	
-	ListenToGameEvent('dota_item_picked_up', Dynamic_Wrap(InvasionMode, 'OnItemPickedUp'), self)
-	
-	
-	local point = Entities:FindByName( nil, "spawn_base"):GetAbsOrigin()
-	local unit = CreateUnitByName("npc_base", point, true, nil, nil, DOTA_TEAM_GOODGUYS )	
-	unit:SetForwardVector(Vector(0,-1,0))
+	ListenToGameEvent('entity_killed', Dynamic_Wrap(InvasionMode, 'InvasionEntityKilled'), self)		
+	ListenToGameEvent('dota_item_picked_up', Dynamic_Wrap(InvasionMode, 'InvasionOnItemPickedUp'), self)
+	ListenToGameEvent('npc_spawned', Dynamic_Wrap(InvasionMode, 'InvasionOnNPCSpawn'), self)	
+
+	--local point = Entities:FindByName( nil, "wood_spawn_1"):GetAbsOrigin()
+	--local unit = CreateUnitByName("wood_wall", point, true, nil, nil, DOTA_TEAM_NEUTRALS )	
+	--unit:SetForwardVector(Vector(-1,0,0))
+	--unit:SetHullRadius(100.0)
+	--point = Entities:FindByName( nil, "wood_spawn_2"):GetAbsOrigin()
+	--unit = CreateUnitByName("wood_wall", point, true, nil, nil, DOTA_TEAM_NEUTRALS )
+	--unit:SetForwardVector(Vector(0,-1,0))
+	--unit:SetHullRadius(100.0)
+
 end
 
 
- function InvasionMode:InvasionMapGameRulesStateChange(keys)
-  local newState = GameRules:State_Get()
-  if newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-    InvasionMode:InvasionGameStart()
-  end
+function InvasionMode:DamageFilter(data)
+	local damage 				= data.damage
+	local entindex_inflictor_const 	= data.entindex_inflictor_const
+	local entindex_victim_const		= data.entindex_victim_const
+	local entindex_attacker_const 	= data.entindex_attacker_const
+	local damagetype_const 		= data.damagetype_const
+	local ability = nil
+	local victim = nil
+	local attacker = nil
+
+
+	if (entindex_inflictor_const) then 
+		ability	= EntIndexToHScript(entindex_inflictor_const) 
+	end
+	if (entindex_victim_const) then 
+		victim 	= EntIndexToHScript(entindex_victim_const)
+	end
+	if (entindex_attacker_const) then 
+		attacker 	= EntIndexToHScript(entindex_attacker_const) 
+		if attacker:HasItemInInventory("item_octarinity") and ability and victim then
+
+			local multiplier = 1
+			local item = nil
+			local itemAbility = nil
+
+			for i = 0, 5 do  
+				item = attacker:GetItemInSlot(i)
+				if item ~= nil and item:GetName() == "item_octarinity" then
+					itemAbility = item
+				end	
+			end		
+
+			if victim:IsRealHero() then
+				multiplier = itemAbility:GetSpecialValueFor("hero_lifesteal")/100
+			else
+				multiplier = itemAbility:GetSpecialValueFor("creep_lifesteal")/100
+			end	
+
+			local partID1 = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
+			ParticleManager:SetParticleControl(partID1, 0, attacker:GetAbsOrigin())
+
+			attacker:Heal(damage*multiplier, attacker)
+		end
+	end
+	return true;
+end
+
+
+ function InvasionMode:InvasionMapGameRulesStateChange(data)
+	local newState = GameRules:State_Get()
+	if newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+		InvasionMode:InvasionGameStart()
+	end
+	if newState == DOTA_GAMERULES_STATE_POST_GAME then
+		local presentTime = GameRules:GetDOTATime(false,false)
+		if presentTime < 1479 then
+			GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
+		end
+	end
+
+end
+
+
+function InvasionMode:InvasionOnNPCSpawn(data)
+
+	local player = EntIndexToHScript(data.entindex)
+
+	if player:IsHero() and player:GetName() == "npc_dota_hero_tidehunter" then
+		if not player:HasModifier("modifier_item_ultimate_scepter")	then
+			player:AddNewModifier(player, nil, "modifier_item_ultimate_scepter", {})
+		end		
+	end
+	
+	if player:IsHero() and player:GetName() == "npc_dota_hero_ember_spirit" then
+		player:FindAbilityByName("ogre_magi_multicast"):SetLevel(1)	
+	end	
 end
 
 
 function InvasionMode:InvasionGameStart()
 
-InvasionMode:SpawnMoobs()
+InvasionMode:InvasionSpawnMoobs()
+
 
 
 Timers:CreateTimer(2,function()
@@ -71,7 +150,7 @@ end)
 Timers:CreateTimer(475,function()
 	local presentTime = GameRules:GetDOTATime(false,false)
 	EmitGlobalSound("Invasion.Summertime")	
-	GameRules:SendCustomMessage("<font color='#58ACFA'>Lana Del Rey – Summertime Sadness</font>", 0, 0)
+	GameRules:SendCustomMessage("<font color='#58ACFA'>Lana Del Rey - Summertime Sadness (smoke remix)</font>", 0, 0)
 return nil
 end)
 
@@ -143,6 +222,7 @@ EmitGlobalSound("Invasion.Zombie")
 		end
 	end]]
 ------------------------------------second--------------------------------
+
 	if presentTime > 720 and presentTime < 960 then
 		for n = 0, 4 do
 			for i = 53, 56 do
@@ -189,7 +269,7 @@ end)
 
 end
 
-function InvasionMode:SpawnMoobs()
+function InvasionMode:InvasionSpawnMoobs()
 local point = nil
 local unit = nil
 local ability = nil
@@ -206,88 +286,126 @@ local i = 0
 for i = 0, 4 do
 	point = Entities:FindByName( nil, "spawn_" .. i):GetAbsOrigin()
 	unit = CreateUnitByName("cadaveric_bunch", point, true, nil, nil, DOTA_TEAM_BADGUYS )
-	ability = unit:FindAbilityByName("respawn")
-	ability:SetOverrideCastPoint(i) 	
+	--ability = unit:FindAbilityByName("respawn")
+	--ability:SetOverrideCastPoint(i) 
+	unit.vSpawnLoc = unit:GetOrigin()
+	unit.vSpawnVector = Vector(-1,-1,0)
+	unit:SetForwardVector(Vector(-1,-1,0))	
 end	
 
 for i = 10, 24 do
 	point = Entities:FindByName( nil, "spawn_" .. i):GetAbsOrigin()
 	unit = CreateUnitByName("new_half_zombies", point, true, nil, nil, DOTA_TEAM_BADGUYS )
-	ability = unit:FindAbilityByName("respawn")
-	ability:SetOverrideCastPoint(i) 	
+	--ability = unit:FindAbilityByName("respawn")
+	--ability:SetOverrideCastPoint(i) 
+	unit.vSpawnLoc = unit:GetOrigin()
+	unit.vSpawnVector = Vector(-1,-1,0)
+	unit:SetForwardVector(Vector(-1,-1,0))	
 end	
+
+
 
 for i = 0, 4 do
 	point = Entities:FindByName( nil, "spawn_30"):GetAbsOrigin()
 	unit = CreateUnitByName("pig", point + RandomVector( RandomFloat( 0, 100 )), true, nil, nil, DOTA_TEAM_BADGUYS )
-	ability = unit:FindAbilityByName("respawn")
-	ability:SetOverrideCastPoint(30) 	
+	--ability = unit:FindAbilityByName("respawn")
+	--ability:SetOverrideCastPoint(30)
+	unit.vSpawnLoc = unit:GetOrigin()
+	unit.vSpawnVector = Vector(1,0,0)
+	unit:SetForwardVector(Vector(1,0,0))	 	
 end
 
 for i = 0, 4 do
 	point = Entities:FindByName( nil, "spawn_31"):GetAbsOrigin()
 	unit = CreateUnitByName("sheep", point + RandomVector( RandomFloat( 0, 100 )), true, nil, nil, DOTA_TEAM_BADGUYS )
-	ability = unit:FindAbilityByName("respawn")
-	ability:SetOverrideCastPoint(31) 	
+	--ability = unit:FindAbilityByName("respawn")
+	--ability:SetOverrideCastPoint(31) 	
+	unit.vSpawnLoc = unit:GetOrigin()
+	unit.vSpawnVector = Vector(-1,0,0)
+	unit:SetForwardVector(Vector(-1,0,0))	
 end
 
 
 for i = 0, 7 do
 	point = Entities:FindByName( nil, "spawn_50"):GetAbsOrigin()
 	unit = CreateUnitByName("sickly_zombies", point + RandomVector( RandomFloat( 0, 100 )), true, nil, nil, DOTA_TEAM_BADGUYS )
-	ability = unit:FindAbilityByName("respawn")
-	ability:SetOverrideCastPoint(50) 	
+	--ability = unit:FindAbilityByName("respawn")
+	--ability:SetOverrideCastPoint(50) 
+	unit.vSpawnLoc = unit:GetOrigin()
+	unit.vSpawnVector = Vector(1,0,0)
+	unit:SetForwardVector(Vector(1,0,0))		
 end
 
 for i = 0, 3 do
 	point = Entities:FindByName( nil, "spawn_51"):GetAbsOrigin()
 	unit = CreateUnitByName("sickly_zombies", point + RandomVector( RandomFloat( 0, 100 )), true, nil, nil, DOTA_TEAM_BADGUYS )
-	ability = unit:FindAbilityByName("respawn")
-	ability:SetOverrideCastPoint(51) 	
+	--ability = unit:FindAbilityByName("respawn")
+	--ability:SetOverrideCastPoint(51) 	
+	unit.vSpawnLoc = unit:GetOrigin()
+	unit.vSpawnVector = Vector(-1,0,0)
+	unit:SetForwardVector(Vector(-1,0,0))	
 end
 
 for i = 0, 3 do
 	point = Entities:FindByName( nil, "spawn_52"):GetAbsOrigin()
 	unit = CreateUnitByName("sickly_zombies", point + RandomVector( RandomFloat( 0, 100 )), true, nil, nil, DOTA_TEAM_BADGUYS )
-	ability = unit:FindAbilityByName("respawn")
-	ability:SetOverrideCastPoint(52) 	
+	--ability = unit:FindAbilityByName("respawn")
+	--ability:SetOverrideCastPoint(52)
+	unit.vSpawnLoc = unit:GetOrigin()
+	unit.vSpawnVector = Vector(-1,0,0)
+	unit:SetForwardVector(Vector(-1,0,0))	 	
 end
 
 for i = 0, 7 do
 	point = Entities:FindByName( nil, "spawn_53"):GetAbsOrigin()
 	unit = CreateUnitByName("tight_zombies", point + RandomVector( RandomFloat( 0, 100 )), true, nil, nil, DOTA_TEAM_BADGUYS )
-	ability = unit:FindAbilityByName("respawn")
-	ability:SetOverrideCastPoint(53) 	
+	--ability = unit:FindAbilityByName("respawn")
+	--ability:SetOverrideCastPoint(53) 	
+	unit.vSpawnLoc = unit:GetOrigin()
+	unit.vSpawnVector = Vector(-1,0,0)
+	unit:SetForwardVector(Vector(-1,0,0))	
 end
 
 
 for i = 0, 3 do
 	point = Entities:FindByName( nil, "spawn_54"):GetAbsOrigin()
 	unit = CreateUnitByName("tight_zombies", point + RandomVector( RandomFloat( 0, 100 )), true, nil, nil, DOTA_TEAM_BADGUYS )
-	ability = unit:FindAbilityByName("respawn")
-	ability:SetOverrideCastPoint(54) 	
+	--ability = unit:FindAbilityByName("respawn")
+	--ability:SetOverrideCastPoint(54)
+	unit.vSpawnLoc = unit:GetOrigin()
+	unit.vSpawnVector = Vector(1,0,0)
+	unit:SetForwardVector(Vector(1,0,0))	 	
 end
 
 for i = 0, 3 do
 	point = Entities:FindByName( nil, "spawn_55"):GetAbsOrigin()
 	unit = CreateUnitByName("tight_zombies", point + RandomVector( RandomFloat( 0, 100 )), true, nil, nil, DOTA_TEAM_BADGUYS )
-	ability = unit:FindAbilityByName("respawn")
-	ability:SetOverrideCastPoint(55) 	
+	--ability = unit:FindAbilityByName("respawn")
+	--ability:SetOverrideCastPoint(55) 
+	unit.vSpawnLoc = unit:GetOrigin()
+	unit.vSpawnVector = Vector(-1,0,0)
+	unit:SetForwardVector(Vector(-1,0,0))
 end
 	
 for i = 0, 7 do
 	point = Entities:FindByName( nil, "spawn_56"):GetAbsOrigin()
 	unit = CreateUnitByName("tight_zombies", point + RandomVector( RandomFloat( 0, 100 )), true, nil, nil, DOTA_TEAM_BADGUYS )
-	ability = unit:FindAbilityByName("respawn")
-	ability:SetOverrideCastPoint(56) 	
+	--ability = unit:FindAbilityByName("respawn")
+	--ability:SetOverrideCastPoint(56)
+	unit.vSpawnLoc = unit:GetOrigin()
+	unit.vSpawnVector = Vector(1,0,0)
+	unit:SetForwardVector(Vector(1,0,0))	 	
 end
 
 for n = 0, 7 do
 	for i = 57, 58 do
 		point = Entities:FindByName( nil, "spawn_" .. i):GetAbsOrigin()
 		unit = CreateUnitByName("toothy_zombies", point + RandomVector( RandomFloat( 0, 100 )), true, nil, nil, DOTA_TEAM_BADGUYS )
-		ability = unit:FindAbilityByName("respawn")
-		ability:SetOverrideCastPoint(i) 	
+		--ability = unit:FindAbilityByName("respawn")
+		--ability:SetOverrideCastPoint(i)
+		unit.vSpawnLoc = unit:GetOrigin()
+		unit.vSpawnVector = Vector(0,-1,0)
+		unit:SetForwardVector(Vector(0,-1,0))		 	
 	end
 end
 
@@ -295,14 +413,27 @@ end
 	
 end
  
-function InvasionMode:OnEntityKilled (event)
-   local killedEntity = EntIndexToHScript(event.entindex_killed)
-    if killedEntity:GetUnitName() == "npc_base" then
+function InvasionMode:InvasionEntityKilled (data)
+   local killedEntity = EntIndexToHScript(data.entindex_killed)
+
+    if killedEntity:IsRealHero() then
+		local unit = EntIndexToHScript(data.entindex_attacker)
+		unit:AddSpeechBubble(1, "#PlayerDead", 2, 0, 0)
+	end	
+
+    if killedEntity:GetUnitName() == "NPC_base" then
 		GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
 		EmitGlobalSound("Invasion.HommerWin")
 	end	
-   
-   
+
+	if killedEntity:GetUnitName() == "npc_enchantress_base" then
+		GameRules:SetGoldPerTick( 0 )
+		local unit = Entities:FindByName(nil, "NPC_base")
+		unit:AddSpeechBubble(1, "#EnchDead_Bubble", 2, 0, 0)
+		--EmitGlobalSound("Invasion.HommerWin")
+	end	
+
+
    if killedEntity:GetUnitName() == "pig" then
     if RandomInt(1, 10) > 5  then
      InvasionMode:CreateDrop("item_food_cheese", killedEntity:GetAbsOrigin())
@@ -329,29 +460,36 @@ function InvasionMode:CreateDrop (itemName, pos)
    newItem:SetPurchaseTime(0)
    CreateItemOnPositionSync(pos, newItem)
    newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
- end
- 
-
- function InvasionMode:OnItemPickedUp(data)
-	local item = EntIndexToHScript( data.ItemEntityIndex )
-	local hero = EntIndexToHScript( data.HeroEntityIndex )
-	local team = hero:GetTeamNumber() 
-	local gold = 500
-
-	if data.itemname == "item_bag_of_gold" then
-		for i=0,5 do
-			if PlayerResource:IsValidPlayer(i) then
-				local player = PlayerResource:GetPlayer(i)
-				local teamNumb = player:GetTeamNumber()
-
-				if teamNumb == team then
-					PlayerResource:ModifyGold( player:GetPlayerID(), gold, true, 0 )
-					SendOverheadEventMessage( hero, OVERHEAD_ALERT_GOLD, player, gold, nil )
-				end
-			
-			end
-		end
-		UTIL_Remove( item )
-	end
-	
 end
+
+
+function InvasionMode:InvasionOnItemPickedUp(data)
+	local item = EntIndexToHScript( data.ItemEntityIndex )
+	local gold = 500	
+	local hero = nil
+	local team = nil
+
+	if data.HeroEntityIndex then
+		hero = EntIndexToHScript( data.HeroEntityIndex )
+		team = hero:GetTeamNumber()
+
+		if data.itemname == "item_bag_of_gold" then
+			for i=0,5 do
+				if PlayerResource:IsValidPlayer(i) then
+					local player = PlayerResource:GetPlayer(i)
+					if player then 
+						local teamNumb = player:GetTeamNumber()
+
+						if teamNumb == team then
+							PlayerResource:ModifyGold( player:GetPlayerID(), gold, true, 0 )
+							SendOverheadEventMessage( hero, OVERHEAD_ALERT_GOLD, player, gold, nil )
+						end
+					end
+				end
+			end
+			UTIL_Remove( item )
+		end
+	end
+end
+
+

@@ -1,7 +1,6 @@
 "AddonInfo"
 {
-	"TeamCount"  "1"
-	"maps"  "invasion invasion_in_the_forest invasion_forest_pvz"
+	maps  "invasion invasion_in_the_forest invasion_in_the_city_small scorched_earth"
 	"IsPlayable" "1"
 	"invasion"
  	{
@@ -11,10 +10,12 @@
  	{
   		"MaxPlayers" "5"
  	}
-	"invasion_forest_pvz"
+	"invasion_in_the_city_small"
+ 	{
+  		"MaxPlayers" "6"
+ 	}
+	"scorched_earth"
  	{
   		"MaxPlayers" "8"
  	}
-
-
 }
