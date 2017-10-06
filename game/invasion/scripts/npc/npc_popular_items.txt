@@ -1,0 +1,22 @@
+"DOTAHeroes"
+{
+	"npc_dota_hero_antimage"
+	{
+		"popular_items"
+		{
+			"item_bfury" "0"
+			"item_power_treads" "0"
+			"item_manta" "0"
+			"item_abyssal_blade" "0"
+			"item_poor_mans_shield" "0"
+			"item_butterfly" "0"
+			"item_vladmir" "0"
+			"item_black_king_bar" "0"
+			"item_basher" "0"
+			"item_ultimate_scepter" "0"
+			"item_sphere" "0"
+			"item_yasha" "0"
+		}
+	}
+
+}

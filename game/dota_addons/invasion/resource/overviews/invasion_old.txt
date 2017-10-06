@@ -1,8 +1,0 @@
-invasion_old
-{
-	material materials/overviews/invasion_old.vmat
-	pos_x -4096
-	pos_y 3840
-	scale 8.000
-}
-

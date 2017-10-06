@@ -1,8 +1,0 @@
-pvp_invasion_forest
-{
-	material materials/overviews/pvp_invasion_forest.vmat
-	pos_x -12288
-	pos_y 12288
-	scale 24.000
-}
-

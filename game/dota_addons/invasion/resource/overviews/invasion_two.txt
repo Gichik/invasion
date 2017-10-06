@@ -1,8 +1,0 @@
-invasion_two
-{
-	material materials/overviews/invasion_two.vmat
-	pos_x -5632
-	pos_y 6144
-	scale 11.500
-}
-

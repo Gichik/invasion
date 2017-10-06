@@ -1,0 +1,44 @@
+"itembuilds"
+{
+	"author"		"ilia"
+	"hero"			"npc_dota_hero_juggernaut"
+	"Title"			"Recommended items for Yurnero"
+	
+
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_hand_of_midas"			
+			"item"		"item_stout_shield"		
+			"item"		"item_quelling_blade"			
+			"item"		"item_flask"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_vanguard"
+			"item"		"item_lifesteal"
+			"item"		"item_ring_of_health"							
+		}
+		
+		"#DOTA_Item_Build_Core_Items"
+		{ 
+			"item"		"item_satanic"
+			"item"		"item_tesla"			
+			"item"		"item_radiance"	
+			"item"		"item_butterfly"									
+		}
+		
+		"#DOTA_Item_Build_Luxury"
+		{					
+			"item"		"item_assault"
+			"item"		"item_moon_shard"			
+			"item"		"item_rapier"
+			"item"		"item_bunch_of_butterfly"
+			"item"		"item_sphere"
+			"item"		"item_black_king_bar"
+
+		}
+	}
+}

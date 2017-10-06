@@ -1,8 +1,0 @@
-invasion_in_the_forest_second
-{
-	material materials/overviews/invasion_in_the_forest_second.vmat
-	pos_x -4096
-	pos_y 4096
-	scale 8.000
-}
-

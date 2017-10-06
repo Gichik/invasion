@@ -1,0 +1,8 @@
+high_light
+{
+	material materials/overviews/high_light.vmat
+	pos_x -6144
+	pos_y 6144
+	scale 12.000
+}
+

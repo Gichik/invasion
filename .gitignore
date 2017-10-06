@@ -1,19 +1,38 @@
-#############
-#	DOTA2
-#############
+#ignore list
 
 *.vpk
-*.vpcf_c
-*.vsnd_c
-*.vsndevts_c
-*.vmat_c
-# *.vtex_c
-# model ah1z
-*.vmesh_c
-*.vanim_c
-*.vagrp_c
-*.vmdl_c
 *.bin
 
-# mylls junk
-*.pad
+# Compiled formats
+*.vpcf_c
+*.vtex_c
+*.vsndevts_c
+*.vmat_c
+*.vjs_c
+*.vxml_c
+*.vcss_c
+*.vmdl_c
+*.vanim_c
+*.vmesh_c
+*.vagrp_c
+*.vsnd_c
+*.vseq_c
+
+# Panorama debugger
+*.cfg
+
+# Commit panorama compiled textures
+!game/panorama/images/*.vtex_c
+!game/panorama/images/custom_game/*.vtex_c
+
+
+# Map overviews
+content/materials/overviews/*
+game/materials/overviews/*
+game/resource/overviews/*
+
+#Github dump
+*.stackdump
+
+#Specific files
+main/game/frostivus_2017_ua/scripts/localProperties.txt

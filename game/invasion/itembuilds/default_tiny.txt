@@ -1,0 +1,44 @@
+"itembuilds"
+{
+	"author"		"ilia"
+	"hero"			"npc_dota_hero_tiny"
+	"Title"			"Recommended items for Tiny"
+	
+
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_hand_of_midas"			
+			"item"		"item_stout_shield"
+			"item"		"item_branches"			
+			"item"		"item_flask"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_vanguard"
+			"item"		"item_headdress"
+			"item"		"item_ring_of_health"
+			"item"		"item_buckler"											
+		}
+		
+		"#DOTA_Item_Build_Core_Items"
+		{ 
+			"item"		"item_tesla"		
+			"item"		"item_satanic"
+			"item"		"item_ultimate_scepter"			
+			"item"		"item_greater_crit"	
+			"item"		"item_butterfly"									
+		}
+		
+		"#DOTA_Item_Build_Luxury"
+		{		
+			"item"		"item_octarinity"					
+			"item"		"item_rapier"
+			"item"		"item_moon_shard"
+			"item"		"item_sphere"
+			"item"		"item_black_king_bar"																
+		}
+	}
+}

@@ -1,0 +1,40 @@
+"itembuilds"
+{
+	"author"		"ilia"
+	"hero"			"npc_dota_hero_viper"
+	"Title"			"Recommended items for Viper"
+	
+
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_hand_of_midas"								
+			"item"		"item_flask"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_oblivion_staff"
+			"item"		"item_dragon_lance"				
+			"item"		"item_lifesteal"										
+		}
+		
+		"#DOTA_Item_Build_Core_Items"
+		{ 
+			"item"		"item_octarine_core"			
+			"item"		"item_moon_shard"
+			"item"		"item_orchid"								
+		}
+		
+		"#DOTA_Item_Build_Luxury"
+		{					
+			"item"		"item_octarinity"			
+			"item"		"item_rapier"
+			"item"		"item_satanic"	
+			"item"		"item_bunch_of_butterfly"
+			"item"		"item_sphere"
+			"item"		"item_black_king_bar"																				
+		}
+	}
+}

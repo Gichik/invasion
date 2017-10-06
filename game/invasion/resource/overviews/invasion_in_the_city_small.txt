@@ -1,0 +1,8 @@
+invasion_in_the_city_small
+{
+	material materials/overviews/invasion_in_the_city_small.vmat
+	pos_x -3072
+	pos_y 3072
+	scale 6.000
+}
+
