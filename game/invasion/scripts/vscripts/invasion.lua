@@ -66,7 +66,7 @@ function InvasionMode:DamageFilter(data)
 	local ability = nil
 	local victim = nil
 	local attacker = nil
-print(damage)
+
 
 	if damage > 0 then
 
@@ -445,7 +445,8 @@ function InvasionMode:InvasionEntityKilled (data)
 			InvasionMode:CreateDrop("item_bag_of_gold", killedEntity:GetAbsOrigin())
 		end
 		if GameRules:IsDaytime() == false then
-			Say(nil,"Necromancer: Excellent! Bring it to me!", true)
+			GameRules:SendCustomMessage("#popup_body_necrolyte_death_bosses", 0, 0)
+			--Say(nil,"Necromancer: Excellent! Bring it to me!", true)
 			InvasionMode:CreateDrop("item_witch_eye", killedEntity:GetAbsOrigin())
 		end
 		InvasionMode:InvasionActivateGhosts()	 
@@ -456,7 +457,8 @@ function InvasionMode:InvasionEntityKilled (data)
 			InvasionMode:CreateDrop("item_bag_of_gold", killedEntity:GetAbsOrigin())
 		end
 		if GameRules:IsDaytime() == false then
-			Say(nil,"Necromancer: Excellent! Bring it to me!", true)
+			GameRules:SendCustomMessage("#popup_body_necrolyte_death_bosses", 0, 0)
+			--Say(nil,"Necromancer: Excellent! Bring it to me!", true)
 			InvasionMode:CreateDrop("item_undying_heart", killedEntity:GetAbsOrigin())
 		end
 		InvasionMode:InvasionActivateMadZombies()
@@ -464,9 +466,11 @@ function InvasionMode:InvasionEntityKilled (data)
 
 	if killedEntity:GetUnitName() == "npc_necrolyte_quest" then
 		if BossesArtifacts > 1 then
-			Say(nil,"Necromancer: Hahah, you fool, you can not stop your death! He's coming on third night!", true)
+			GameRules:SendCustomMessage("#popup_body_necrolyte_too_late", 0, 0)
+			--Say(nil,"Necromancer: Hahah, you fool, you can not stop your death! He's coming on third night!", true)
 		else
-			Say(nil,"Necromancer: I could make you a god ... But you get nothing... Good day sir!", true)
+			GameRules:SendCustomMessage("#popup_body_necrolyte_death", 0, 0)
+			--Say(nil,"Necromancer: I could make you a god ... But you get nothing... Good day sir!", true)
 		end
 		InvasionMode:InvasionActivateGhoul()
 		NecrolyteIsDead = 1	 
@@ -606,17 +610,22 @@ function InvasionMode:InvasionActivateDemonOfHell()
 end
 
 function CheckBossesArtifacts(data)
+	print("CheckBossesArtifacts")
 	--for k,v in pairs(data) do
 	--	print(k)
 	--end
 	local target = data.target
-	--print(target:GetUnitName())
+
 
 	if BossesArtifacts == 0 or BossesArtifacts == 1 then
+		--print("first")
+		GameRules:SendCustomMessage("#popup_body_necrolyte_give_quest_1", 0, 0)
+		GameRules:SendCustomMessage("#popup_body_necrolyte_give_quest_2", 0, 0)
 		--ShowGenericPopupToPlayer(target, "#popup_title_necrolyte_first", "#popup_body_necrolyte_first", "", "", DOTA_SHOWGENERICPOPUP_TINT_SCREEN )
-		Say(nil,"Necromancer: Do you want the power of the gods? Bring me the witch's eye and the heart of the immortal and I will make you a god. Only kill them at night, otherwise their bodies will melt in the sun...", true)
+		--Say(nil,"Necromancer: Do you want the power of the gods? Bring me the witch's eye and the heart of the immortal and I will make you a god. Only kill them at night, otherwise their bodies will melt in the sun...", true)
 	elseif BossesArtifacts < 0 then 
-		Say(nil,"Necromancer: Muhahahah, prepare to die!", true)
+		GameRules:SendCustomMessage("#popup_body_necrolyte_prepare", 0, 0)
+		--Say(nil,"Necromancer: Muhahahah, prepare to die!", true)
 		--ShowGenericPopupToPlayer(target, "#popup_title_necrolyte_second", "#popup_body_necrolyte_second", "", "", DOTA_SHOWGENERICPOPUP_TINT_SCREEN )
 	end
 
@@ -636,8 +645,9 @@ function CheckBossesArtifacts(data)
 	end
 
 	if BossesArtifacts > 1 then
+		GameRules:SendCustomMessage("#popup_body_necrolyte_end_quest", 0, 0)
 		--ShowGenericPopupToPlayer(target, "#popup_title_necrolyte_second", "#popup_body_necrolyte_second", "", "", DOTA_SHOWGENERICPOPUP_TINT_SCREEN )
-		Say(nil,"Necromancer: Excellent! Now wait for the third night and accept your death!", true)
+		--Say(nil,"Necromancer: Excellent! Now wait for the third night and accept your death!", true)
 		InvasionMode:InvasionActivateDemonOfHell()
 		BossesArtifacts = -1
 	end

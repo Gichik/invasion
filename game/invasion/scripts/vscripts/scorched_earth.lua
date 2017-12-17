@@ -93,7 +93,8 @@ end
  function InvasionMode:ScorchedEarthGameRulesStateChange(data)
 	local newState = GameRules:State_Get()
 	if newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		Say(nil,"Read information from abilities of NPC for understand, how you can get money.", true)
+		GameRules:SendCustomMessage("#se_start_information", 0, 0)
+		--Say(nil,"Read information from abilities of NPC for understand, how you can get money.", true)
 
 		Timers:CreateTimer(5,function()
 			EmitGlobalSound("Invasion.SadMelody")
