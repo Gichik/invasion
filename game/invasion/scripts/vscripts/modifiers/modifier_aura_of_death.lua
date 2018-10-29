@@ -19,8 +19,12 @@ function modifier_aura_of_death:IsAura()
     return true
 end
 
-function modifier_aura_of_death:CanBeAddToMinions()
-    return true
+function modifier_aura_of_death:IsPurgable()
+	return false
+end
+
+function modifier_aura_of_death:IsPurgeException()
+	return false
 end
 
 function modifier_aura_of_death:GetAuraRadius()

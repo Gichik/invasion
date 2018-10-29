@@ -22,6 +22,7 @@
 		"HealthBarOffset"			"140"
 		"HasInventory"				"0"
 		"ConsideredHero"			"1"
+		"CanBeDominated"            "0"			
 		"IsNeutralUnitType"         "1"
 
 

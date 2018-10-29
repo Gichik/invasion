@@ -15,6 +15,15 @@ function modifier_range_magick_attack:RemoveOnDeath()
 	return true
 end
 
+function modifier_range_magick_attack:IsPurgable()
+	return false
+end
+
+function modifier_range_magick_attack:IsPurgeException()
+	return false
+end
+
+
 function modifier_range_magick_attack:DeclareFunctions()
     local funcs = {
         MODIFIER_EVENT_ON_ATTACK_LANDED

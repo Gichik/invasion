@@ -15,6 +15,15 @@ function modifier_elusive:RemoveOnDeath()
 	return true
 end
 
+function modifier_elusive:IsPurgable()
+	return false
+end
+
+function modifier_elusive:IsPurgeException()
+	return false
+end
+
+
 function modifier_elusive:DeclareFunctions()
     local funcs = {
 		MODIFIER_PROPERTY_EVASION_CONSTANT

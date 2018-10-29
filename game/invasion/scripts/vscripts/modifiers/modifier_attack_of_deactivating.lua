@@ -15,6 +15,14 @@ function modifier_attack_of_deactivating:RemoveOnDeath()
 	return true
 end
 
+function modifier_attack_of_deactivating:IsPurgable()
+	return false
+end
+
+function modifier_attack_of_deactivating:IsPurgeException()
+	return false
+end
+
 function modifier_attack_of_deactivating:DeclareFunctions()
     local funcs = {
         MODIFIER_EVENT_ON_ATTACK_LANDED

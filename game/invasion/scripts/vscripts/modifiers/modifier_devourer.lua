@@ -15,6 +15,14 @@ function modifier_devourer:RemoveOnDeath()
 	return true
 end
 
+function modifier_devourer:IsPurgable()
+	return false
+end
+
+function modifier_devourer:IsPurgeException()
+	return false
+end
+
 function modifier_devourer:DeclareFunctions()
     local funcs = {
         MODIFIER_EVENT_ON_ATTACK_LANDED

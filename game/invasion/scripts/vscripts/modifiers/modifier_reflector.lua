@@ -19,6 +19,14 @@ function modifier_reflector:CanBeAddToMinions()
     return true
 end
 
+function modifier_reflector:IsPurgable()
+	return false
+end
+
+function modifier_reflector:IsPurgeException()
+	return false
+end
+
 function modifier_reflector:DeclareFunctions()
     local funcs = {
         MODIFIER_EVENT_ON_TAKEDAMAGE

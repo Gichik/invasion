@@ -15,8 +15,12 @@ function modifier_hommer_cry:RemoveOnDeath()
 	return true
 end
 
-function modifier_hommer_cry:CanBeAddToMinions()
-    return true
+function modifier_hommer_cry:IsPurgable()
+	return false
+end
+
+function modifier_hommer_cry:IsPurgeException()
+	return false
 end
 
 function modifier_hommer_cry:DeclareFunctions()

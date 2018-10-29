@@ -15,6 +15,14 @@ function modifier_dismemberment:RemoveOnDeath()
 	return true
 end
 
+function modifier_dismemberment:IsPurgable()
+	return false
+end
+
+function modifier_dismemberment:IsPurgeException()
+	return false
+end
+
 function modifier_dismemberment:DeclareFunctions()
     local funcs = {
         MODIFIER_EVENT_ON_ATTACK_LANDED
