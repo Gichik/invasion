@@ -1,0 +1,8 @@
+invasion_classic
+{
+	material materials/overviews/invasion_classic.vmat
+	pos_x -5632
+	pos_y 6144
+	scale 11.500
+}
+
