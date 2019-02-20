@@ -41,6 +41,18 @@ function Precache( context )
 	PrecacheResource( "soundfile", "soundevents/invasion_sounds_custom.vsndevts", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts", context )
 
+
+
+	PrecacheResource( "particle_folder", "particles/units/heroes/hero_grimstroke", context )
+
+
+	PrecacheResource("particle", "particles/units/heroes/hero_grimstroke/grimstroke_loadout.vpcf", context)
+	PrecacheResource("particle", "particles/units/heroes/hero_demonartist/demonartist_darkartistry_proj.vpcf", context)
+	PrecacheResource("particle", "particles/units/heroes/hero_demonartist/demonartist_darkartistry_dmg_stroke_tgt.vpcf", context)
+	PrecacheResource("particle", "particles/units/heroes/hero_demonartist/demonartist_darkartistry_dmg_steam.vpcf", context)
+	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_grimstroke.vsndevts", context )
+
+
 end
 
 

@@ -270,4 +270,47 @@
 
 	}
 
+
+//---------------------------------------------------------------------
+
+	"grimstroke_custom"
+	{
+		"BaseClass" 					"ability_lua"
+		"ScriptFile"					"abilities/grimstroke_custom.lua"			
+    	"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"			
+	    "AbilityTextureName"            "grimstroke_dark_artistry"
+	    "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	    "MaxLevel"                      "4"		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"           	"11 9 7 5"
+		"AbilityCastRange"				"1400"
+		"AbilityManaCost"				"100 110 120 130"
+		"AbilityCastPoint"				"0.5"
+		
+		// Special
+		//--------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"1400"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"120 180 240 300"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_multiply"		"16 24 32 40"
+			}															
+		}					    
+	}
+
+
 }

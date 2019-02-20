@@ -78,14 +78,14 @@ function InvasionMode:InvasionGameStart()
 		return nil
 	end)
 
-	Timers:CreateTimer(475,function()
+	Timers:CreateTimer(595,function()
 		EmitGlobalSound("Invasion.Summertime")	
 		GameRules:SendCustomMessage("<font color='#58ACFA'>Lana Del Rey - Summertime Sadness (smoke remix)</font>", 0, 0)
 		return nil
 	end)
 
---4 минута, 1я ночь
-	Timers:CreateTimer(240,function()
+--5 минута, 1я ночь
+	Timers:CreateTimer(300,function()
 		EmitGlobalSound("Invasion.Night")
 		EmitGlobalSound("Invasion.HalloweenJC")
 		GameRules:SendCustomMessage("<font color='#58ACFA'>Halloween - John Carpenter</font>", 0, 0)
@@ -94,8 +94,8 @@ function InvasionMode:InvasionGameStart()
 	end)
 
 
---12 минута, 2я ночь
-	Timers:CreateTimer(720,function()
+--15 минута, 2я ночь
+	Timers:CreateTimer(900,function()
 		EmitGlobalSound("invasion.Night")
 		EmitGlobalSound("Invasion.HalloweenJC")
 		GameRules:SendCustomMessage("<font color='#58ACFA'>Halloween - John Carpenter</font>", 0, 0)
@@ -103,8 +103,8 @@ function InvasionMode:InvasionGameStart()
 		return nil
 	end)
 
---20 минута, 3я ночь
-	Timers:CreateTimer(1200,function()
+--25 минута, 3я ночь
+	Timers:CreateTimer(1500,function()
 		EmitGlobalSound("invasion.Night")
 		EmitGlobalSound("Invasion.HalloweenJC")
 		GameRules:SendCustomMessage("<font color='#58ACFA'>Halloween - John Carpenter</font>", 0, 0)
@@ -112,14 +112,14 @@ function InvasionMode:InvasionGameStart()
 		return nil
 	end)
 
- --24 минута, конец 3ей ночи, день
-	Timers:CreateTimer(1400,function()
+ --30 минута, конец 3ей ночи, день
+	Timers:CreateTimer(1800,function()
 	 	EmitGlobalSound("Invasion.Castaways")
 		GameRules:SendCustomMessage("<font color='#58ACFA'>The Castaways – Liar Liar</font>", 0, 0) 
 		return nil
 	end) 
  
-	Timers:CreateTimer(1480,function()
+	Timers:CreateTimer(1860,function()
 		GameRules:SetGameWinner( DOTA_TEAM_GOODGUYS )
 		return nil
 	end)
