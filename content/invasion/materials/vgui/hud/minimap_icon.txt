@@ -1,0 +1,17 @@
+"settings"
+{
+	"nocompress"		"1"
+
+    "TextureData"
+    {
+        "minimap_icon" //EDIT THIS
+        {
+            "file"     "materials/vgui/hud/minimap_icon.vmat" //EDIT THIS
+            "x"        "0"
+            "y"        "0"
+            "width"    "64"
+            "height"   "64"
+        }
+    }
+
+}

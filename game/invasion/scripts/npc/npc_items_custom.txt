@@ -112,4 +112,41 @@
 	} 
 
 
+	"item_armageddon_bag_of_gold"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_armageddon_bag_of_gold.lua"
+		"AbilityTextureName"			"item_tango"
+		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
+		"Model"							"models/props_gameplay/gold_bag.vmdl"
+
+		// Behavior
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"100"
+		"AbilityCastPoint"				"0.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"  
+		"ItemQuality"					"artifact"	
+		"ItemCost"                      "0" 
+		"ItemDroppable"					"1" 
+		"ItemPurchasable"				"0" 
+		"ItemSellable"					"1" 
+		"ItemKillable"					"1" 
+		"ItemInitialCharges"			"1"	
+		"ItemStackable" 				"1"
+		"ItemPermanent" 				"0"	
+		"SideShop" 						"0" 
+		"ItemCastOnPickup"				"1"			
+	} 
+
+
 }

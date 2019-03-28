@@ -1,9 +1,15 @@
 "AddonInfo"
 {
-	maps  "invasion_classic"
+	maps  "invasion_classic invasion_armageddon"
 	"IsPlayable" "1"
+
 	"invasion_classic"
  	{
   		"MaxPlayers" "4"
  	}
+
+	"invasion_armageddon"
+ 	{
+  		"MaxPlayers" "8"
+ 	} 	
 }

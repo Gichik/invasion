@@ -184,7 +184,7 @@
 			{
 				"ScriptFile"	"abilities/ability_helper.lua"
 				"Function"		"ApplyModifierToUnit"
-				"ModifName"		"modifier_devourer"
+				"ModifName"		"modifier_devourer_classic"
 			}
 		}
 
@@ -244,7 +244,7 @@
 			{
 				"ScriptFile"	"abilities/ability_helper.lua"
 				"Function"		"ApplyModifierToUnit"
-				"ModifName"		"modifier_reflector"
+				"ModifName"		"modifier_reflector_bosses"
 			}
 		}	
 
@@ -269,6 +269,55 @@
 		}
 
 	}
+
+
+//---------------------------------------------------------------------
+	"tower_help_aura"
+	{
+
+		// General
+		//-------------------------------------------------------------------------------------------------------------			
+		"BaseClass" 					"ability_datadriven"
+    	"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"			
+	    "AbilityTextureName"            "puck_illusory_orb"
+	    "MaxLevel"                      "1"		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000"
+
+		// Special
+		//--------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{		
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_hp_regen"		"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mp_regen"		"20"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"			"1000"
+			}						
+		}
+
+		"OnCreated"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/ability_helper.lua"
+				"Function"		"ApplyModifierToUnit"
+				"ModifName"		"modifier_tower_help_aura"
+			}
+		}		
+	}
+
 
 
 //---------------------------------------------------------------------

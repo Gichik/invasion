@@ -7,6 +7,217 @@
 	"item_branches"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "1" 
+		"SideShop" 						"1"
+		"HomeShop" 						"0"		
 	}
+
+	"item_tpscroll"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "1"
+		"SideShop" 						"1"			 
+	}
+
+	"item_clarity"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "1" 
+		"SideShop" 						"1"
+	}
+
+	"item_faerie_fire"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "2"
+		"SideShop" 						"1" 
+	}
+
+	"item_smoke_of_deceit"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "2"
+		"SideShop" 						"1" 
+	}	
+
+	"item_ward_observer"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "2"
+		"SideShop" 						"1" 
+	}
+
+	"item_ward_sentry"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "3"
+		"SideShop" 						"1" 
+	}
+
+	"item_enchanted_mango"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "2"
+		"SideShop" 						"1" 
+	}	
+
+	"item_flask"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "3"
+		"SideShop" 						"1" 
+	}
+
+	"item_tango"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "2"
+		"SideShop" 						"1" 
+	}	
+
+	"item_tome_of_knowledge"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "3"
+		"SideShop" 						"1" 
+	}	
+
+	"item_dust"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "3"
+		"SideShop" 						"1" 
+	}	
+
+	"item_courier"
+	{
+		"ItemPurchasable"				"0"
+		"ItemCost"                      "0"
+		"SideShop" 						"1" 
+	}	
+
+	"item_bottle"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "13"
+		"SideShop" 						"1" 
+	}	
+
+
+///////////////////////////////////////////////////////////////////////
+
+
+
+	"item_ring_of_protection"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+	"item_magic_stick"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+
+	"item_quelling_blade"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+	"item_boots"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+	"item_boots_of_elves"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+	"item_belt_of_strength"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+	"item_robe"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+	"item_crown"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+	"item_gloves"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+	"item_chainmail"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+	"item_cloak"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+	"item_void_stone"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+	"item_helm_of_iron_will"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+	"item_energy_booster"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+	"item_vitality_booster"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+	"item_lifesteal"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+	"item_broadsword"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+	"item_blink"
+	{
+		"ItemSellable" 					"0"
+		"SideShop" 						"0" 
+	}	
+
+
 
 }
