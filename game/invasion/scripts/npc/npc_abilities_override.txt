@@ -8,216 +8,1495 @@
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemPurchasable"				"1"
-		"ItemCost"                      "1" 
+		"ItemCost"                      "25" 
 		"SideShop" 						"1"
 		"HomeShop" 						"0"		
 	}
 
 	"item_tpscroll"
 	{
+		"AbilityCooldown"				"30.0"	
 		"ItemPurchasable"				"1"
-		"ItemCost"                      "1"
+		"ItemCost"                      "25"
 		"SideShop" 						"1"			 
 	}
 
 	"item_clarity"
 	{
 		"ItemPurchasable"				"1"
-		"ItemCost"                      "1" 
+		"ItemCost"                      "25" 
 		"SideShop" 						"1"
 	}
 
 	"item_faerie_fire"
 	{
 		"ItemPurchasable"				"1"
-		"ItemCost"                      "2"
+		"ItemCost"                      "35"
 		"SideShop" 						"1" 
 	}
 
 	"item_smoke_of_deceit"
 	{
 		"ItemPurchasable"				"1"
-		"ItemCost"                      "2"
+		"ItemCost"                      "40"
 		"SideShop" 						"1" 
 	}	
 
 	"item_ward_observer"
 	{
 		"ItemPurchasable"				"1"
-		"ItemCost"                      "2"
+		"ItemCost"                      "37"
 		"SideShop" 						"1" 
 	}
 
 	"item_ward_sentry"
 	{
 		"ItemPurchasable"				"1"
-		"ItemCost"                      "3"
+		"ItemCost"                      "50"
 		"SideShop" 						"1" 
 	}
 
 	"item_enchanted_mango"
 	{
 		"ItemPurchasable"				"1"
-		"ItemCost"                      "2"
+		"ItemCost"                      "35"
 		"SideShop" 						"1" 
 	}	
 
 	"item_flask"
 	{
 		"ItemPurchasable"				"1"
-		"ItemCost"                      "3"
+		"ItemCost"                      "55"
 		"SideShop" 						"1" 
 	}
 
 	"item_tango"
 	{
 		"ItemPurchasable"				"1"
-		"ItemCost"                      "2"
+		"ItemCost"                      "45"
 		"SideShop" 						"1" 
 	}	
 
 	"item_tome_of_knowledge"
 	{
 		"ItemPurchasable"				"1"
-		"ItemCost"                      "3"
+		"ItemCost"                      "75"
 		"SideShop" 						"1" 
 	}	
 
 	"item_dust"
 	{
 		"ItemPurchasable"				"1"
-		"ItemCost"                      "3"
+		"ItemCost"                      "90"
 		"SideShop" 						"1" 
 	}	
 
 	"item_courier"
 	{
 		"ItemPurchasable"				"0"
-		"ItemCost"                      "0"
+		//"ItemCost"                      "0"
 		"SideShop" 						"1" 
 	}	
 
 	"item_bottle"
 	{
 		"ItemPurchasable"				"1"
-		"ItemCost"                      "13"
+		"ItemCost"                      "325"
 		"SideShop" 						"1" 
 	}	
 
+	"item_infused_raindrop"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "112"		
+		"SideShop" 						"1" 
+	}
+
+
+	"item_wind_lace"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "225"		
+		"SideShop" 						"1"  
+	}
+
+	"item_magic_stick"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "100"		
+		"SideShop" 						"1"  
+	}
+	
 
 ///////////////////////////////////////////////////////////////////////
 
 
+	"item_recipe_magic_wand"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "100"
+		"SideShop" 						"1"  
+	}
 
-	"item_ring_of_protection"
+	"item_recipe_travel_boots"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "1300"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_hand_of_midas"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "1100"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_bracer"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "100"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_wraith_band"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "100"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_null_talisman"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "100"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_mekansm"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "620"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_vladmir"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "350"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_buckler"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "100"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_holy_locket"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "360"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_pipe"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "530"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_urn_of_shadows"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "200"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_headdress"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "110"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_orchid"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "500"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_bloodthorn"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "660"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_cyclone"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "430"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_aether_lens"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "400"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_force_staff"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "600"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_hurricane_pike"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "300"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_dagon"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "900"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_necronomicon"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "1000"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_refresher"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "1100"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_assault"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "1000"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_heart"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "260"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_black_king_bar"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "1000"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_shivas_guard"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "425"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_sphere"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "800"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_aeon_disk"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "730"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_kaya"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "400"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_spirit_vessel"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "500"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_crimson_guard"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "500"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_radiance"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "900"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_greater_crit"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "660"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_basher"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "600"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_bfury"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "200"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_manta"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "330"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_lesser_crit"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "330"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_armlet"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "360"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_silver_edge"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "400"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_mjollnir"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "600"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_sange"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "400"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_yasha"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "400"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_diffusal_blade"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "500"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_soul_ring"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "130"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_ancient_janggo"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "400"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_solar_crest"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "200"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_veil_of_discord"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "500"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_guardian_greaves"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "1200"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_rod_of_atos"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "560"
+		"SideShop" 						"1"  
+	}
+
+	"item_recipe_abyssal_blade"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"                      "1050"
+		"SideShop" 						"1"  
+	}
+
+
+///////////////////////////////////////////////////////////////////////
+
+	"item_blink"
 	{
 		"ItemSellable" 					"0"
+		"ItemCost"						"22500"
 		"SideShop" 						"0" 
 	}	
 
-	"item_magic_stick"
+	"item_blades_of_attack"
 	{
 		"ItemSellable" 					"0"
-		"SideShop" 						"0" 
-	}	
-
-
-	"item_quelling_blade"
-	{
-		"ItemSellable" 					"0"
-		"SideShop" 						"0" 
-	}	
-
-	"item_boots"
-	{
-		"ItemSellable" 					"0"
-		"SideShop" 						"0" 
-	}	
-
-	"item_boots_of_elves"
-	{
-		"ItemSellable" 					"0"
-		"SideShop" 						"0" 
-	}	
-
-	"item_belt_of_strength"
-	{
-		"ItemSellable" 					"0"
-		"SideShop" 						"0" 
-	}	
-
-	"item_robe"
-	{
-		"ItemSellable" 					"0"
-		"SideShop" 						"0" 
-	}	
-
-	"item_crown"
-	{
-		"ItemSellable" 					"0"
-		"SideShop" 						"0" 
-	}	
-
-	"item_gloves"
-	{
-		"ItemSellable" 					"0"
-		"SideShop" 						"0" 
-	}	
-
-	"item_chainmail"
-	{
-		"ItemSellable" 					"0"
-		"SideShop" 						"0" 
-	}	
-
-	"item_cloak"
-	{
-		"ItemSellable" 					"0"
-		"SideShop" 						"0" 
-	}	
-
-	"item_void_stone"
-	{
-		"ItemSellable" 					"0"
-		"SideShop" 						"0" 
-	}	
-
-	"item_helm_of_iron_will"
-	{
-		"ItemSellable" 					"0"
-		"SideShop" 						"0" 
-	}	
-
-	"item_energy_booster"
-	{
-		"ItemSellable" 					"0"
-		"SideShop" 						"0" 
-	}	
-
-	"item_vitality_booster"
-	{
-		"ItemSellable" 					"0"
-		"SideShop" 						"0" 
-	}	
-
-	"item_lifesteal"
-	{
-		"ItemSellable" 					"0"
+		"ItemCost"						"4300"
 		"SideShop" 						"0" 
 	}	
 
 	"item_broadsword"
 	{
 		"ItemSellable" 					"0"
+		"ItemCost"						"12000"
 		"SideShop" 						"0" 
-	}	
+	}
 
-	"item_blink"
+	"item_chainmail"
 	{
 		"ItemSellable" 					"0"
+		"ItemCost"						"5500"
 		"SideShop" 						"0" 
-	}	
+	}
+
+	"item_claymore"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"14000"
+		"SideShop" 						"0" 
+	}
+
+	"item_helm_of_iron_will"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"9000"
+		"SideShop" 						"0" 
+	}
+
+	"item_javelin"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"11000"
+		"SideShop" 						"0" 
+	}
+
+	"item_mithril_hammer"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"16000"
+		"SideShop" 						"0" 
+	}
+
+	"item_platemail"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"14000"
+		"SideShop" 						"0" 
+	}
+
+	"item_quarterstaff"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"8750"
+		"SideShop" 						"0" 
+	}
+
+	"item_quelling_blade"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"2000"
+		"SideShop" 						"0" 
+	}
 
 
+	"item_ring_of_protection"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"1750"
+		"SideShop" 						"0" 
+	}
+
+	"item_stout_shield"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"2000"
+		"SideShop" 						"0" 
+	}
+
+	"item_moon_shard"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"40000"
+		"SideShop" 						"0" 
+	}
+
+	"item_gauntlets"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"1350"
+		"SideShop" 						"0" 
+	}
+
+	"item_slippers"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"1350"
+		"SideShop" 						"0" 
+	}
+
+	"item_mantle"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"1350"
+		"SideShop" 						"0" 
+	}
+
+	"item_belt_of_strength"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"4500"
+		"SideShop" 						"0" 
+	}
+
+	"item_boots_of_elves"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"4500"
+		"SideShop" 						"0" 
+	}
+
+	"item_robe"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"4500"
+		"SideShop" 						"0" 
+	}
+
+	"item_circlet"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"1650"
+		"SideShop" 						"0" 
+	}
+
+	"item_crown"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"4500"
+		"SideShop" 						"0" 
+	}
+
+	"item_ogre_axe"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"10000"
+		"SideShop" 						"0" 
+	}
+
+	"item_blade_of_alacrity"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"10000"
+		"SideShop" 						"0" 
+	}
+
+	"item_staff_of_wizardry"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"1000"
+		"SideShop" 						"0" 
+	}
+
+	"item_ultimate_orb"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"21500"
+		"SideShop" 						"0" 
+	}
+
+	"item_gloves"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"5000"
+		"SideShop" 						"0" 
+	}
+
+	"item_lifesteal"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"9000"
+		"SideShop" 						"0" 
+	}
+
+	"item_ring_of_regen"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"3000"
+		"SideShop" 						"0" 
+	}
+
+	"item_ring_of_tarrasque"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"7000"
+		"SideShop" 						"0" 
+	}
+
+	"item_sobi_mask"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"3250"
+		"SideShop" 						"0" 
+	}
+
+	"item_boots"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"5000"
+		"SideShop" 						"0" 
+	}
+
+	"item_gem"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"9000"
+		"SideShop" 						"0" 
+	}
+
+	"item_cloak"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"5500"
+		"SideShop" 						"0" 
+	}
+
+	"item_talisman_of_evasion"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"14000"
+		"SideShop" 						"0" 
+	}
+
+	"item_magic_wand"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"4500"
+		"SideShop" 						"0" 
+	}
+
+	"item_ghost"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"15000"
+		"SideShop" 						"0" 
+	}
+
+	"item_travel_boots"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"25000"
+		"SideShop" 						"0" 
+	}
+
+	"item_travel_boots_2"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"45000"
+		"SideShop" 						"0" 
+	}
+
+	"item_phase_boots"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"14800"
+		"SideShop" 						"0" 
+	}
+
+	"item_demon_edge"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"22000"
+		"SideShop" 						"0" 
+	}
+
+	"item_eagle"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"32000"
+		"SideShop" 						"0" 
+	}
+
+	"item_reaver"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"30000"
+		"SideShop" 						"0" 
+	}
+
+	"item_relic"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"38000"
+		"SideShop" 						"0" 
+	}
+
+	"item_hyperstone"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"20000"
+		"SideShop" 						"0" 
+	}
+
+	"item_ring_of_health"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"8500"
+		"SideShop" 						"0" 
+	}
+
+	"item_void_stone"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"8500"
+		"SideShop" 						"0" 
+	}
+
+	"item_mystic_staff"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"27000"
+		"SideShop" 						"0" 
+	}
+
+	"item_energy_booster"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"9000"
+		"SideShop" 						"0" 
+	}
+
+	"item_point_booster"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"12000"
+		"SideShop" 						"0" 
+	}
+
+	"item_vitality_booster"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"11000"
+		"SideShop" 						"0" 
+	}
+
+	"item_power_treads"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"14500"
+		"SideShop" 						"0" 
+	}
+
+	"item_hand_of_midas"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"21500"
+		"SideShop" 						"0" 
+	}
+
+	"item_oblivion_staff"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"16500"
+		"SideShop" 						"0" 
+	}
+
+	"item_pers"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"17000"
+		"SideShop" 						"0" 
+	}
+
+	"item_bracer"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"5150"
+		"SideShop" 						"0" 
+	}
+
+	"item_wraith_band"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"5150"
+		"SideShop" 						"0" 
+	}
+
+	"item_null_talisman"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"5150"
+		"SideShop" 						"0" 
+	}
+
+	"item_mekansm"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"22750"
+		"SideShop" 						"0" 
+	}
+
+	"item_vladmir"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"19250"
+		"SideShop" 						"0" 
+	}
+
+	"item_buckler"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"800"
+		"SideShop" 						"0" 
+	}
+
+	"item_ring_of_basilius"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"5000"
+		"SideShop" 						"0" 
+	}
+
+	"item_holy_locket"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"27000"
+		"SideShop" 						"0" 
+	}
+
+	"item_pipe"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"30250"
+		"SideShop" 						"0" 
+	}
+
+	"item_urn_of_shadows"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"8750"
+		"SideShop" 						"0" 
+	}
+
+	"item_headdress"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"5250"
+		"SideShop" 						"0" 
+	}
+
+	"item_sheepstick"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"57000"
+		"SideShop" 						"0" 
+	}
+
+	"item_orchid"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"40750"
+		"SideShop" 						"0" 
+	}
+
+	"item_bloodthorn"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"72050"
+		"SideShop" 						"0" 
+	}
+
+	"item_echo_sabre"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"26500"
+		"SideShop" 						"0" 
+	}
+
+	"item_cyclone"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"27500"
+		"SideShop" 						"0" 
+	}
+
+	"item_aether_lens"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"23500"
+		"SideShop" 						"0" 
+	}
+
+	"item_force_staff"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"22500"
+		"SideShop" 						"0" 
+	}
+
+	"item_hurricane_pike"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"46000"
+		"SideShop" 						"0" 
+	}
+
+	"item_dagon"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"27000"
+		"SideShop" 						"0" 
+	}
+
+	"item_dagon_2"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"39500"
+		"SideShop" 						"0" 
+	}
+
+	"item_dagon_3"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"52000"
+		"SideShop" 						"0" 
+	}
+
+	"item_dagon_4"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"64500"
+		"SideShop" 						"0" 
+	}
+
+	"item_dagon_5"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"77000"
+		"SideShop" 						"0" 
+	}
+
+	"item_necronomicon"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"24000"
+		"SideShop" 						"0" 
+	}
+
+	"item_necronomicon_2"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"37000"
+		"SideShop" 						"0" 
+	}
+
+	"item_necronomicon_3"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"50000"
+		"SideShop" 						"0" 
+	}
+
+	"item_ultimate_scepter"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"42000"
+		"SideShop" 						"0" 
+	}
+
+	"item_refresher"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"51000"
+		"SideShop" 						"0" 
+	}
+
+	"item_assault"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"52500"
+		"SideShop" 						"0" 
+	}
+
+	"item_heart"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"52000"
+		"SideShop" 						"0" 
+	}
+
+	"item_black_king_bar"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"40500"
+		"SideShop" 						"0" 
+	}
+
+	"item_shivas_guard"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"47500"
+		"SideShop" 						"0" 
+	}
+
+	"item_bloodstone"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"49000"
+		"SideShop" 						"0" 
+	}
+
+	"item_sphere"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"50500"
+		"SideShop" 						"0" 
+	}
+
+	"item_lotus_orb"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"40000"
+		"SideShop" 						"0" 
+	}
+
+	"item_meteor_hammer"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"26250"
+		"SideShop" 						"0" 
+	}
+
+	"item_nullifier"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"47000"
+		"SideShop" 						"0" 
+	}
+
+	"item_aeon_disk"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"31000"
+		"SideShop" 						"0" 
+	}
+
+	"item_kaya"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"20500"
+		"SideShop" 						"0" 
+	}
+
+	"item_spirit_vessel"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"29750"
+		"SideShop" 						"0" 
+	}
+
+	"item_vanguard"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"21500"
+		"SideShop" 						"0" 
+	}
+
+	"item_crimson_guard"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"37000"
+		"SideShop" 						"0" 
+	}
+
+	"item_blade_mail"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"22000"
+		"SideShop" 						"0" 
+	}
+
+	"item_soul_booster"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"32000"
+		"SideShop" 						"0" 
+	}
+
+	"item_hood_of_defiance"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"17000"
+		"SideShop" 						"0" 
+	}
+
+	"item_rapier"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"60000"
+		"SideShop" 						"0" 
+	}
+
+	"item_monkey_king_bar"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"41750"
+		"SideShop" 						"0" 
+	}
+
+	"item_radiance"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"51500"
+		"SideShop" 						"0" 
+	}
+
+	"item_butterfly"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"54750"
+		"SideShop" 						"0" 
+	}
+
+	"item_greater_crit"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"53300"
+		"SideShop" 						"0" 
+	}
+
+	"item_basher"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"29500"
+		"SideShop" 						"0" 
+	}
+
+	"item_bfury"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"44000"
+		"SideShop" 						"0" 
+	}
+
+	"item_manta"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"47000"
+		"SideShop" 						"0" 
+	}
+
+	"item_lesser_crit"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"21300"
+		"SideShop" 						"0" 
+	}
+
+	"item_dragon_lance"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"19000"
+		"SideShop" 						"0" 
+	}
+
+	"item_armlet"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"23800"
+		"SideShop" 						"0" 
+	}
+
+	"item_invis_sword"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"28000"
+		"SideShop" 						"0" 
+	}
+
+	"item_silver_edge"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"55500"
+		"SideShop" 						"0" 
+	}
+
+	"item_sange_and_yasha"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"41000"
+		"SideShop" 						"0" 
+	}
+
+	"item_kaya_and_sange"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"41000"
+		"SideShop" 						"0" 
+	}
+
+	"item_yasha_and_kaya"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"41000"
+		"SideShop" 						"0" 
+	}
+
+	"item_satanic"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"53000"
+		"SideShop" 						"0" 
+	}
+
+	"item_mjollnir"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"56000"
+		"SideShop" 						"0" 
+	}
+
+	"item_skadi"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"55000"
+		"SideShop" 						"0" 
+	}
+
+	"item_sange"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"20500"
+		"SideShop" 						"0" 
+	}
+
+	"item_helm_of_the_dominator"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"18750"
+		"SideShop" 						"0" 
+	}
+
+	"item_maelstrom"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"27000"
+		"SideShop" 						"0" 
+	}
+
+	"item_desolator"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"35000"
+		"SideShop" 						"0" 
+	}
+
+	"item_yasha"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"20500"
+		"SideShop" 						"0" 
+	}
+
+	"item_mask_of_madness"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"17750"
+		"SideShop" 						"0" 
+	}
+
+	"item_diffusal_blade"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"31500"
+		"SideShop" 						"0" 
+	}
+
+	"item_ethereal_blade"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"47000"
+		"SideShop" 						"0" 
+	}
+
+	"item_soul_ring"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"7700"
+		"SideShop" 						"0" 
+	}
+
+	"item_arcane_boots"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"14000"
+		"SideShop" 						"0" 
+	}
+
+	"item_octarine_core"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"59000"
+		"SideShop" 						"0" 
+	}
+
+	"item_orb_of_venom"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"2750"
+		"SideShop" 						"0" 
+	}
+
+	"item_blight_stone"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"3000"
+		"SideShop" 						"0" 
+	}
+
+	"item_ancient_janggo"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"16250"
+		"SideShop" 						"0" 
+	}
+
+	"item_medallion_of_courage"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"11750"
+		"SideShop" 						"0" 
+	}
+
+	"item_solar_crest"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"38750"
+		"SideShop" 						"0" 
+	}
+
+	"item_veil_of_discord"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"20500"
+		"SideShop" 						"0" 
+	}
+
+	"item_guardian_greaves"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"54750"
+		"SideShop" 						"0" 
+	}
+
+
+	"item_rod_of_atos"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"27500"
+		"SideShop" 						"0" 
+	}
+
+
+	"item_abyssal_blade"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"66500"
+		"SideShop" 						"0" 
+	}
+
+
+	"item_heavens_halberd"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"34500"
+		"SideShop" 						"0" 
+	}
+
+
+	"item_tranquil_boots"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"10500"
+		"SideShop" 						"0" 
+	}
+
+
+	"item_shadow_amulet"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"14000"
+		"SideShop" 						"0" 
+	}
+
+
+	"item_glimmer_cape"
+	{
+		"ItemSellable" 					"0"
+		"ItemCost"						"19500"
+		"SideShop" 						"0" 
+	}
 
 }

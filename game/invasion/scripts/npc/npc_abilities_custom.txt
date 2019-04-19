@@ -27,7 +27,7 @@
 	"blood_effect"
 	{
 		"BaseClass"                 "ability_datadriven"
-		"AbilityTextureName"      	"custom_folder/bleeding"
+		"AbilityTextureName"      	"bloodseeker_rupture"
 		"MaxLevel"            		"1"
 
 		"AbilityBehavior"       	"DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -293,12 +293,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_hp_regen"		"20"
+				"bonus_hp_regen"		"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_mp_regen"		"20"
+				"bonus_mp_regen"		"30"
 			}
 			"03"
 			{

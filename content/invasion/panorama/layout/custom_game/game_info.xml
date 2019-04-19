@@ -1,0 +1,26 @@
+<!--Все слова, что начинаются с элемента # 
+являются переменными из addon_english.txt 
+и прочих файлов локализации-->
+
+<root>
+
+	<!--Прописываем источники наших стилей, один из которых делали сами, второй дефолтный-->	
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/game_info.css" />
+	</styles>
+
+	<!--Оформляем нашу главную фоновую панельку-->
+	<Panel class="GameInfo" >
+
+		<!--Надпись оглавления в отдельной панельке-->
+		<Panel id="Title">
+			<Label id="TitleName" text="#info_armageddon_name" />
+		</Panel> 
+
+		<!--Первый заголовок-->	
+		<Panel id="Info1" class="InfoStringDown" >
+			<Label id="InfoTextMarginCenter" text="#info_armageddon_gameplay" />			
+		</Panel>
+	</Panel>		
+</root>

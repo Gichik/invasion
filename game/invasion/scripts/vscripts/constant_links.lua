@@ -2,13 +2,15 @@
 -------------------------------------------------------------------
 ------------------------------Settings-----------------------------
 -------------------------------------------------------------------
-REWARD_DROP_PERCENT = 65
-ITEM_DROP_PERCENT = 50
+REWARD_DROP_PERCENT = 80
+ITEM_DROP_PERCENT = 60
 TIME_BEFORE_REMOVE_DROP = 60
-
+MINIONS_COUNT = 5
+MONSTERS_LEVEL = 0
+RADIANT_COUNT = 0
+DIRE_COUNT = 0
 
 ATTRIBUTES_ITEMS = { 
-    "item_branches",
     "item_gauntlets",
     "item_slippers",
     "item_mantle",   
@@ -25,8 +27,7 @@ ATTRIBUTES_ITEMS = {
 WEAPONS_ITEMS = { 
     "item_ring_of_protection",
     "item_stout_shield",
-    "item_quelling_blade",
-    "item_infused_raindrop", 
+    "item_quelling_blade", 
     "item_orb_of_venom",
     "item_blight_stone",
     "item_blades_of_attack",
@@ -40,8 +41,6 @@ WEAPONS_ITEMS = {
     } 
 
 MISC_ITEMS = { 
-    "item_magic_stick",
-    "item_wind_lace",
     "item_ring_of_regen",
     "item_sobi_mask",
     "item_boots",
@@ -59,9 +58,6 @@ MISC_ITEMS = {
 
 
 SECRET_ITEMS = { 
-    "item_bottle",
-    "item_ring_of_health",
-    "item_void_stone",
     "item_energy_booster",
     "item_vitality_booster",
     "item_point_booster",

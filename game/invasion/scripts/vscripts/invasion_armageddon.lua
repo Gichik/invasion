@@ -3,8 +3,6 @@ if ArmageddonMode == nil then
 	ArmageddonMode = class({})
 end
 
-MINIONS_COUNT = 5
-MONSTERS_LEVEL = 0
 
 function ArmageddonMode:Settings()
 
@@ -17,7 +15,7 @@ function ArmageddonMode:Settings()
 	GameRules:SetHeroRespawnEnabled( false )
 	GameRules:SetUseUniversalShopMode( false )
 	GameRules:SetHeroSelectionTime( 30.0 )
-	GameRules:SetStrategyTime( 0.0 )
+	GameRules:SetStrategyTime( 30.0 )
 	GameRules:SetShowcaseTime( 0.0 )	
 	GameRules:SetPreGameTime( 10.0 )
 	GameRules:SetPostGameTime( 60.0 )
@@ -27,7 +25,7 @@ function ArmageddonMode:Settings()
 	GameRules:SetRuneMinimapIconScale( 0.7 )
 	GameRules:SetGoldTickTime( 1 )
 	GameRules:SetGoldPerTick( 0 )
-	GameRules:SetStartingGold( 5 )
+	GameRules:SetStartingGold( 500 )
 
 	GameRules:GetGameModeEntity():SetRemoveIllusionsOnDeath( true )
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride( true )
@@ -48,8 +46,10 @@ function ArmageddonMode:Settings()
 		point = Entities:FindByName( nil, "spawn_tower_" .. i ):GetAbsOrigin()
 		unit = CreateUnitByName("npc_tower", point, true, nil, nil, DOTA_TEAM_GOODGUYS)
 		unit:SetAbsOrigin(point)
+		unit:AddNewModifier(unit, nil, "modifier_tower_truesight_aura", {})
 		unit = CreateUnitByName("npc_tower", point, true, nil, nil, DOTA_TEAM_BADGUYS)
 		unit:SetAbsOrigin(point)
+		unit:AddNewModifier(unit, nil, "modifier_tower_truesight_aura", {})
 	end
 
 
@@ -61,9 +61,46 @@ function ArmageddonMode:ArmageddonGameRulesStateChange(data)
 	if newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		Timers:CreateTimer(0, function()
 			self:RespawnMoobs()
-	        return 60
+	        return 30
 	    end
 	    )
+
+		Timers:CreateTimer(600, function()
+			--print("--------FOW-------")
+			for i = 0, 8 do
+				local hPlayer = PlayerResource:GetPlayer(i)
+				if  hPlayer then
+					local hHero = hPlayer:GetAssignedHero()
+					if hHero and hHero:IsAlive() then
+						hHero:AddNewModifier(hHero, nil, "modifier_item_dustofappearance", {duration = 5})
+						AddFOWViewer(DOTA_TEAM_GOODGUYS, hHero:GetAbsOrigin(), 300, 10, true)
+	        			AddFOWViewer(DOTA_TEAM_BADGUYS, hHero:GetAbsOrigin(), 300, 10, true)
+	        		end
+	        	end
+	        end
+
+	        return 600
+	    end
+	    )
+
+		Timers:CreateTimer(2100, function()
+			if DIRE_COUNT == RADIANT_COUNT then
+				GameRules:SetGameWinner(DOTA_TEAM_NEUTRALS)
+			end
+
+	    	if DIRE_COUNT > RADIANT_COUNT then
+	    		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+	    	end
+
+	    	if DIRE_COUNT < RADIANT_COUNT then
+	    		GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
+	    	end
+
+	    	return nil
+	    end
+	    )
+
+
 	end
 end
 
@@ -72,9 +109,17 @@ function ArmageddonMode:ArmageddonOnNPCSpawn(data)
 	local unit = EntIndexToHScript(data.entindex)
 
     if unit:IsRealHero() then
+    	if not unit.nextSpawn then
+    		unit.nextSpawn = true
+	    	if unit:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+	    		DIRE_COUNT = DIRE_COUNT + 1
+	    	end
+	    	if unit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+	    		RADIANT_COUNT = RADIANT_COUNT + 1
+	    	end
 
+	    end
     end
-
 end
 
 
@@ -100,8 +145,37 @@ function ArmageddonMode:ArmageddonOnEntityKilled(data)
 				self:CreateDrop(GetRandomItemNameFrom(killedEntity.itemDropType), killedEntity:GetAbsOrigin())
 			end
 
-		end
+		end	
 	end
+
+
+    if killedEntity:IsRealHero() then
+    	if not killedEntity:IsReincarnating() then
+
+	        for i = 0, 11 do
+	        	if  killedEntity:GetItemInSlot(i) then
+	        		 self:CreateDrop(killedEntity:GetItemInSlot(i):GetAbilityName(), killedEntity:GetAbsOrigin())
+	        		 killedEntity:RemoveItem(killedEntity:GetItemInSlot(i))
+	        	end
+	        end
+
+	     	if killedEntity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+	    		DIRE_COUNT = DIRE_COUNT - 1
+	    	end
+	    	if killedEntity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+	    		RADIANT_COUNT = RADIANT_COUNT - 1
+	    	end
+
+	    	if DIRE_COUNT < 1 and RADIANT_COUNT < 1 then
+	    		GameRules:SetGameWinner(DOTA_TEAM_NEUTRALS)
+	    	elseif DIRE_COUNT < 1 then
+	    		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+			elseif RADIANT_COUNT < 1 then
+	    		GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
+	    	end
+
+	    end
+    end	
 	
 end
 
@@ -115,8 +189,13 @@ function ArmageddonMode:RespawnMoobs()
     local modifier = nil
     local modifCount = nil
     local modifName = nil
+    local delta = 1
 
-    MONSTERS_LEVEL = MONSTERS_LEVEL + 1
+    MONSTERS_LEVEL = MONSTERS_LEVEL + 0.5
+    if MONSTERS_LEVEL < 1 then
+    	delta = 0.5
+    end
+
 
     for i = 1, 3 do
     	for j = 1, 4 do
@@ -124,7 +203,7 @@ function ArmageddonMode:RespawnMoobs()
 
     		if self:IsCampNotBlocked(point) then
 			    unit = CreateUnitByName("npc_armageddon_zombie", point, true, nil, nil, team )
-			    unit:CreatureLevelUp(MONSTERS_LEVEL - 1)
+			    unit:CreatureLevelUp(math.floor(MONSTERS_LEVEL) - delta)
 			    unit:SetForwardVector(Vector(0,-1,0))
 			    unit.itemDropType = biomTable[ i ]
 
@@ -133,7 +212,7 @@ function ArmageddonMode:RespawnMoobs()
 			        unit = CreateUnitByName("npc_armageddon_zombie", point + RandomVector(300), true, nil, nil, team )
 			        if modifier:CanBeAddToMinions() then
 			            unit:AddNewModifier(unit, nil, modifier:GetName(), {})
-			            unit:CreatureLevelUp(MONSTERS_LEVEL - 1)
+			            unit:CreatureLevelUp(math.floor(MONSTERS_LEVEL) - delta)
 			            unit:SetForwardVector(Vector(0,-1,0))
 			            unit.itemDropType = biomTable[ i ]
 			        end
@@ -143,12 +222,12 @@ function ArmageddonMode:RespawnMoobs()
     	end
     end
 
-    for i = 1, 4 do
+    for i = 1, 5 do
 		point = Entities:FindByName( nil, "spawn_moobs_secrets_" .. i ):GetAbsOrigin()
 
 		if self:IsCampNotBlocked(point) then
 		    unit = CreateUnitByName("npc_armageddon_boss", point, true, nil, nil, team )
-		    unit:CreatureLevelUp(MONSTERS_LEVEL - 1)
+		    unit:CreatureLevelUp(math.floor(MONSTERS_LEVEL) - delta)
 		    unit:SetForwardVector(Vector(0,-1,0))
 		    unit.itemDropType = "secret"
 

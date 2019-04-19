@@ -1,6 +1,7 @@
 <root>
     <!--Add this line inside the Panel block-->
     <Panel>
-        <CustomUIElement type="GameInfo"     layoutfile="file://{resources}/layout/custom_game/recomShopFix.xml" />
+        <CustomUIElement type="GameInfo"  layoutfile="file://{resources}/layout/custom_game/recomShopFix.xml" />
+		<CustomUIElement type="GameInfo" layoutfile="file://{resources}/layout/custom_game/game_info.xml" />
     </Panel>
 </root>

@@ -1,0 +1,108 @@
+.GameInfo
+{
+  width:100%;
+  flow-children: down; 
+}
+ 
+/*оформление элемента label - привязывает текст и прочее к меткам, что мы тут создаем */
+Label
+{
+  font-size: 20px;
+  color: #999999;
+  vertical-align: top;
+}
+ 
+/*оформление надписи оглавления */ 
+#Title
+{
+  flow-children: right;
+}
+
+#TitleName
+{
+  /*color: #d92e39;*/
+  color: #e4ed40;  
+  font-size: 44px;
+  font-weight: bold;
+  margin-left: 86px;
+  margin-top: 16px;
+  text-transform: uppercase;
+  vertical-align: center;
+}
+
+/* оформление заголовков */ 
+.Header
+{
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 26px;
+  color: #e4ed40;  
+  text-transform: uppercase;
+}
+
+/* Помните в ворде оформление текста слева, по центру и справа? 
+Вот далее мы создаем такие же стили */ 
+
+/* привязка к правой стороне */ 
+.InfoStringRight
+{
+  font-size: 20px;
+  flow-children: right;
+  width: 100%;
+  margin-top: 18px;
+}
+
+/* привязка к левой стороне */ 
+.InfoStringLeft
+{
+  font-size: 20px;
+  flow-children: right-wrap;
+  width: 100%;
+  margin-top: 18px;
+}
+
+/* привязка к центру */ 
+.InfoStringDown
+{
+  font-size: 20px;
+  flow-children: down;
+  width: 100%;
+  margin-top: 18px;
+}
+
+/* оформление нашего текста */ 
+#InfoTextLeft
+{  
+  text-align: left;
+  width: 350px;
+  margin-left: 20px;
+  margin-top: 5px;  
+  margin-bottom: 5px;
+}
+
+#InfoTextMarginCenter
+{  
+  text-align: left;
+  width: 450px;
+  margin-left: 20px;
+  margin-top: 5px;  
+  margin-bottom: 5px;
+}
+
+
+
+
+/* оформление наших картинок */ 
+#InfoImage
+{
+  width: 150px;
+  height: 187px;
+}
+
+#InfoImageFull
+{
+  width: 350px;
+  height: 100px;
+  margin-left: 60px;
+}
